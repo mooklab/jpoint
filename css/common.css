@@ -2206,7 +2206,7 @@ footer div.container div.bottom img.logotype {
 div#cookie-banner {
   position: fixed;
   right: var(--side-gap);
-  bottom: var(--section-gap);
+  bottom: var(--side-gap);
   background: white;
   width: 680px;
   -webkit-box-align: center;
