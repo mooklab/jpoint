@@ -1,0 +1,52 @@
+extends ../components/common/pug/_layout.pug
+include ../components/common/pug/_mixins.pug
+
+block links
+    link(rel="stylesheet", href="css/contacts.css")
+    script(defer, src="scripts/map.js")
+    script(src="https://api-maps.yandex.ru/2.1/?load=package.standard&lang=ru-RU&onload=getYandexMap", type="text/javascript")
+
+block content
+
+    section.main
+        div.container
+
+            div.breadcrumbs
+                a(href="#") Главная
+                span Контакты
+
+            div.title
+                h2 контакты
+                span Если вам нужна информация о продукте, вы хотите задать вопрос или вам нужна личная помощь, свяжитесь с нами. Мы всегда рады вам помочь.
+
+            div.addresses
+                div.list
+                    div.address
+                        h3 г. Москва
+                        div.schedule
+                            span понедельник / воскресенье
+                            span 11:00 до 22:00
+                        div.contacts
+                            span Кутузовский проспект 48, ТЦ «Времена Года», 2 этаж
+                            a(href="#") +7 495 212-11-10
+                            a(href="#") Info@jpoint-jewellery.com
+                        div.socials
+                            a(href="#"): img(src="images/telegram.svg", alt="Telegram") 
+                        a(data-coordinate="[55.731709, 37.487246]").button.border посмотреть на карте
+                    hr
+                    div.address
+                        h3 г. Сочи
+                        div.schedule
+                            span понедельник / воскресенье
+                            span 11:00 до 22:00
+                        div.contacts
+                            span Курортный проспект 89, «Swissotel Сочи Камелия»
+                            a(href="#") +7 495 212-11-10
+                            a(href="#") Info@jpoint-jewellery.com
+                        div.socials
+                            a(href="#"): img(src="images/telegram.svg", alt="Telegram") 
+                        a(data-coordinate="[43.562666, 39.756614]").button.border посмотреть на карте
+                div.map#map
+
+
+    include ../components/sections/_subscribe.pug

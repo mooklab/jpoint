@@ -1,0 +1,271 @@
+@use '../components/common/sass/_mixins' as *
+@use '../components/common/sass/_variables' as *
+
+@use '../components/sections/_products' as *
+@use '../components/sections/_collections' as *
+@use '../components/sections/_about' as *
+@use '../components/sections/_socials' as *
+@use '../components/sections/_subscribe' as *
+
+section.main
+    display: grid
+    height: 900px
+    z-index: 0
+    +s(m)
+        height: 800px
+
+    div.container
+        display: grid
+        pointer-events: none
+        position: relative
+        z-index: 2
+
+    div.swiper.texts
+        height: 100%
+        padding-left: 260px
+        +s(l)
+            padding-left: 160px
+        +s(m)
+            padding-left: unset
+            padding-top: 20px
+
+        div.swiper-slide
+            display: grid
+            align-content: center
+            justify-items: start
+            height: 100%
+            +s(m)
+                align-content: start
+
+            h4
+                color: $color
+                opacity: 0.7
+            h1
+                margin-bottom: 12px
+                color: $color-2
+            a.button
+                pointer-events: auto
+                border-color: #8C6A3C
+                color: #8C6A3C
+                +s(m)
+                    min-width: 240px
+
+    div.swiper-pagination
+        position: absolute
+        top: 50%
+        left: 0
+        bottom: unset
+        right: unsnet
+        counter-reset: slide
+        pointer-events: auto
+        transform: translateY(-50%)
+        width: max-content
+        +s(m)
+            top: unset
+            bottom: 0px
+            left: calc(var(--side-gap) * -1)
+            transform: unset
+            width: calc(100% + (var(--side-gap) * 2))
+            display: grid
+            grid-auto-flow: column
+            grid-auto-columns: 1fr
+
+        span
+            position: relative
+            display: block
+            height: 90px
+            width: 1px
+            background: #889e9e4d
+            counter-increment: slide
+            opacity: 1
+            margin: unset
+            +s(m)
+                height: 2px
+                width: 100%
+
+            &::after
+                content: counter(slide)
+                display: grid
+                align-items: center
+                justify-items: center
+                padding: 0 24px
+                position: absolute
+                height: 100%
+                top: 0
+                font-family: "Cormorant", serif
+                font-weight: 700
+                font-size: 20px
+                line-height: 130%
+                letter-spacing: 0.1em
+                text-transform: uppercase
+                color: #889e9e
+                opacity: 0.7
+                +s(m)
+                    display: none
+
+            &.swiper-pagination-bullet-active
+                background: #8C6A3C
+                &::after
+                    color: $color
+                    opacity: 1
+
+    div.swiper.backgrounds
+        grid-column: full
+        position: absolute
+        top: -110px
+        left: 0
+        width: 100%
+        height: calc(100% + 110px)
+        z-index: 1
+
+        div.swiper-slide
+            overflow: hidden
+
+        img
+            position: absolute
+            top: 0
+            right: 0
+            width: 100%
+            height: 100%
+            object-fit: cover
+            object-position: center center
+
+section.categories
+    margin-top: var(--section-gap)
+    margin-bottom: var(--section-gap)
+
+    div.swiper
+        grid-column: full
+        overflow: visible
+        user-select: none
+        z-index: 2
+        pointer-events: none
+
+    div.swiper-slide
+        position: relative
+        display: grid
+        align-items: center
+        justify-items: center
+
+        a.card
+            display: grid
+            align-items: center
+            position: relative
+            z-index: 2
+
+            div.preview
+                position: relative
+                &::before
+                    content: attr(data-number)
+                    display: block
+                    height: max-content
+                    line-height: 0.7em
+                    position: absolute
+                    top: 0
+                    left: 0
+                    transform: translate(0, 0)
+                    font-family: "Cormorant", serif
+                    color: $color
+                    z-index: 2
+                    opacity: 0
+                    +f(80px, 335px)
+                    transition: 0.7s
+                &::after
+                    content: ''
+                    display: block
+                    position: absolute
+                    top: 0px
+                    left: 0px
+                    width: 100%
+                    height: 100%
+                    background: rgba(102, 96, 126, 0.91)
+                    opacity: 0
+                    z-index: -1
+                    transition: all 0.7s
+                    pointer-events: none
+
+            img
+                width: 100%
+                max-width: 600px
+                aspect-ratio: 2 / 3
+                object-fit: cover
+                opacity: 0.3
+                transition: all 0.7s
+                position: relative
+
+            span
+                position: absolute
+                top: calc(100% + 16px)
+                left: 0
+                font-family: "Cormorant", serif
+                font-weight: 500
+                line-height: 100%
+                letter-spacing: -0.01em
+                text-transform: uppercase
+                color: #66607e
+                opacity: 0
+                transform: translateY(60px)
+                transition: all 0.7s
+                +f(24px, 64px)
+                +s(m)
+                    left: 24px
+
+        &.swiper-slide-active
+            opacity: 1
+            a.card
+                pointer-events: auto
+                +s(m)
+                    padding-left: 24px
+                div.preview
+                    &:after
+                        opacity: 0.1
+                        top: -60px
+                        left: -60px
+                        +s(m)
+                            top: -24px
+                            left: -24px
+                    &::before
+                        opacity: 1
+                        transform: translate(-50%, -50%)
+                        +s(m)
+                            transform: translate(-50%, -85%)
+                            opacity: 0.6
+                img
+                    max-width: 500px
+                    aspect-ratio: 5 / 6
+                    opacity: 1
+                span
+                    opacity: 1
+                    transform: translateY(0px)
+
+    div.swiper-navigation
+        grid-column: full
+        position: absolute
+        top: 0
+        left: 0
+        height: 100%
+        width: 100%
+        display: grid
+        grid-template-columns: repeat(2, 1fr)
+        z-index: 1
+        +s(m)
+            display: none
+
+        div.arrow
+            cursor: pointer
+            width: 100%
+            height: 100%
+            &::after
+                display: none
+
+            &:first-child
+                img
+                    transform: rotate(180deg) translateX(100%)
+
+            &:hover
+                img
+                    opacity: 1
+
+        img
+            position: absolute
+            opacity: 0

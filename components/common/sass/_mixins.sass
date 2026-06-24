@@ -1,0 +1,34 @@
+@use "sass:map"
+
+// Наведение только для десктопной версии
+@mixin h
+    @media (hover: hover)
+        &:hover
+            @content
+
+// Media Query
+$breakpoints: ("xs": 480px, "s": 640px, "m": 960px, "l": 1280px, "xl": 1600px, 'xxl': 1920px)
+@mixin s($breakpoint)
+    @if map.has-key($breakpoints, $breakpoint)
+        $breakpoint: map.get($breakpoints, $breakpoint)
+        @media (max-width: $breakpoint)
+            @content
+    @else
+        @media (max-width: $breakpoint)
+            @content
+
+// Adaptive font
+@mixin f ($min-font: 14px, $max-font: 16px, $min-width: 480px, $max-width: 1720px)
+
+    $different-fonts: $max-font - $min-font
+    $different-width: $max-width - $min-width
+    $coefficient-px: calc($different-fonts / $different-width)
+    $coefficient: $min-font - $coefficient-px * $min-width
+
+    font-size: $min-font //размер шрифта на $min-width и ниже разрешении экрана
+
+    @media (min-width: $min-width)
+        font-size: calc(#{$coefficient-px} * 100vw + #{$coefficient})
+
+    @media (min-width: $max-width)
+        font-size: $max-font //размер шрифта на $max-width и выше разрешении экрана

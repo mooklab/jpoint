@@ -1,0 +1,185 @@
+@use '../components/common/sass/_mixins' as *
+@use '../components/common/sass/_variables' as *
+
+@use '../components/sections/_collections' as *
+@use '../components/sections/_about' as *
+@use '../components/sections/_socials' as *
+@use '../components/sections/_subscribe' as *
+
+section.main
+    margin-top: calc(var(--header) * -1)
+    width: 100%
+    max-height: 900px
+    aspect-ratio: 16 / 9
+    +s(s)
+        max-height: unset
+
+    div.container
+        position: relative
+        display: grid
+        grid-template-rows: max-content 1fr
+        z-index: 3
+
+    div.breadcrumbs
+        padding-top: calc(var(--header) + 30px)
+        +s(m)
+            padding-top: calc(var(--header) + 10px)
+
+    div.wrap
+        display: grid
+        grid-template-columns: repeat(2, 1fr)
+        +s(s)
+            grid-template-columns: 1fr
+
+    div.text
+        display: grid
+        grid-gap: 40px
+        align-items: center
+        align-content: center
+        justify-items: center
+        text-align: center
+        padding-top: 160px
+        padding-bottom: 160px
+        font-weight: 400
+        line-height: 130%
+        letter-spacing: -0.01em
+        text-align: center
+        color: $gray
+        +f(12px, 20px)
+        +s(s)
+            order: 1
+            padding-top: 60px
+            padding-bottom: 10px
+            padding-left: 20px
+            padding-right: 20px
+            grid-gap: 10px
+        img
+            width: 100%
+            max-width: 780px
+        span
+            max-width: 480px
+
+    img.background
+        grid-column: full
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        object-fit: cover
+        z-index: 1
+
+    div.person
+        +s(s)
+            order: 2
+            display: grid
+        img
+            position: absolute
+            top: 0
+            left: 0
+            padding-top: 80px
+            height: 100%
+            width: 50%
+            object-fit: contain
+            object-position: bottom center
+            z-index: 2
+            +s(s)
+                position: static
+                margin-left: calc(var(--side-gap) * -1)
+                width: calc(100% + var(--side-gap) * 2)
+                height: 480px
+                object-fit: cover
+                object-position: top center
+                padding-top: unset
+
+section.company
+    margin-top: calc( var(--section-gap) * -1 )
+    margin-bottom: var(--section-gap)
+    counter-reset: list
+
+    div.container
+        display: grid
+        grid-gap: 50px
+        +s(m)
+            grid-gap: 40px
+
+    div.group
+        display: grid
+        align-items: center
+        grid-template-columns: repeat(12, 1fr)
+        grid-gap: 60px
+        counter-increment: list
+        +s(m)
+            grid-gap: 30px
+        +s(s)
+            grid-template-columns: 1fr
+            grid-gap: 50px
+
+        div.preview
+            padding: 60px
+            background: white
+            grid-column: 7 span
+            +s(m)
+                grid-column: 6 span
+                padding: 20px
+            +s(s)
+                grid-column: unset
+                order: 1
+
+            img
+                width: 100%
+                aspect-ratio: 1 / 1
+
+        div.text
+            position: relative
+            display: grid
+            grid-gap: 20px
+            max-width: 680px
+            grid-column: 5 span
+            +s(m)
+                grid-column: 6 span
+            +s(s)
+                grid-column: unset
+                order: 2
+
+            h2
+                +s(m)
+                    position: relative
+                +s(s)
+                    margin-bottom: 30px
+                    max-width: 300px
+
+                &::after
+                    content: '0' counter(list)
+                    font-family: "Cormorant", serif
+                    position: absolute
+                    top: 50%
+                    font-weight: 400
+                    font-size: 870px
+                    line-height: 0.65em
+                    letter-spacing: -0.01em
+                    text-transform: uppercase
+                    color: $color
+                    opacity: 0.05
+                    +f(225px, 870px)
+                    +s(s)
+                        right: unset !important
+                        left: 0 !important
+                        transform: translate(-30%, -50%) !important
+
+            span
+                opacity: 0.8
+
+            &:first-child
+                h2::after
+                    right: 0
+                    transform: translate(-25%, -50%)
+                    +s(l)
+                        transform: translate(-10%, -50%)
+
+            &:last-child
+                h2::after
+                    left: 0
+                    transform: translate(25%, -50%)
+                    +s(l)
+                        transform: translate(10%, -50%)

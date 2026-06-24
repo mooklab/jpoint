@@ -1,0 +1,97 @@
+mixin product_card(image, title, newPrice, oldPrice, tag = false)
+
+    - const discount = Math.round((oldPrice - newPrice) / oldPrice * 100)
+
+    a(href="#").product_card
+        div.grid_view
+            div.preview
+                img(src=image, alt=title)
+                if tag
+                    span.tag New
+            div.text
+                if oldPrice
+                    span.percent !{discount}%
+                h4= title
+                div.prices
+                    span.newPrice !{newPrice.toLocaleString('ru-RU')} ₽
+                    if oldPrice
+                        span.oldPrice !{oldPrice.toLocaleString('ru-RU')} ₽
+            div.order
+                div.overflow
+                    div.wrap
+                        button.border
+                            include ../../../images/cart.svg
+                            span В корзину
+        div.list_view
+            div.preview
+                img(src=image, alt=title)
+                if tag
+                    span.tag New
+            div.text
+                if oldPrice
+                    h4.percent !{discount}%
+                h4= title
+                div.specs
+                    div.row
+                        span Металл
+                        span Золото 585
+                    div.row
+                        span Вставки
+                        span Бриллианты
+                    div.row
+                        span Вес
+                        span 8,32 г
+                    div.row
+                        span Страна
+                        span Россия
+            div.order
+                if oldPrice
+                    h4.percent !{discount}%
+                div.prices
+                    span.newPrice !{newPrice.toLocaleString('ru-RU')} ₽
+                    if oldPrice
+                        span.oldPrice !{oldPrice.toLocaleString('ru-RU')} ₽
+                button.border
+                    include ../../../images/cart.svg
+                    span В корзину
+
+mixin cart_product(image, title)
+    div.cart_product
+        label.checkbox
+            input(type="checkbox")
+            div.tick
+                img(src="images/checkbox_tick.svg")
+        div.preview
+            img(src=image, alt=title)
+        div.about
+            h4 Серьги J-point Collection ИПГ857.50.080823.3W
+            div.article
+                span Артикул: ИПГ857.50.080823.3W
+                img(src="images/copy.svg")
+            span.color Цвет: белое золото
+        div.price
+            span.new 286 000 ₽
+            span.old 286 000 ₽
+        div.remove
+            img(src="images/trash.svg")
+            span Удалить
+
+mixin input(type, label, required = false)
+    div.input
+        input(
+            type=type, 
+            placeholder=" ", 
+            autocomplete="off", 
+            oninvalid="event.preventDefault(); this.classList.add('error'); this.nextElementSibling.nextElementSibling.textContent = this.validationMessage", 
+            onclick="this.classList.remove('error')",
+            required=required
+        )
+        label= label
+        span
+
+mixin checkbox(title)
+    label.checkbox
+        input(type="checkbox")
+        div.tick
+            img(src="images/checkbox_tick.svg")
+        span= title

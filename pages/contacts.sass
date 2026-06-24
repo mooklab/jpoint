@@ -1,0 +1,92 @@
+@use '../components/common/sass/_mixins' as *
+@use '../components/common/sass/_variables' as *
+
+@use '../components/sections/_subscribe' as *
+
+section.main
+    margin-top: 30px
+    margin-bottom: var(--section-gap)
+    +s(m)
+        margin-top: 20px
+
+    div.title
+        display: grid
+        grid-gap: 20px
+        margin-top: 30px
+        margin-bottom: 30px
+        +s(m)
+            grid-gap: 10px
+            margin-top: 25px
+            margin-bottom: 40px
+
+    div.addresses
+        display: grid
+        grid-template-columns: repeat(12, 1fr)
+        grid-gap: var(--grid-gap)
+        +s(m)
+            grid-template-columns: 1fr
+            grid-gap: 40px
+
+        div.list
+            grid-column: 5 span
+            display: grid
+            grid-gap: 20px
+            +s(m)
+                grid-column: unset
+            div.address
+                h3
+                    margin-bottom: 16px
+                    +s(m)
+                        margin-bottom: 12px
+                div.schedule
+                    display: grid
+                    grid-auto-flow: column
+                    grid-auto-columns: max-content
+                    align-items: center
+                    grid-gap: 76px
+                    margin-bottom: 20px
+                    +s(m)
+                        margin-bottom: 10px
+                        justify-content: space-between
+                        grid-gap: 30px
+
+                    span
+                        opacity: 0.8
+                        &:first-child
+                            text-transform: uppercase
+                        &:last-child
+                            opacity: 0.5
+                div.contacts
+                    display: grid
+                    grid-gap: 5px
+                    span, a
+                        opacity: 0.8
+                div.socials
+                    display: grid
+                    grid-auto-flow: column
+                    grid-auto-columns: max-content
+                    align-items: center
+                    grid-gap: 20px
+                    margin-top: 16px
+                    margin-bottom: 30px
+                    +s(m)
+                        margin-bottom: 20px
+
+                a.button.border
+                    width: max-content
+                    +s(s)
+                        width: 100%
+            hr
+                width: 100%
+                height: 1px
+                background: $gray
+                opacity: 0.2
+        div.map
+            grid-column: 7 span
+            +s(m)
+                grid-column: unset
+                width: 100%
+                aspect-ratio: 16 / 9
+                display: none
+ymaps[class*="ground-pane"]
+            filter: grayscale(100%)

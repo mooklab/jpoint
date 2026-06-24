@@ -1,0 +1,50 @@
+html:has(dialog[open])
+    overflow-y: hidden
+    margin-right: var(--scrollbar-width)
+
+dialog
+    position: fixed
+    opacity: 0
+    left: 100%
+    &::backdrop
+        position: fixed
+        inset: 0px
+        background: rgba(52, 58, 96, 0.5)
+    &::-webkit-scrollbar
+        width: 0
+        height: 0
+    &[open]
+        animation-name: dialog
+        animation-delay: 0s
+        animation-duration: .5s
+        animation-fill-mode: forwards
+
+    div.container
+        max-width: 500px
+        width: 100%
+        min-height: 100%
+        border-radius: 20px 0 0 20px
+        padding: 30px
+        background: white
+        overflow: auto
+
+        &::-webkit-scrollbar
+            opacity: 0
+            display: none
+
+    img.cross
+        cursor: pointer
+        position: absolute
+        top: 20px
+        right: 20px
+        transition: all 0.3s
+        &:hover
+            transform: rotate(180deg)
+
+@keyframes dialog
+    0%
+        opacity: 0
+        left: 100%
+    100%
+        opacity: 1
+        left: 0

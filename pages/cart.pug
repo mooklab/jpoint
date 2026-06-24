@@ -1,0 +1,73 @@
+extends ../components/common/pug/_layout.pug
+include ../components/common/pug/_mixins.pug
+
+block links
+    link(rel="stylesheet", href="css/cart.css")
+
+block content
+
+    section.empty
+        div.container
+            div.empty
+                div.back
+                    img(src="images/back_arrow.svg")
+                    span Вернуться к покупкам
+                h2 В корзине ничего нет…
+                span.text Посмотрите наши новинки или воспользуйтесь поиском, если ищете что‑то конкретное.
+
+    section.main
+        div.container
+            div.title
+                h2 Корзина
+                span (4 изделия)
+            div.filter
+                label.checkbox
+                    input(type="checkbox")
+                    div.tick
+                        img(src="images/checkbox_tick.svg")
+                    span Выделить все
+                div.remove
+                    img(src="images/trash.svg")
+                    span Удалить выбранные
+                div.share
+                    img(src="images/share.svg")
+                    span Поделиться корзиной
+            div.list
+                +cart_product('images/7.webp', 'Серьги J-point Collection ИПГ857.50.080823.3W')
+                +cart_product('images/8.webp', 'Серьги J-point Collection ИПГ857.50.080823.3W')
+                +cart_product('images/22.webp', 'Серьги J-point Collection ИПГ857.50.080823.3W')
+                +cart_product('images/23.webp', 'Серьги J-point Collection ИПГ857.50.080823.3W')
+            div.details
+                h4 Детали заказа
+                div.grid
+                    span Предварительная сумма
+                    span.price #[b 572 000 ₽]
+                    span Скидка
+                    span.price #[b - 572 000 ₽]
+                hr
+                div.grid
+                    span #[b Итого]
+                    span.price #[b 572 000 ₽]
+                a(href="").button.fill 
+                    span Перейти к оформлению
+
+    - sectionTitle = 'Возможно вам понравится'
+    include ../components/sections/_products.pug
+
+    - sectionTitle = 'вы смотрели'
+    - sectionCount = 2
+    include ../components/sections/_products.pug
+
+
+    //- Для показа пустой корзины
+
+    script.
+        const isEmpty = location.hash === '#empty'
+        const emptySection = document.querySelector('section.empty')
+
+        if ( isEmpty ){
+            emptySection.style.display = 'grid'
+            emptySection.nextElementSibling.style.display = 'none'
+        } else {
+            emptySection.style.display = 'none'
+        }

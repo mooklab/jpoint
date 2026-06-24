@@ -1,0 +1,97 @@
+extends ../components/common/pug/_layout.pug
+include ../components/common/pug/_mixins.pug
+
+block links
+    link(rel="stylesheet", href="css/index.css")
+
+block content
+    
+    section.main
+        div.container
+
+            div.swiper.texts
+                div.swiper-wrapper
+                    div.swiper-slide
+                        h4 новая коллекция
+                        h1 Сердца
+                        a(href="#").button.border Смотреть коллекцию
+                    div.swiper-slide
+                        h4 скидка
+                        h1 Сидка 40%
+                        a(href="#").button.border Перейти в каталог
+                    div.swiper-slide
+                        h4 новая коллекция
+                        h1 Сердца
+                        a(href="#").button.border Смотреть коллекцию
+                    div.swiper-slide
+                        h4 новая коллекция 2
+                        h1 Сердца
+                        a(href="#").button.border Смотреть коллекцию
+                    div.swiper-slide
+                        h4 новая коллекция
+                        h1 Сердца
+                        a(href="#").button.border Смотреть коллекцию
+
+            div.swiper-pagination
+
+        div.swiper.backgrounds
+            div.swiper-wrapper
+                div.swiper-slide
+                    img(src="images/1.webp")
+                div.swiper-slide
+                    img(src="images/2.webp")
+                div.swiper-slide
+                    img(src="images/1.webp")
+                div.swiper-slide
+                    img(src="images/2.webp")
+                div.swiper-slide
+                    img(src="images/1.webp")
+
+    section.categories
+        div.swiper
+            div.swiper-wrapper
+                div.swiper-slide
+                    a(href="#").card
+                        div(data-number="01").preview
+                            img(src="images/13.webp", alt="Колье")
+                        span Колье
+                div.swiper-slide
+                    a(href="#").card
+                        div(data-number="02").preview
+                            img(src="images/14.webp", alt="Украшение на тело")
+                        span Украшение на тело
+                div.swiper-slide
+                    a(href="#").card
+                        div(data-number="03").preview
+                            img(src="images/15.webp", alt="Серьги")
+                        span Серьги
+                div.swiper-slide
+                    a(href="#").card
+                        div(data-number="04").preview
+                            img(src="images/16.webp", alt="Кольца")
+                        span Кольца
+                div.swiper-slide
+                    a(href="#").card
+                        div(data-number="05").preview
+                            img(src="images/17.webp", alt="Каффы")
+                        span Каффы
+                div.swiper-slide
+                    a(href="#").card
+                        div(data-number="06").preview
+                            img(src="images/18.webp", alt="Браслеты")
+                        span Браслеты
+        div.swiper-navigation
+            div.arrow
+                img(src="images/swiper_arrow_long.svg")
+            div.arrow
+                img(src="images/swiper_arrow_long.svg")
+
+    - sectionTitle = 'Новинки'
+    include ../components/sections/_products.pug
+    include ../components/sections/_collections.pug
+
+    - sectionTitle = 'Подарки для неё'
+    include ../components/sections/_products.pug
+    include ../components/sections/_about.pug
+    include ../components/sections/_socials.pug
+    include ../components/sections/_subscribe.pug

@@ -1,0 +1,270 @@
+@use '../components/common/sass/_mixins' as *
+@use '../components/common/sass/_variables' as *
+
+section.main
+    margin-top: 30px
+    margin-bottom: var(--section-gap)
+
+    div.container
+        display: grid
+        grid-gap: 16px
+
+    form
+        display: grid
+        grid-template-columns: 1fr 740px
+        grid-gap: 20px
+        +s(xl)
+            grid-template-columns: 1fr 540px
+        +s(l)
+            grid-template-columns: repeat(2, 1fr)
+        +s(m)
+            grid-template-columns: 1fr
+            grid-gap: unset
+
+    div.inputs
+        display: grid
+        align-content: start
+        grid-gap: 30px
+        +s(m)
+            display: contents
+
+        div.alert
+            position: relative
+            background: #ff8f8f1a
+            padding: 20px
+            +s(m)
+                padding: 15px 20px
+            h4
+                display: grid
+                align-items: center
+                grid-auto-flow: column
+                grid-auto-columns: max-content
+                grid-gap: 5px
+                margin-bottom: 10px
+            span
+                opacity: 0.8
+            img.cross
+                cursor: pointer
+                position: absolute
+                top: 20px
+                right: 20px
+                width: 13px
+                height: 13px
+                +s(m)
+                    top: 10px
+                    right: 10px
+
+        div.groups
+            display: grid
+            grid-gap: 30px
+            +s(m)
+                order: 2
+                margin-top: 40px
+
+        div.group
+            display: grid
+            grid-gap: 15px
+
+            div.grid
+                display: grid
+                grid-template-columns: repeat(6, 1fr)
+                grid-gap: 10px
+                +s(s)
+                    grid-template-columns: repeat(2, 1fr)
+
+                div.input
+                    grid-column: 2 span
+
+                div.phone
+                    grid-column: 3 span
+                    +s(s)
+                        grid-column: 2 span
+
+                div.email
+                    grid-column: 3 span
+                    +s(s)
+                        grid-column: 2 span
+
+                div.adress
+                    grid-column: 6 span
+                    +s(s)
+                        grid-column: 2 span
+
+                div.street
+                    grid-column: 2 span
+                    +s(l)
+                        grid-column: 4 span
+                    +s(s)
+                        grid-column: 2 span
+
+                div.adress_detail
+                    grid-column: 1 span
+                    +s(l)
+                        grid-column: 2 span
+                    +s(s)
+                        grid-column: 1 span
+
+                textarea
+                    grid-column: 6 span
+                    +s(s)
+                        grid-column: 2 span
+
+        div.details
+            display: grid
+            +s(m)
+                order: 4
+                margin-top: 20px
+
+            div.grid
+                display: grid
+                grid-template-columns: 1fr max-content
+                grid-gap: 10px
+                span:nth-child(odd)
+                    color: #200a0a80
+                b
+                    font-weight: 600
+                    color: $brown
+
+            hr
+                width: 100%
+                height: 1px
+                background: $gray
+                opacity: 0.2
+                margin-top: 15px
+                margin-bottom: 15px
+                +s(m)
+                    margin-top: 10px
+                    margin-bottom: 10px
+
+            a.button
+                margin-top: 20px
+                +s(m)
+                    margin-top: 16px
+
+            .price
+                text-align: right
+
+            div.checkboxes
+                display: grid
+                grid-gap: 5px
+                margin-top: 16px
+
+    div.order
+        display: grid
+        align-content: start
+        grid-gap: 20px
+        +s(m)
+            display: contents
+
+        div.products
+            border: 1px solid #200a0a1a
+            padding: 20px
+            +s(m)
+                order: 1
+                margin-top: 20px
+
+            div.title
+                display: grid
+                align-items: end
+                grid-template-columns: repeat(2, max-content)
+                grid-gap: 10px
+                h4
+                    line-height: 1em
+                span
+                    cursor: pointer
+                    font-weight: 500
+                    line-height: 130%
+                    letter-spacing: 0.01em
+                    text-transform: uppercase
+                    color: $gray
+                    opacity: 0.5
+                    &.show
+                        display: inline
+                    &.hide
+                        display: none
+
+            div.grid
+                display: grid
+                grid-template-rows: 0fr
+                transition: grid-template-rows 0.5s
+                div.overflow
+                    overflow: hidden
+
+            div.list
+                display: grid
+                grid-gap: 20px
+                padding-top: 20px
+                +s(s)
+                    grid-gap: 10px
+                    padding-top: 10px
+
+            div.cart_product
+                label.checkbox
+                    display: none
+                div.preview
+                    img
+                        +s(xl)
+                            width: 100px
+                            height: 100px
+                        +s(s)
+                            width: 66px
+                            height: 66px
+                    &::after
+                        +s(xl)
+                            width: 120px
+                div.remove
+                    display: none
+
+            &.opened
+                div.title
+                    span.show
+                        display: none
+                    span.hide
+                        display: inline
+                div.grid
+                    grid-template-rows: 1fr
+
+        div.consult
+            display: grid
+            padding: 20px
+            background: white
+            +s(l)
+                order: 3
+                margin-top: 10px
+                border: unset
+
+            h4
+                margin-bottom: 10px
+                +s(m)
+                    margin-bottom: 14px
+
+            & > span
+                margin-bottom: 26px
+                opacity: 0.8
+                max-width: 380px
+
+                +s(m)
+                    margin-bottom: 14px
+
+            a
+                display: grid
+                grid-auto-flow: column
+                grid-auto-columns: max-content
+                grid-gap: 10px
+                img
+                    +s(m)
+                        width: 15px
+                        height: 15px
+                span
+                    font-family: "Cormorant", serif
+                    font-weight: 600
+                    line-height: 130%
+                    letter-spacing: 0.01em
+                    text-transform: uppercase
+                    text-decoration: underline
+                    text-decoration-skip-ink: none
+                    color: $color
+                    +f(16px, 20px)
+                &:hover
+                    span
+                        text-decoration: none

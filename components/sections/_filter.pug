@@ -1,0 +1,92 @@
+section.filter
+    div.container
+
+        div.block
+
+            div.title
+                h4 Фильтры
+                img(src="images/search_cross.svg", onclick="this.closest('section').classList.toggle('show')").cross
+            
+            label.switch
+                span В наличии
+                div.wrap
+                    input(type="checkbox")
+                    div
+            
+            label.switch
+                span Со скидкой
+                div.wrap
+                    input(type="checkbox", checked)
+                    div
+
+            div(class="price")
+                div(class="inputs")
+                    div.wrap
+                        span.prefix от
+                        input(type="text", class="input-min", value="10000")
+                        span.suffix ₽
+                    div.wrap
+                        span.prefix от
+                        input(type="text", class="input-max", value="70000")
+                        span.suffix ₽
+                div(class="slider")
+                    div(class="slider-track")
+                    div(class="slider-range")
+                    input(type="range", class="range-min", min="0", max="100000", value="10000")
+                    input(type="range", class="range-max", min="0", max="100000", value="70000")
+
+            div.accordion
+                div(onclick="this.parentNode.classList.toggle('open')").caption
+                    img(src="images/select_arrow.svg")
+                    span Материал
+                div.content
+                    div.overflow
+                        div.list
+                            +checkbox('Агат')
+                            +checkbox('Бирюза')
+                            +checkbox('Бриллианты')
+                            +checkbox('Лабрадорит')
+                            +checkbox('Малахит')
+                            +checkbox('Перламутр')
+                            +checkbox('Рубин.Синтетический')
+                            +checkbox('Сапфир .Синтетический')
+            
+            div.accordion
+                div(onclick="this.parentNode.classList.toggle('open')").caption
+                    img(src="images/select_arrow.svg")
+                    span Вставка
+                div.content
+                    div.overflow
+                        div.list
+                            +checkbox('Агат')
+                            +checkbox('Бирюза')
+                            +checkbox('Бриллианты')
+                            +checkbox('Лабрадорит')
+                            +checkbox('Малахит')
+                            +checkbox('Перламутр')
+                            +checkbox('Рубин.Синтетический')
+                            +checkbox('Сапфир .Синтетический')
+            
+            div.accordion
+                div(onclick="this.parentNode.classList.toggle('open')").caption
+                    img(src="images/select_arrow.svg")
+                    span Огранка
+                div.content
+                    div.overflow
+                        div.list
+                            +checkbox('Агат')
+                            +checkbox('Бирюза')
+                            +checkbox('Бриллианты')
+                            +checkbox('Лабрадорит')
+                            +checkbox('Малахит')
+                            +checkbox('Перламутр')
+                            +checkbox('Рубин.Синтетический')
+                            +checkbox('Сапфир .Синтетический')
+
+        div.buttons
+            button.fill 
+                span показать 28 изделий
+            button.border 
+                span сбросить
+
+    div(onclick="this.closest('section').classList.toggle('show')").backdrop

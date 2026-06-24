@@ -1,0 +1,49 @@
+extends ../components/common/pug/_layout.pug
+include ../components/common/pug/_mixins.pug
+
+block links
+    link(rel="stylesheet", href="css/about.css")
+
+block content
+
+    section.main
+        div.container
+            div.breadcrumbs
+                a(href="#") Главная
+                span О компании
+            div.wrap
+                div.person
+                    img(src="images/28.webp")
+                div.text
+                    img(src="images/signature.webp")
+                    span Украшения, которые подчёркивают индивидуальность, а не соревнуются в каратах.
+        img(src="images/27.webp").background
+
+    section.company
+        div.container
+
+            div.group
+                div.text
+                    h2 Философия бренда
+                    span Философия J-Point, то есть Jewellery Point, зашифрована в названии — «Ювелирная Точка».
+                    span Наше основное отличие от других брендов — в универсальности. Украшения J-Point можно надевать как на торжественные мероприятия, так и на деловые встречи и дружеские вечеринки. Они могут дополнить любой образ, сделав его более утончённым и запоминающимся.
+                    span J-Point — украшения, которые подчёркивают индивидуальность, а не соревнуются в каратах.
+
+                div.preview
+                    img(src="images/25.webp", alt="Философия бренда")
+
+            div.group
+                div.preview
+                    img(src="images/26.webp", alt="История и вдохновение")
+
+                div.text
+                    h2 История и вдохновение
+                    span В основе бренда — вдохновение московским стрит-стайлом: лёгкость, многослойность и современный ритм города. Именно этот подход мы одними из первых привнесли на российский ювелирный рынок. 
+                    span Мы объединяем разные по тематикам, размерам и формам украшения, которые можно миксовать между собой, создавая контрастные и в то же время лёгкие сочетания.
+
+            
+    
+    include ../components/sections/_collections.pug
+    include ../components/sections/_about.pug
+    include ../components/sections/_socials.pug
+    include ../components/sections/_subscribe.pug

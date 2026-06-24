@@ -1,0 +1,120 @@
+extends ../components/common/pug/_layout.pug
+include ../components/common/pug/_mixins.pug
+
+mixin banner(image, title)
+    a(href="#").banner
+        div.description
+            div.text
+                h3= title
+                span Цена по запросу
+            div.cart
+                include ../images/cart.svg
+        img(src=image, alt=title)
+
+block links
+    link(rel="stylesheet", href="css/catalog.css")
+
+block content
+
+    section.main
+        div.container
+            div.breadcrumbs
+                a(href="#") Главная
+                span Серьги
+            div.text
+                h1 Серьги
+                span Серьги J-Point сочетают в себе эргономический комфорт и современный минимализм, их вневременной дизайн подойдёт к любому стилю, настроению и случаю.
+            img(src="images/20.webp").person
+        img(src="images/21.webp").background
+    
+    section.products
+        div.container
+
+            div.filters
+                div(onclick="document.querySelector('section.filter').classList.add('show')").filter
+                    img(src="images/filter.svg")
+                    span фильтры
+                div.select
+                    input(type="hidden" name="sort" value="popular")
+
+                    div.selected_item
+                        span по популярности
+                        include ../images/select_arrow.svg
+
+                    div.select_list
+                        div.select_overflow
+                            div.select_wrap
+                                span(data-value="popular").active по популярности
+                                span(data-value="cheap") сначала дешевле
+                                span(data-value="expensive") сначала дороже
+                                span(data-value="new") по новизне
+                div.count
+                    span 320 товаров
+                div.views
+                    span вид каталога
+                    div.icons
+                        img(src="images/view_list.svg", data-view="list")
+                        img(src="images/view_grid.svg", data-view="grid").active
+
+            div.products
+                +product_card('images/7.webp', 'Кольцо J-Point Selection 117225', 90000, 120000, true)
+                +product_card('images/8.webp', 'Кольцо J-Point Selection 117225', 100000, 0, true)
+                +product_card('images/9.webp', 'Кольцо J-Point Selection 117225', 80000, 0, false)
+                +product_card('images/7.webp', 'Кольцо J-Point Selection 117225', 115000, 160000, false)
+                div.banner
+                    +banner('images/19.webp', 'Серьги J-point Collection ИПГ857.3.260123.1Y')
+                +product_card('images/8.webp', 'Кольцо J-Point Selection 117225', 120000, 0, false)
+                +product_card('images/9.webp', 'Кольцо J-Point Selection 117225', 100000, 0, true)
+                +product_card('images/7.webp', 'Кольцо J-Point Selection 117225', 90000, 120000, true)
+                +product_card('images/8.webp', 'Кольцо J-Point Selection 117225', 100000, 0, true)
+                +product_card('images/9.webp', 'Кольцо J-Point Selection 117225', 80000, 0, false)
+                +product_card('images/7.webp', 'Кольцо J-Point Selection 117225', 115000, 160000, false)
+                div.banner
+                    +banner('images/19.webp', 'Серьги J-point Collection ИПГ857.3.260123.1Y')
+                +product_card('images/8.webp', 'Кольцо J-Point Selection 117225', 120000, 0, false)
+                +product_card('images/9.webp', 'Кольцо J-Point Selection 117225', 100000, 0, true)
+                +product_card('images/7.webp', 'Кольцо J-Point Selection 117225', 90000, 120000, true)
+                +product_card('images/8.webp', 'Кольцо J-Point Selection 117225', 100000, 0, true)
+                +product_card('images/9.webp', 'Кольцо J-Point Selection 117225', 80000, 0, false)
+                +product_card('images/7.webp', 'Кольцо J-Point Selection 117225', 115000, 160000, false)
+                +product_card('images/8.webp', 'Кольцо J-Point Selection 117225', 120000, 0, false)
+                +product_card('images/9.webp', 'Кольцо J-Point Selection 117225', 100000, 0, true)
+                +product_card('images/7.webp', 'Кольцо J-Point Selection 117225', 90000, 120000, true)
+                +product_card('images/8.webp', 'Кольцо J-Point Selection 117225', 100000, 0, true)
+
+            div.pagination
+                div.list
+                    div.prev.disable
+                        include ../images/pagination_arrow.svg
+                    a(href="#") 1
+                    a(href="#") 2
+                    a(href="#") 3
+                    a(href="#") 4
+                    a(href="#") 5
+                    span …
+                    a(href="#") 10
+                    div.next
+                        include ../images/pagination_arrow.svg
+                button.border
+                    span Смотреть ещё
+
+    section.seo
+        div.container
+            span Наши серьги, вдохновлённые фирменными мотивами Дома, воплощают изобретательность и креативность, которыми мы славимся. Каждый комплект серёг, от классических до смелых моделей, искусно изготовлен нашими всемирно известными мастерами с использованием проверенных временем техник. Начните с нашей потрясающей коллекции серёг-гвоздиков, которые придадут элегантность как повседневному образу, так и наряду для особого случая. Откройте для себя серьги-гвоздики с бриллиантами, жемчугом и цветными драгоценными камнями, которые будут радовать вас долгие годы.
+            div.content.hide
+                div.overflow
+                    span Наши серьги, вдохновлённые фирменными мотивами Дома, воплощают изобретательность и креативность, которыми мы славимся. Каждый комплект серёг, от классических до смелых моделей, искусно изготовлен нашими всемирно известными мастерами с использованием проверенных временем техник. Начните с нашей потрясающей коллекции серёг-гвоздиков, которые придадут элегантность как повседневному образу, так и наряду для особого случая. Откройте для себя серьги-гвоздики с бриллиантами, жемчугом и цветными драгоценными камнями, которые будут радовать вас долгие годы.
+                    span Наши серьги, вдохновлённые фирменными мотивами Дома, воплощают изобретательность и креативность, которыми мы славимся. Каждый комплект серёг, от классических до смелых моделей, искусно изготовлен нашими всемирно известными мастерами с использованием проверенных временем техник. Начните с нашей потрясающей коллекции серёг-гвоздиков, которые придадут элегантность как повседневному образу, так и наряду для особого случая. Откройте для себя серьги-гвоздики с бриллиантами, жемчугом и цветными драгоценными камнями, которые будут радовать вас долгие годы.
+            div(onclick="this.previousElementSibling.classList.toggle('hide')").more
+                span.show развернуть
+                span.hide скрыть
+                include ../images/select_arrow.svg
+            
+    include ../components/sections/_filter.pug
+
+    - sectionTitle = 'Вам может понравиться'
+    include ../components/sections/_products.pug
+
+    - sectionTitle = 'Похожие товары'
+    include ../components/sections/_products.pug
+    include ../components/sections/_subscribe.pug

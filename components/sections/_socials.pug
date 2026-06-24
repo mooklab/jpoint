@@ -1,0 +1,19 @@
+mixin slide(image)
+    div.swiper-slide
+        img(src=image, alt="@jpoint_jewelry")
+        span @jpoint_jewelry
+
+section.socials
+    div.container
+        h2 Мы в соцсетях
+
+        div.swiper
+            div.swiper-wrapper
+                +slide('images/3.webp')
+                +slide('images/4.webp')
+                +slide('images/5.webp')
+                +slide('images/6.webp')
+
+        div.swiper-pagination2
+
+        

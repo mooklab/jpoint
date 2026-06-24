@@ -1,0 +1,316 @@
+@use '../components/common/sass/_mixins' as *
+@use '../components/common/sass/_variables' as *
+
+@use '../components/sections/_products' as *
+@use '../components/sections/_filter' as *
+@use '../components/sections/_subscribe' as *
+
+section.main
+    margin-top: calc(var(--header) * -1)
+    width: 100%
+    max-height: 900px
+    aspect-ratio: 16 / 9
+
+    div.container
+        position: relative
+        display: grid
+        align-content: space-between
+        z-index: 3
+
+    div.breadcrumbs
+        padding-top: calc(var(--header) + 30px)
+        +s(m)
+            padding-top: calc(var(--header) + 10px)
+
+    div.text
+        display: grid
+        padding-bottom: 160px
+        max-width: 50%
+        +s(m)
+            padding-bottom: 50px
+        +s(s)
+            max-width: unset
+        span
+            max-width: 600px
+            opacity: 0.8
+
+    img.background
+        grid-column: full
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        object-fit: cover
+        z-index: 1
+
+    img.person
+        position: absolute
+        padding-top: 80px
+        bottom: 0
+        left: 50%
+        height: 100%
+        width: 50%
+        object-fit: contain
+        object-position: bottom center
+        z-index: 2
+        +s(s)
+            position: static
+            width: calc(100% + var(--side-gap))
+            height: 540px
+            object-position: top left
+            padding-top: unset
+
+section.products
+    margin-top: 60px
+    +s(m)
+        margin-top: 26px
+
+    div.container
+        grid-gap: 30px
+        +s(s)
+            grid-gap: 20px
+
+    div.filters
+        display: grid
+        align-items: center
+        grid-template-columns: max-content max-content 1fr max-content
+        grid-gap: 62px
+        color: $brown
+        z-index: 2
+        +s(s)
+            grid-template-columns: max-content 1fr max-content
+
+        div.filter
+            cursor: pointer
+            display: grid
+            grid-auto-flow: column
+            grid-auto-columns: max-content
+            align-items: center
+            grid-gap: 10px
+            span
+                +s(s)
+                    display: none
+
+        div.select
+            +s(s)
+                display: none
+
+        div.count
+            text-align: center
+            font-size: 14px
+            +s(s)
+                margin-right: -20px
+
+        div.views
+            display: grid
+            align-items: center
+            grid-auto-flow: column
+            grid-auto-columns: max-content
+            grid-gap: 10px
+            span
+                +s(s)
+                    display: none
+
+            div.icons
+                display: grid
+                grid-auto-flow: column
+                grid-auto-columns: max-content
+                align-items: center
+                grid-gap: 5px
+                img
+                    cursor: pointer
+                    opacity: 0.3
+                    &.active
+                        opacity: 1
+
+    div.products
+        display: grid
+        grid-template-columns: repeat(4, 1fr)
+        grid-gap: var(--grid-gap)
+        z-index: 1
+        +s(m)
+            grid-template-columns: repeat(3, 1fr)
+        +s(s)
+            grid-template-columns: repeat(2, 1fr)
+            width: calc(100% + (var(--side-gap) * 2))
+            margin-left: calc(var(--side-gap) * -1)
+
+        div.banner
+            &:nth-of-type(even)
+                grid-column: 3 / 5
+                grid-row: 2 / 4
+                width: 100%
+                height: 100%
+                +s(m)
+                    grid-column: 2 span
+                    width: 100%
+                    height: 420px
+                    grid-row: unset
+                +s(s)
+                    grid-column: 2 span
+
+            &:nth-of-type(odd)
+                grid-column: 1 / 3
+                grid-row: 5 / 7
+                width: 100%
+                height: 100%
+                +s(m)
+                    grid-column: 2 span
+                    width: 100%
+                    height: 420px
+                    grid-row: unset
+                +s(s)
+                    grid-column: 2 span
+
+        a.banner
+            display: grid
+            align-content: end
+            position: relative
+            width: 100%
+            height: 100%
+            padding: 50px
+            +s(m)
+                padding: 20px
+
+            div.description
+                position: relative
+                display: grid
+                align-items: end
+                grid-template-columns: 1fr max-content
+                grid-gap: 30px
+                z-index: 1
+
+                div.text
+                    display: grid
+                    grid-gap: 16px
+                    max-width: 480px
+                    +s(m)
+                        grid-gap: 8px
+
+                    span
+                        font-weight: 400
+                        line-height: 130%
+                        letter-spacing: 0.01em
+                        text-transform: uppercase
+                        color: $gray
+                        +f(12px, 24px)
+                div.cart
+                    display: grid
+                    align-items: center
+                    justify-items: center
+                    width: 60px
+                    height: 60px
+                    background: $color
+                    +s(m)
+                        width: 40px
+                        height: 40px
+                    svg
+                        path
+                            stroke: white
+            img
+                position: absolute
+                top: 0
+                left: 0
+                width: 100%
+                height: 100%
+                object-fit: cover
+
+    div.pagination
+        display: grid
+        justify-items: center
+        grid-gap: 20px
+        margin-top: 10px
+        div.prev
+            cursor: pointer
+            display: grid
+            svg
+                transform: rotate(180deg)
+        div.list
+            align-items: center
+            display: grid
+            grid-auto-flow: column
+            grid-auto-columns: max-content
+            grid-gap: 20px
+            a.active
+                color: $color
+            a:hover
+                color: $color
+
+        button.border
+            min-width: 250px
+            +s(s)
+                width: 100%
+
+        div.prev, div.next
+            &.disable
+                display: none
+
+    &.list
+        div.products
+            grid-template-columns: 1fr
+            +s(m)
+                grid-gap: 15px
+
+        div.banner
+            display: none
+
+        a.product_card
+            div.grid_view
+                display: none
+            div.list_view
+                display: grid
+
+section.seo
+    margin-top: var(--section-gap)
+    margin-bottom: var(--section-gap)
+    div.container
+        display: grid
+        justify-items: center
+        text-align: center
+        grid-gap: 10px
+        span
+            max-width: 890px
+
+    div.content
+        display: grid
+        grid-template-rows: 1fr
+        max-width: 890px
+        transition: grid-template-rows 0.5s
+        div.overflow
+            overflow: hidden
+            display: grid
+            grid-gap: 10px
+
+        &.hide
+            grid-template-rows: 0fr
+
+            &+ div.more
+                span.show
+                    display: block
+                span.hide
+                    display: none
+
+    div.more
+        cursor: pointer
+        display: grid
+        grid-auto-flow: column
+        grid-auto-columns: max-content
+        align-items: center
+        grid-gap: 5px
+        span
+            font-weight: 500
+            font-size: 12px
+            line-height: 130%
+            letter-spacing: 0.01em
+            text-transform: uppercase
+            color: $color
+        span.show
+            display: none
+        span.hide
+            display: block
+
+        svg
+            transition: all 0.5s
+            path
+                stroke: $color

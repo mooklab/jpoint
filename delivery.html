@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta http-equiv="Cache-Control" content="no-cache">
+        <meta name="viewport" content="user-scalable=no, width=device-width, height=device-height">
+        <meta name="description" content="Описание сайта">
+        <meta name="keywords" content="Ключевые слова">
+        <title>Туристическая компания &quot;Чудесный Отдых&quot;</title>
+        <meta name="robots" content="index, follow">
+        <meta name="HandheldFriendly" content="True">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="format-detection" content="date=no">
+        <meta name="format-detection" content="address=no">
+        <meta name="format-detection" content="email=no">
+        <meta name="application-name" content="Туристическая компания &quot;Чудесный Отдых&quot;">
+        <meta name="color-scheme" content="only light">
+        <meta property="og:title" content="Туристическая компания &quot;Чудесный Отдых&quot;">
+        <meta property="og:type" content="website">
+        <meta property="og:description" content="Описание сайта">
+        <meta property="og:image" content="Изображение">
+        <meta property="og:site_name" content="Туристическая компания &quot;Чудесный Отдых&quot;">
+        <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+        <link rel="icon" href="images/favicon.png" type="image/png">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css">
+        <link rel="stylesheet" href="css/common.css">
+        <link rel="stylesheet" href="css/delivery.css">
+        <script defer src="scripts/main.js" type="module"></script>
+        <script defer src="scripts/dialog.js"></script>
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <div class="menu"><img class="open" src="images/menu.svg" onclick="headerPopup('menu')" alt="Меню"><img class="close" src="images/cross.svg" onclick="headerPopup('close')" alt="Закрыть"></div><a class="logotype" href="pages.html"><img src="images/logotype.svg" alt="J-Point"></a>
+                <menu><a href="#">Колье</a><a href="#">Украшения на тело</a><a href="#">Серьги</a><a href="#">Браслеты</a><a href="#">Кольца</a><a href="#">Каффы</a><a href="#">Скидки</a></menu>
+                <div class="search" onclick="headerPopup('search')"><img src="images/search.svg"><span>Поиск</span></div><a class="cart" href="#"><img src="images/cart.svg"><span>Корзина</span></a>
+            </div>
+            <div class="cart_popup">
+                <div class="preview"><img src="images/7.webp" alt="Кольцо J-Point Selection 117225"></div>
+                <div class="text">
+                    <div class="add"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M16.0272 5.75H3.47006C2.97123 5.75 2.54552 6.16231 2.46352 6.72487L0.762794 18.3915C0.659129 19.1026 1.13877 19.75 1.76934 19.75H17.728C18.3585 19.75 18.8382 19.1026 18.7345 18.3915L17.0338 6.72487C16.9518 6.16231 16.5261 5.75 16.0272 5.75Z" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M5.74866 5.75C5.74866 2.98857 7.53952 0.75 9.74866 0.75C11.9578 0.75 13.7487 2.98857 13.7487 5.75" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+<span>добавлен в корзину</span>
+                    </div>
+                    <h4>Кольцо J-Point Selection 117225</h4><span class="material">золото</span>
+                </div>
+            </div>
+            <div class="menu_popup">
+                <div class="overflow">
+                    <div class="wrap"><a href="#">Колье</a><a href="#">Украшения на тело</a><a href="#">Серьги</a><a href="#">Браслеты</a><a href="#">Кольца</a><a href="#">Каффы</a><a href="#">Скидки</a></div>
+                </div>
+            </div>
+            <div class="search_popup">
+                <form action=""><img class="search" src="images/search.svg">
+                    <input type="search" name="search" placeholder="Поиск">
+                </form>
+                <div class="backdrop" onclick="headerPopup('close')"></div>
+            </div>
+        </header>
+        <main>
+            <section class="main">
+                <div class="container">
+                    <div class="breadcrumbs"><a href="#">Главная</a><span>Доставка и оплата</span></div>
+                    <div class="title">
+                        <h2>Доставка и оплата</h2><span>Мы сопровождаем ваш заказ на каждом этапе — от подтверждения изделия до его бережной доставки.</span>
+                    </div>
+                    <div class="how">
+                        <div class="subtitle">
+                            <h3>Как оформить заказ</h3><span>Оформление заказа происходит в несколько этапов:</span>
+                        </div>
+                        <div class="list">
+                            <div class="item"><img src="images/delivery_1.svg">
+                                <div class="text">
+                                    <h4>Заявка</h4><span>Вы Оставляете заявку на бронирование изделия.</span>
+                                </div>
+                            </div>
+                            <div class="item"><img src="images/delivery_2.svg">
+                                <div class="text">
+                                    <h4>подтверждение наличия</h4><span>Персональный менеджер связывается с вами для подтверждения наличия.</span>
+                                </div>
+                            </div>
+                            <div class="item"><img src="images/delivery_3.svg">
+                                <div class="text">
+                                    <h4>Согласование условий</h4><span>С вами согласовываются условия доставки и оплаты</span>
+                                </div>
+                            </div>
+                            <div class="item"><img src="images/delivery_4.svg">
+                                <div class="text">
+                                    <h4>Доставка</h4><span>После подтверждения заказ передаётся в доставку</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="phone">
+                            <h4>Обратите внимание: оформление заказа осуществляется только после консультации с менеджером</h4><a class="phone" href="#"><img src="images/consult_phone.svg"><span>+7 495 212-11-10</span></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="delivery">
+                <div class="container">
+                    <div class="title">
+                        <h2>Доставка и оплата</h2><span>Мы уделяем особое внимание безопасности и надёжности доставки ювелирных изделий.</span>
+                    </div>
+                    <div class="tabs">
+                        <div class="tabs_captions">
+                            <div class="tab_caption active" data-tabcaption="delivery">Доставка</div>
+                            <div class="tab_caption" data-tabcaption="payment">Оплата</div>
+                        </div>
+                        <div class="tabs_content">
+                            <div class="tab_content active" data-tabcontent="delivery">
+                                <div class="group">
+                                    <h4>Способ доставки</h4><span>Доставка по России осуществляется специализированной курьерской службой «Спецсвязь».</span>
+                                </div>
+                                <div class="group">
+                                    <h4>Сроки</h4><span>Срок доставки рассчитывается индивидуально и зависит от региона и наличия изделия. Менеджер сообщит точные сроки при подтверждении заказа.</span>
+                                </div>
+                                <div class="group">
+                                    <h4>Условия</h4>
+                                    <ul>
+                                        <li>— отправления полностью застрахованы</li>
+                                        <li>— доставка осуществляется только после подтверждения заказа и его оплаты. </li>
+                                    </ul>
+                                </div>
+                                <div class="attention">
+                                    <h4> <img src="images/alert.svg">Внимание!</h4><span>Ювелирные изделия не подлежат возврату и обмену.Перед покупкой, пожалуйста, ознакомьтесь с этим условием</span>
+                                </div>
+                            </div>
+                            <div class="tab_content" data-tabcontent="payment">
+                                <div class="group">
+                                    <h4>Способ оплаты</h4><span>Доставка по России осуществляется специализированной курьерской службой «Спецсвязь».</span>
+                                </div>
+                                <div class="group">
+                                    <h4>Сроки</h4><span>Срок доставки рассчитывается индивидуально и зависит от региона и наличия изделия. Менеджер сообщит точные сроки при подтверждении заказа.</span>
+                                </div>
+                                <div class="group">
+                                    <h4>Условия</h4>
+                                    <ul>
+                                        <li>— отправления полностью застрахованы</li>
+                                        <li>— доставка осуществляется только после подтверждения заказа и его оплаты. </li>
+                                    </ul>
+                                </div>
+                                <div class="attention">
+                                    <h4> <img src="images/alert.svg">Внимание!</h4><span>Ювелирные изделия не подлежат возврату и обмену.Перед покупкой, пожалуйста, ознакомьтесь с этим условием</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="loyalty">
+                <div class="container">
+                    <div class="cards"><img src="images/29.webp"></div>
+                    <div class="text">
+                        <div class="group">
+                            <h3>Скидки и карта лояльности</h3>
+                            <h3 class="discount">- 10%</h3>
+                            <hr><span class="opacity">Скидка предоставляется при накоплении общей суммы покупок от <b>2 000 000 ₽</b></span><span>*Карты лояльности не суммируются с акциями и скидками</span>
+                        </div>
+                        <div class="group">
+                            <h3>Подарочные сертификаты</h3><span>Порадуйте себя или близких качественным подарком без лишних хлопот. Подробнее о нашем сертификате и условиях их приобретения вы можете узнать у наших менеджеров оставив заявку.</span>
+                            <hr><span>Связаться с менеджером</span><a class="phone" href="#"><img src="images/consult_phone.svg"><span>+7 495 212-11-10</span></a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="subscribe">
+                <div class="container">
+                    <h2>Подпишитесь на новости бренда</h2><span>Ознакомьтесь с последними коллекциями, новостями и эксклюзивными новинками от J-point</span>
+                    <form action=""> 
+                        <div class="input">
+                            <input type="email" placeholder=" " autocomplete="off" oninvalid="event.preventDefault(); this.classList.add('error'); this.nextElementSibling.nextElementSibling.textContent = this.validationMessage" onclick="this.classList.remove('error')" required="required"/>
+                            <label>Email</label><span></span>
+                        </div>
+                        <button class="border">Подписатся</button>
+                    </form><span class="offer">Нажимая на кнопку вы даёте согласие с <a href="#">публичной офертой</a> и <a href="#">обработкой персональных данных</a> и даёте согласие на получение писем с новостями и акциями бренда</span>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div class="container">
+                <div class="top">
+                    <menu class="catalog">
+                        <div class="caption" onclick="this.parentNode.classList.toggle('open')">
+                            <h4>Каталог</h4><img src="images/footer_arrow.svg">
+                        </div>
+                        <div class="list">
+                            <div class="overflow">
+                                <div class="wrap"><a href="#">Колье</a><a href="#">Украшения на тело</a><a href="#">Серьги</a><a href="#">Браслеты</a><a href="#">Кольца</a><a href="#">Каффы</a><a href="#">Скидки</a></div>
+                            </div>
+                        </div>
+                    </menu>
+                    <menu class="information">
+                        <div class="caption" onclick="this.parentNode.classList.toggle('open')">
+                            <h4>Информация</h4><img src="images/footer_arrow.svg">
+                        </div>
+                        <div class="list">
+                            <div class="overflow">
+                                <div class="wrap"><a href="#">О компании</a></div>
+                            </div>
+                        </div>
+                    </menu>
+                    <menu class="help">
+                        <div class="caption" onclick="this.parentNode.classList.toggle('open')">
+                            <h4>Помощь</h4><img src="images/footer_arrow.svg">
+                        </div>
+                        <div class="list">
+                            <div class="overflow">
+                                <div class="wrap"><a href="#">Доставка и оплата</a><a href="#">Возврат и обмен</a><a href="#">Контакты</a></div>
+                            </div>
+                        </div>
+                    </menu>
+                    <div class="socials">
+                        <h4>Наши соцсети</h4><a href="#"><img src="images/telegram.svg"></a>
+                    </div>
+                    <div class="contacts"><a class="phone" href="#">+7 495 212-11-10</a><a class="email" href="#">Info@jpoint-jewellery.com</a><span>Часы работы c 11:00 до 22:00</span></div>
+                </div>
+                <div class="bottom"><span class="copyright">©2026 J-Point. Все права защищены.</span><a class="link" href="#">Публичная оферта</a><a class="link" href="#">Политика конфиденциальности</a><a class="develop" href="#"><span>Дизайн, разработка сайта</span><img src="images/mwi.svg" alt="MWI"></a><img class="logotype" src="images/footer_logotype.svg"></div>
+            </div>
+        </footer>
+    </body>
+</html>

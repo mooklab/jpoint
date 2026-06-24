@@ -1,0 +1,182 @@
+section.subscribe {
+  margin-top: var(--section-gap);
+  margin-bottom: var(--section-gap);
+}
+section.subscribe div.container {
+  max-width: 960px;
+}
+section.subscribe h2 {
+  margin-bottom: 16px;
+  color: #1a2238;
+}
+@media (max-width: 960px) {
+  section.subscribe h2 {
+    margin-bottom: 10px;
+  }
+}
+section.subscribe form {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr -webkit-max-content;
+  grid-template-columns: 1fr max-content;
+  grid-gap: 15px;
+  margin-top: 32px;
+  margin-bottom: 10px;
+}
+@media (max-width: 640px) {
+  section.subscribe form {
+    grid-template-columns: 1fr;
+    margin-top: 16px;
+  }
+}
+section.subscribe span.offer {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 130%;
+  color: rgba(111, 111, 111, 0.8);
+}
+section.subscribe span.offer a {
+  font-weight: 500;
+  text-decoration: underline;
+  color: #8c6a3c;
+}
+section.subscribe span.offer a:hover {
+  text-decoration: none;
+}
+
+section.main {
+  margin-top: 30px;
+  margin-bottom: var(--section-gap);
+}
+@media (max-width: 960px) {
+  section.main {
+    margin-top: 20px;
+  }
+}
+section.main div.title {
+  display: grid;
+  grid-gap: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+@media (max-width: 960px) {
+  section.main div.title {
+    grid-gap: 10px;
+    margin-top: 25px;
+    margin-bottom: 40px;
+  }
+}
+section.main div.addresses {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: var(--grid-gap);
+}
+@media (max-width: 960px) {
+  section.main div.addresses {
+    grid-template-columns: 1fr;
+    grid-gap: 40px;
+  }
+}
+section.main div.addresses div.list {
+  grid-column: 5 span;
+  display: grid;
+  grid-gap: 20px;
+}
+@media (max-width: 960px) {
+  section.main div.addresses div.list {
+    grid-column: unset;
+  }
+}
+section.main div.addresses div.list div.address h3 {
+  margin-bottom: 16px;
+}
+@media (max-width: 960px) {
+  section.main div.addresses div.list div.address h3 {
+    margin-bottom: 12px;
+  }
+}
+section.main div.addresses div.list div.address div.schedule {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: -webkit-max-content;
+  grid-auto-columns: max-content;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-gap: 76px;
+  margin-bottom: 20px;
+}
+@media (max-width: 960px) {
+  section.main div.addresses div.list div.address div.schedule {
+    margin-bottom: 10px;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    grid-gap: 30px;
+  }
+}
+section.main div.addresses div.list div.address div.schedule span {
+  opacity: 0.8;
+}
+section.main div.addresses div.list div.address div.schedule span:first-child {
+  text-transform: uppercase;
+}
+section.main div.addresses div.list div.address div.schedule span:last-child {
+  opacity: 0.5;
+}
+section.main div.addresses div.list div.address div.contacts {
+  display: grid;
+  grid-gap: 5px;
+}
+section.main div.addresses div.list div.address div.contacts span, section.main div.addresses div.list div.address div.contacts a {
+  opacity: 0.8;
+}
+section.main div.addresses div.list div.address div.socials {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: -webkit-max-content;
+  grid-auto-columns: max-content;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-gap: 20px;
+  margin-top: 16px;
+  margin-bottom: 30px;
+}
+@media (max-width: 960px) {
+  section.main div.addresses div.list div.address div.socials {
+    margin-bottom: 20px;
+  }
+}
+section.main div.addresses div.list div.address a.button.border {
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+}
+@media (max-width: 640px) {
+  section.main div.addresses div.list div.address a.button.border {
+    width: 100%;
+  }
+}
+section.main div.addresses div.list hr {
+  width: 100%;
+  height: 1px;
+  background: #6f6f6f;
+  opacity: 0.2;
+}
+section.main div.addresses div.map {
+  grid-column: 7 span;
+}
+@media (max-width: 960px) {
+  section.main div.addresses div.map {
+    grid-column: unset;
+    width: 100%;
+    aspect-ratio: 16/9;
+    display: none;
+  }
+}
+
+ymaps[class*=ground-pane] {
+  -webkit-filter: grayscale(100%);
+          filter: grayscale(100%);
+}/*# sourceMappingURL=contacts.css.map */

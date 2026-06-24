@@ -1,0 +1,33 @@
+mixin collection_card(image, title, text)
+    div.collection_card
+        img(src=image, alt=title).preview
+        div.description
+            h3= title
+            span.text= text
+            a(href="#").button.border 
+                span Смотреть коллекцию
+
+section.collections
+    div.container
+
+        div.title
+            h2 Коллекции
+            div.swiper-navigation
+                div.arrow
+                    include ../../images/swiper_arrow.svg
+                div.arrow
+                    include ../../images/swiper_arrow.svg
+
+        div.swiper
+            div.swiper-wrapper
+                div.swiper-slide
+                    +collection_card('images/12.webp', 'Сердца', 'Ожерелья и подвески, воплощающие в себе мастерство, которым славится J-Point')
+                div.swiper-slide
+                    +collection_card('images/11.webp', 'Смайлик', 'Ожерелья и подвески, воплощающие в себе мастерство, которым славится J-Point')
+                div.swiper-slide
+                    +collection_card('images/12.webp', 'Браслеты', 'Ожерелья и подвески, воплощающие в себе мастерство, которым славится J-Point')
+                div.swiper-slide
+                    +collection_card('images/11.webp', 'Колье', 'Ожерелья и подвески, воплощающие в себе мастерство, которым славится J-Point')
+              
+
+        div.swiper-pagination2

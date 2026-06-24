@@ -1,0 +1,17 @@
+extends ../components/common/pug/_layout.pug
+include ../components/common/pug/_mixins.pug
+
+block links
+    link(rel="stylesheet", href="css/success.css")
+
+block content
+    
+    section.main
+        div.container
+
+            img(src="images/success.webp")
+
+            div.text
+                h2 заказ №11234 #[br]успешно оформлен!
+                span В скором времени с вами свяжется менеджер и уточнит информацию по доставке, итоговую стоимость заказа и способ оплаты
+                a(href="#").button.border продолжить покупки

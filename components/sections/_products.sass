@@ -1,0 +1,35 @@
+@use '../../components/common/sass/_variables' as *
+@use '../../components/common/sass/_mixins' as *
+
+section.products
+    margin-top: var(--section-gap)
+    margin-bottom: var(--section-gap)
+
+    div.container
+        display: grid
+        grid-gap: 30px
+        +s(m)
+            grid-gap: 10px
+
+    div.title
+        display: grid
+        align-items: center
+        grid-template-columns: 1fr max-content
+        grid-gap: 30px
+
+    div.swiper
+        overflow: visible
+        +s(m)
+            margin-bottom: 14px
+        +s(s)
+            width: calc(100% + (var(--side-gap) * 2))
+            margin-left: calc(var(--side-gap) * -1)
+
+    div.swiper-navigation
+        +s(m)
+            display: none
+
+    div.swiper-pagination2
+        display: none
+        +s(m)
+            display: grid

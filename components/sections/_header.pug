@@ -1,0 +1,53 @@
+header
+    div.container
+
+        div.menu
+            img(src="images/menu.svg", onclick="headerPopup('menu')", alt="Меню").open
+            img(src="images/cross.svg", onclick="headerPopup('close')", alt="Закрыть").close
+
+        a(href="pages.html").logotype
+            img(src="images/logotype.svg", alt="J-Point")
+
+        menu
+            a(href="#") Колье
+            a(href="#") Украшения на тело
+            a(href="#") Серьги
+            a(href="#") Браслеты
+            a(href="#") Кольца
+            a(href="#") Каффы
+            a(href="#") Скидки
+
+        div(onclick="headerPopup('search')").search
+            img(src="images/search.svg")
+            span Поиск
+
+        a(href="#").cart
+            img(src="images/cart.svg")
+            span Корзина
+
+    div.cart_popup
+        div.preview
+            img(src="images/7.webp", alt="Кольцо J-Point Selection 117225")
+        div.text
+            div.add
+                include ../../images/cart.svg
+                span добавлен в корзину
+            h4 Кольцо J-Point Selection 117225
+            span.material золото
+
+    div.menu_popup
+        div.overflow
+            div.wrap
+                a(href="#") Колье
+                a(href="#") Украшения на тело
+                a(href="#") Серьги
+                a(href="#") Браслеты
+                a(href="#") Кольца
+                a(href="#") Каффы
+                a(href="#") Скидки
+
+    div.search_popup
+        form(action="")
+            img(src="images/search.svg").search
+            input(type="search", name="search", placeholder="Поиск")
+        div(onclick="headerPopup('close')").backdrop

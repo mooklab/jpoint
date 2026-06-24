@@ -1,0 +1,39 @@
+@use '../../components/common/sass/_variables' as *
+@use '../../components/common/sass/_mixins' as *
+
+section.subscribe
+    margin-top: var(--section-gap)
+    margin-bottom: var(--section-gap)
+
+    div.container
+        max-width: 960px
+
+    h2
+        margin-bottom: 16px
+        color: $color-2
+        +s(m)
+            margin-bottom: 10px
+
+    form
+        width: 100%
+        display: grid
+        grid-template-columns: 1fr max-content
+        grid-gap: 15px
+        margin-top: 32px
+        margin-bottom: 10px
+        +s(s)
+            grid-template-columns: 1fr
+            margin-top: 16px
+
+    span.offer
+        font-weight: 400
+        font-size: 12px
+        line-height: 130%
+        color: #6f6f6fcc
+
+        a
+            font-weight: 500
+            text-decoration: underline
+            color: $color
+            &:hover
+                text-decoration: none

@@ -1,0 +1,47 @@
+@use '../components/common/sass/_mixins' as *
+@use '../components/common/sass/_variables' as *
+
+section.main
+    padding-top: var(--section-gap)
+    padding-bottom: var(--section-gap)
+    display: grid
+    align-items: center
+    height: 100%
+    box-sizing: border-box
+
+    div.container
+        display: grid
+        align-items: center
+        align-content: center
+        grid-template-columns: max-content 1fr
+        grid-gap: 40px
+        +s(m)
+            grid-template-columns: 1fr
+            justify-content: center
+            justify-items: center
+            text-align: center
+            grid-gap: 20px
+
+    img
+        width: 100%
+        max-width: 500px
+
+    div.text
+        display: grid
+        max-width: 580px
+        +s(m)
+            justify-items: center
+        h2
+            margin-bottom: 10px
+
+        span
+            margin-bottom: 24px
+            max-width: 480px
+            opacity: 0.8
+
+        a
+            width: max-content
+            min-width: 280px
+            +s(s)
+                width: 100%
+                max-width: unset

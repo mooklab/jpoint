@@ -1,0 +1,32 @@
+- title = sectionTitle || "Без названия"
+- count = sectionCount || 6
+
+- 
+     products = [
+        ['images/7.webp', 'Кольцо J-Point Selection 117225', 90000, 120000, true],
+        ['images/8.webp', 'Кольцо J-Point Classic 117225', 100000, 0, true],
+        ['images/9.webp', 'Кольцо J-Point Signature 117225', 80000, 0, false],
+        ['images/22.webp', 'Кольцо J-Point Elegance 117225', 115000, 160000, false],
+        ['images/23.webp', 'Кольцо J-Point Collection 117225', 120000, 0, false],
+        ['images/24.webp', 'Кольцо J-Point Aurora 117225', 100000, 0, true]
+    ]
+
+section.products
+    div.container
+
+        div.title
+            h2= title
+            div.swiper-navigation
+                div.arrow
+                    include ../../images/swiper_arrow.svg
+                div.arrow
+                    include ../../images/swiper_arrow.svg
+
+        div.swiper
+            div.swiper-wrapper
+                each product, index in products
+                    if index < count
+                        div.swiper-slide
+                            +product_card(...product)
+
+        div.swiper-pagination2

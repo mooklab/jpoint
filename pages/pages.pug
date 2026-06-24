@@ -1,0 +1,29 @@
+extends ../components/common/pug/_layout.pug
+include ../components/common/pug/_mixins.pug
+
+block links
+    link(rel="stylesheet", href="css/pages.css")
+
+block content
+    
+    section.main
+        div.container
+
+            h1 Страницы
+
+            div.list
+                a(href="index.html", target="blank") Главная
+                a(href="catalog.html", target="blank") Каталог
+                a(href="product.html", target="blank") Продукт
+                a(href="product.html#preorder", target="blank") Продукт (Под заказ)
+                a(href="cart.html", target="blank") Корзина
+                a(href="cart.html#empty", target="blank") Корзина (Пустая)
+                a(href="order.html", target="blank") Оформление
+                a(href="success.html", target="blank") Успешное оформление
+                a(href="search.html#history", target="blank") Поиск
+                a(href="search.html#results", target="blank") Поиск (результат)
+                a(href="search.html#empty", target="blank") Поиск (пусто)
+                a(href="about.html", target="blank") О компании
+                a(href="delivery.html", target="blank") Доставка
+                a(href="contacts.html", target="blank") Контакты
+                a(href="404.html", target="blank") 404

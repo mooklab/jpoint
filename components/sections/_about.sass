@@ -1,0 +1,112 @@
+@use '../../components/common/sass/_variables' as *
+@use '../../components/common/sass/_mixins' as *
+
+section.about
+    margin-top: var(--section-gap)
+    margin-bottom: var(--section-gap)
+
+    div.container
+        display: grid
+        align-items: center
+        grid-template-columns: repeat(2, 1fr)
+        grid-gap: var(--grid-gap)
+        +s(s)
+            grid-template-columns: 1fr
+
+        div.preview
+            width: 100%
+            aspect-ratio: 1 / 1
+            padding-right: 50px
+            +s(s)
+                padding-right: unset
+
+            img
+                width: 100%
+                height: 100%
+                object-fit: cover
+
+        div.text
+            max-width: 500px
+
+            div.logotype
+                display: grid
+                grid-gap: 5px
+                margin-bottom: 30px
+                +s(m)
+                    margin-bottom: 10px
+
+                h2
+                    font-family: "Cormorant", serif
+                    font-weight: 500
+                    line-height: 140%
+                    letter-spacing: -0.01em
+                    text-transform: uppercase
+                    color: $color
+                    +f(48px, 68px)
+                span
+                    font-weight: 400
+                    font-size: 14px
+                    line-height: 140%
+                    text-transform: uppercase
+                    color: $color-2
+                    opacity: 0.5
+            div.description
+                display: grid
+                grid-gap: 1em
+                color: $brown
+                opacity: 0.8
+                margin-bottom: 30px
+                +s(m)
+                    margin-bottom: 20px
+
+                span
+                    line-height: 140%
+            div.author
+                display: grid
+                margin-bottom: 30px
+                +s(m)
+                    margin-bottom: 20px
+
+                div.name
+                    font-family: "Cormorant", serif
+                    font-weight: 500
+                    line-height: 108%
+                    letter-spacing: 0.01em
+                    text-transform: uppercase
+                    color: $color-2
+                    +f(16px, 20px)
+                div.surname
+                    font-family: "Cormorant", serif
+                    line-height: 108%
+                    letter-spacing: 0.01em
+                    text-transform: uppercase
+                    color: $color
+                    margin-bottom: 15px
+                    +f(24px, 32px)
+                    +s(m)
+                        margin-bottom: 10px
+                div.position
+                    font-weight: 400
+                    font-size: 12px
+                    line-height: 130%
+                    color: $gray
+            div.signature
+                svg
+                    +s(m)
+                        width: 69px
+                        height: auto
+
+                    path
+                        stroke-dashoffset: 400
+                        stroke-dasharray: 400
+                &.animate
+                    svg
+                        path
+                            stroke-dasharray: 400
+                            animation: 2s signature linear forwards
+
+@keyframes signature
+    0%
+        stroke-dashoffset: 400
+    100%
+        stroke-dashoffset: 0

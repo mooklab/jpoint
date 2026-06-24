@@ -1,0 +1,122 @@
+extends ../components/common/pug/_layout.pug
+include ../components/common/pug/_mixins.pug
+
+block links
+    link(rel="stylesheet", href="css/search.css")
+
+block content
+
+    section.main
+        div.container
+
+            div.search
+                div.search_field
+                    input(type="search", name="", placeholder="поиск", required)
+                    button: img(src="images/search_arrow.svg")
+                div.help
+                    a(href="#") Серьги J-point Collection ИПГ857.50.080823.3W
+                    a(href="#") Серьги J-point
+                    a(href="#") Каффы
+                    a(href="#") серьги белое золото
+                div.popular
+                    h4 Популярные запросы
+                    div.links
+                        a(href="#")
+                            img(src="images/clock.svg")
+                            | Серьги J-point Collection ИПГ857.50.080823.3W
+                        a(href="#")
+                            img(src="images/clock.svg")
+                            | Серьги J-point
+                        a(href="#")
+                            img(src="images/clock.svg")
+                            | Каффы
+                        a(href="#")
+                            img(src="images/clock.svg")
+                            | серьги белое золото
+                div.collections
+                    h4 Коллекции
+                    div.links
+                        a(href="#") Смайлик
+                        a(href="#") Сердца
+                        a(href="#") Дети
+                        a(href="#") Пины
+                        a(href="#") Объятия
+
+            div.list
+                +product_card('images/7.webp', 'Кольцо J-Point Selection 117225', 90000, 120000, true)
+                +product_card('images/8.webp', 'Кольцо J-Point Selection 117225', 100000, 0, true)
+                +product_card('images/9.webp', 'Кольцо J-Point Selection 117225', 80000, 0, false)
+                +product_card('images/7.webp', 'Кольцо J-Point Selection 117225', 115000, 160000, false)
+
+    section.products
+        div.container
+
+            div.filters
+                div(onclick="document.querySelector('section.filter').classList.add('show')").filter
+                    img(src="images/filter.svg")
+                    span фильтры
+                div.select
+                    input(type="hidden" name="sort" value="popular")
+
+                    div.selected_item
+                        span по популярности
+                        include ../images/select_arrow.svg
+
+                    div.select_list
+                        div.select_overflow
+                            div.select_wrap
+                                span(data-value="popular").active по популярности
+                                span(data-value="cheap") сначала дешевле
+                                span(data-value="expensive") сначала дороже
+                                span(data-value="new") по новизне
+                div.count
+                    span 320 товаров
+                div.views
+                    span вид каталога
+                    div.icons
+                        img(src="images/view_list.svg", data-view="list")
+                        img(src="images/view_grid.svg", data-view="grid").active
+
+            div.products
+                +product_card('images/7.webp', 'Кольцо J-Point Selection 117225', 90000, 120000, true)
+                +product_card('images/8.webp', 'Кольцо J-Point Selection 117225', 100000, 0, true)
+                +product_card('images/9.webp', 'Кольцо J-Point Selection 117225', 80000, 0, false)
+                +product_card('images/7.webp', 'Кольцо J-Point Selection 117225', 115000, 160000, false)
+                +product_card('images/8.webp', 'Кольцо J-Point Selection 117225', 120000, 0, false)
+                +product_card('images/9.webp', 'Кольцо J-Point Selection 117225', 100000, 0, true)
+                +product_card('images/7.webp', 'Кольцо J-Point Selection 117225', 90000, 120000, true)
+                +product_card('images/8.webp', 'Кольцо J-Point Selection 117225', 100000, 0, true)
+                +product_card('images/9.webp', 'Кольцо J-Point Selection 117225', 80000, 0, false)
+                +product_card('images/7.webp', 'Кольцо J-Point Selection 117225', 115000, 160000, false)
+                +product_card('images/8.webp', 'Кольцо J-Point Selection 117225', 120000, 0, false)
+                +product_card('images/9.webp', 'Кольцо J-Point Selection 117225', 100000, 0, true)
+                +product_card('images/7.webp', 'Кольцо J-Point Selection 117225', 90000, 120000, true)
+                +product_card('images/8.webp', 'Кольцо J-Point Selection 117225', 100000, 0, true)
+                +product_card('images/9.webp', 'Кольцо J-Point Selection 117225', 80000, 0, false)
+                +product_card('images/7.webp', 'Кольцо J-Point Selection 117225', 115000, 160000, false)
+
+    section.empty
+        div.container
+            span Ничего не найдено. Попробуйте ввести другой запрос, или перейдите в каталог.
+            a(href="#").button.fill 
+                span Перейте в каталог
+
+    include ../components/sections/_filter.pug
+
+    //- Для показа пустой корзины
+
+    script.
+        const history = location.hash === '#history'
+        const results = location.hash === '#results'
+        const empty = location.hash === '#empty'
+
+        const historySection = document.querySelectorAll('section.main :is(.help, .popular, .collections, .list)')
+        const resultSection = document.querySelector('section.products')
+        const emptySection = document.querySelector('section.empty')
+
+
+        history ? historySection.forEach( el => el.style.display = 'grid' ) : historySection.forEach( el => el.style.display = 'none' )
+        results ? resultSection.style.display = 'grid' : resultSection.style.display = 'none'
+        empty ? emptySection.style.display = 'grid' : emptySection.style.display = 'none'
+
+        console.log(location.hash)

@@ -1,0 +1,35 @@
+@use '../../components/common/sass/_variables' as *
+@use '../../components/common/sass/_mixins' as *
+
+section.socials
+    margin-top: var(--section-gap)
+    margin-bottom: var(--section-gap)
+
+    div.container
+        display: grid
+        grid-gap: 30px
+        +s(m)
+            grid-gap: 10px
+
+    div.swiper
+        +s(m)
+            margin-bottom: 14px
+        +s(s)
+            overflow: visible
+
+    div.swiper-slide
+        position: relative
+        img
+            width: 100%
+            aspect-ratio: 3 / 4
+            object-fit: cover
+        span
+            position: absolute
+            bottom: 20px
+            left: 20px
+            background: rgba(255, 255, 255, 0.2)
+            padding: 10px
+            font-weight: 500
+            font-size: 14px
+            line-height: 130%
+            color: #fff

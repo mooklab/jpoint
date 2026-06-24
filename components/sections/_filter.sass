@@ -1,0 +1,165 @@
+@use '../../components/common/sass/_variables' as *
+@use '../../components/common/sass/_mixins' as *
+
+section.filter
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    z-index: 100
+    pointer-events: none
+
+    div.container
+        grid-column: full
+        background: white
+        width: 100%
+        height: 100%
+        overflow: auto
+        max-width: 480px
+        padding: 20px 30px
+        display: grid
+        grid-template-rows: max-content 1fr
+        grid-gap: 40px
+        z-index: 2
+        transform: translateX(-100%)
+        transition: all 0.5s
+
+    img.cross
+        cursor: pointer
+
+    div.title
+        display: grid
+        align-items: center
+        grid-template-columns: 1fr max-content
+        margin-bottom: 6px
+
+    div.price
+        display: grid
+        grid-gap: 10px
+        margin-top: 10px
+        margin-bottom: 10px
+        div.wrap
+            display: grid
+            grid-auto-flow: column
+            align-items: center
+            grid-auto-columns: max-content
+            grid-gap: 5px
+            padding: 4px 8px
+            background: #f5f5f5
+        span
+            font-weight: 600
+        div.inputs
+            display: grid
+            grid-template-columns: repeat(2, max-content)
+            justify-content: space-between
+            input[type="text"]
+                font-weight: 600
+                color: $brown
+                height: auto
+                width: max-content
+                padding: unset
+                field-sizing: content
+                &:last-child
+                    text-align: right
+        div.slider
+            position: relative
+            display: grid
+            align-items: center
+            height: 16px
+            div.slider-range
+                position: absolute
+                top: 50%
+                height: 1px
+                background: $brown
+
+            div.slider-track
+                height: 1px
+                background: $gray
+                opacity: 0.5
+
+            input[type="range"]
+                position: absolute
+                top: 0
+                left: 0
+                width: 100%
+                height: auto
+                padding: unset
+                appearance: none
+                pointer-events: none
+                &::-webkit-slider-thumb
+                    cursor: pointer
+                    appearance: none
+                    display: block
+                    border: 1px solid $brown
+                    width: 16px
+                    height: 16px
+                    background: #fff
+                    pointer-events: auto
+                &::-moz-range-thumb
+                    display: block
+                    border: 1px solid $brown
+                    width: 16px
+                    height: 16px
+                    background: #fff
+                    pointer-events: auto
+
+    div.accordion
+        div.caption
+            cursor: pointer
+            display: grid
+            grid-template-columns: max-content 1fr
+            align-items: center
+            grid-gap: 10px
+            padding-top: 10px
+            padding-bottom: 10px
+            img
+                transition: transform 0.5s
+        div.content
+            display: grid
+            grid-template-rows: 0fr
+            transition: all 0.5s
+            div.list
+                display: grid
+                grid-gap: 10px
+                padding-bottom: 10px
+
+                label.checkbox
+                    span
+                        opacity: 0.8
+        div.overflow
+            overflow: hidden
+
+        &.open
+            div.caption
+                img
+                    transform: rotate(180deg)
+            div.content
+                grid-template-rows: 1fr
+
+    div.buttons
+        display: grid
+        grid-gap: 10px
+        align-self: end
+        button
+            width: 100%
+
+    div.backdrop
+        position: fixed
+        top: 0
+        left: 0
+        right: 0
+        bottom: 0
+        background: #D9D9D9
+        opacity: 0
+        z-index: 1
+        transition: all 0.5s
+
+    &.show
+        pointer-events: auto
+
+        div.container
+            transform: translateX(0)
+
+        div.backdrop
+            opacity: 0.3

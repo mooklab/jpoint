@@ -1,0 +1,254 @@
+extends ../components/common/pug/_layout.pug
+include ../components/common/pug/_mixins.pug
+
+block links
+    link(rel="stylesheet", href="css/product.css")
+
+block content
+
+    section.main
+        div.container
+
+            div.breadcrumbs
+                a(href="#") Главная
+                a(href="#") Серьги
+                span Серьги J-point Collection ИПГ857.50.080823.3W
+
+            div.product
+
+                div.gallery
+                    div.slider
+                        div.swiper
+                            div.swiper-wrapper
+                                div.swiper-slide
+                                    img(src="images/7.webp", alt="Серьги J-point Collection ИПГ857.50.080823.3W", lightbox="product")
+                                div.swiper-slide
+                                    img(src="images/8.webp", alt="Серьги J-point Collection ИПГ857.50.080823.3W", lightbox="product")
+                                div.swiper-slide
+                                    img(src="images/9.webp", alt="Серьги J-point Collection ИПГ857.50.080823.3W", lightbox="product")
+                                div.swiper-slide
+                                    img(src="images/22.webp", alt="Серьги J-point Collection ИПГ857.50.080823.3W", lightbox="product")
+                                div.swiper-slide
+                                    img(src="images/23.webp", alt="Серьги J-point Collection ИПГ857.50.080823.3W", lightbox="product")
+                        div.swiper-pagination
+                        img(src="images/zoom.svg", alt="Zoom").zoom
+                    
+                    div.advantages
+                        div.advantage
+                            img(src="images/product_advantage_1.svg")
+                            span Количество товара #[br]ограничено
+                        div.advantage
+                            img(src="images/product_advantage_2.svg")
+                            span Изделие не подлежит #[br]возврату
+                        div.advantage
+                            img(src="images/product_advantage_3.svg")
+                            span Не является публичной #[br]офертой
+
+                div.about
+
+                    div.title
+                        h2 Серьги J-point Collection ИПГ857.50.080823.3W
+                        div.article
+                            span Артикул: ИПГ857.50.080823.3W
+                            img(src="images/copy.svg")
+                        
+                    div.color
+                        span.title Цвет:
+                        div.select.border
+                            input(type="hidden" name="color" value="white")
+
+                            div.selected_item
+                                span Белое
+                                include ../images/select_arrow.svg
+
+                            div.select_list
+                                div.select_overflow
+                                    div.select_wrap
+                                        span(data-value="white").active Белое
+                                        span(data-value="gold") Золотое
+                    
+                    div.specs
+                        span.title Характеристики:
+                        div.grid
+                            span Металл
+                            span Золото 585
+                            span Вставки
+                            span Бриллианты
+                            span Вес
+                            span 8,32 г
+                            span Страна
+                            span Россия
+                            div.additional
+                                div.overflow
+                                    div.grid
+                                        span Металл
+                                        span Золото 585
+                                        span Вставки
+                                        span Бриллианты
+                                        span Вес
+                                        span 8,32 г
+                                        span Страна
+                                        span Россия
+                        div(onclick="this.previousElementSibling.classList.toggle('opened')").more
+                            span.show Смотреть все
+                            span.hide Скрыть
+                            include  ../images/select_arrow.svg
+                    
+                    div.price.preorder
+                        span.new Цена по запросу
+                        
+                    div.price
+                        span.new 286 000 ₽
+                        span.old 286 000 ₽
+
+                    div.buttons.preorder
+                        button.fill
+                            span Запросить стоимость
+                        button.border
+                            span Намекнуть о подарке
+
+                    div.buttons
+                        button.fill
+                            include ../images/cart.svg
+                            span В корзину
+                        button.border
+                            span Намекнуть о подарке
+
+                    
+
+
+                    div.consult
+                        h3 Нужна помощь консультанта?
+                        span Вы можете получить консультацию по телефону или через месседжер (11:00–22:00 без выходных):
+                        a(href="#")
+                            img(src="images/consult_phone.svg")
+                            span +7 495 212-11-10
+
+            div.tabs
+                div.tabs_captions
+                    div(data-tabcaption="description").tab_caption.active Описание
+                    div(data-tabcaption="specs").tab_caption Характеристики
+                div.tabs_content
+                    div(data-tabcontent="description").tab_content.active
+                        div.accordion
+                            div(onclick="this.parentNode.classList.toggle('open')").accordion_caption
+                                span Описание
+                                img(src="images/select_arrow.svg")
+                            div.accordion_content
+                                div.overflow
+                                    div.wrap
+                                        span Мы верим, что стиль создают детали: лаконичные формы, яркие акценты и свобода сочетаний.В основе бренда — вдохновение нью-йоркским стрит-стайлом: лёгкость, многослойность и современный ритм города. Именно этот подход мы одними из первых привнесли на российский ювелирный рынок. Мы верим, что стиль создают детали: лаконичные формы, яркие акценты и свобода сочетаний.В основе бренда — вдохновение нью-йоркским стрит-стайлом: лёгкость, многослойность и современный ритм города. Именно этот подход мы одними из первых привнесли на российский ювелирный рынок.
+                    div(data-tabcontent="specs").tab_content
+                        div.accordion
+                            div(onclick="this.parentNode.classList.toggle('open')").accordion_caption
+                                span Характеристики
+                                img(src="images/select_arrow.svg")
+                            div.accordion_content
+                                div.overflow
+                                    div.wrap
+                                        div.specs
+                                            span.title Характеристики:
+                                            div.grid
+                                                span Металл
+                                                span Золото 585
+                                                span Вставки
+                                                span Бриллианты
+                                                span Вес
+                                                span 8,32 г
+                                                span Страна
+                                                span Россия
+                                        h4 как ухаживать за украшением?
+                                        ul
+                                            li — беречь от косметических и парфюмерных средств
+                                            li — избегать контакта с жидкостями и бытовой химией
+                                            li — снимать перед принятием душа/ванны и перед занятиями спортом
+                                            li — беречь от воздействия прямых солнечных лучей
+                                            li — хранить в мягких мешочках, футлярах или на специальных подставках для украшений
+                                            li — беречь от механических повреждений и падений
+
+    - sectionTitle = 'похожие товары'
+    include ../components/sections/_products.pug
+
+    - sectionTitle = 'Часто покупают вместе'
+    include ../components/sections/_products.pug
+
+    - sectionTitle = 'вы смотрели'
+    - sectionCount = 2
+    include ../components/sections/_products.pug
+
+    include ../components/sections/_subscribe.pug
+
+    section.product_footer
+        div.container
+            div.preview
+                img(src="images/7.webp", alt="Серьги J-point Collection ИПГ857.50.080823.3W")
+            div.title
+                h3 Серьги J-point Collection ИПГ857.50.080823.3W
+                div.article
+                    span Артикул: ИПГ857.50.080823.3W
+                    img(src="images/copy.svg")
+            div.price
+                span.new 286 000 ₽
+                span.old 286 000 ₽
+            button.fill
+                include ../images/cart.svg
+                span В корзину
+
+    section.product_hint
+        div.container
+            div(onclick="this.closest('section').classList.toggle('show')").cross
+                include ../images/search_cross2.svg
+            div.preview
+                img(src="images/30.webp")
+            div.text
+                div.title
+                    h3 Намекнуть о подарке
+                    span Выбери социальную сеть и отправь сообщение с ссылкой на товар, который ты хочешь получить в подарок
+                div.share
+                    div: img(src="images/hint_share.svg")
+                    div: img(src="images/hint_telegram.svg")
+                    div: img(src="images/vkontakte.svg")
+                    div: img(src="images/whatsapp.svg")
+                    div: img(src="images/max.svg")
+        div(onclick="this.closest('section').classList.toggle('show')").backdrop
+
+    section.lightbox
+        div.container
+            div.counter 
+                span.current 01
+                span.slash /
+                span.total 05
+            img(src="images/cross.svg", onclick="this.closest('section').classList.toggle('show')").cross
+            div(onclick="this.nextElementSibling.classList.toggle('x2zoom')").zoom2
+                img(src="images/zoom2.svg")
+            div.swiper
+                div.swiper-wrapper
+                    div.swiper-slide
+                        img(src="images/7.webp", alt="Серьги J-point Collection ИПГ857.50.080823.3W", lightbox="product")
+                    div.swiper-slide
+                        img(src="images/8.webp", alt="Серьги J-point Collection ИПГ857.50.080823.3W", lightbox="product")
+                    div.swiper-slide
+                        img(src="images/9.webp", alt="Серьги J-point Collection ИПГ857.50.080823.3W", lightbox="product")
+                    div.swiper-slide
+                        img(src="images/22.webp", alt="Серьги J-point Collection ИПГ857.50.080823.3W", lightbox="product")
+                    div.swiper-slide
+                        img(src="images/23.webp", alt="Серьги J-point Collection ИПГ857.50.080823.3W", lightbox="product")
+            div.swiper-navigation
+                div.arrow
+                    img(src="images/swiper_arrow_long.svg")
+                div.arrow
+                    img(src="images/swiper_arrow_long.svg")
+
+    //- Для показа предзаказа
+
+    script.
+        const isPreorder = location.hash === '#preorder'
+
+        document.querySelectorAll('div.preorder').forEach( element => {
+            if ( isPreorder ){
+                element.style.display = 'grid'
+                element.nextElementSibling.style.display = 'none'
+            } else {
+                element.style.display = 'none'
+            }
+        })

@@ -1,0 +1,14 @@
+extends ../components/common/pug/_layout.pug
+include ../components/common/pug/_mixins.pug
+
+block links
+    link(rel="stylesheet", href="css/404.css")
+
+block content
+
+    section.main
+        div.container
+
+                img(src="images/404.svg")
+                h2 Страница не найдена
+                span Страница которую вы запрашиваете не существует. Попробуйте продолжить с главной страницы.

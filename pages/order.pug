@@ -1,0 +1,99 @@
+extends ../components/common/pug/_layout.pug
+include ../components/common/pug/_mixins.pug
+
+block links
+    link(rel="stylesheet", href="css/order.css")
+
+block content
+
+    section.main
+        div.container
+            h2 Оформление заказа
+
+            form(action="", onsubmit="event.preventDefault(); validateEmail(this, event);")
+
+                div.inputs
+
+                    div.alert
+                        h4 #[img(src="images/alert.svg")]Обратите внимание
+                        span Количество товара ограничено. Товар может быть продан. Бесплатная доставка по России полностью предоплаченного изделия.
+                        img(src="images/cross.svg", onclick="this.parentNode.remove()").cross
+
+                    div.groups
+                        div.group
+                            h4 1. Контактные данные
+                            div.grid
+                                +input('text', 'Фамилия', true)
+                                +input('text', 'Имя', true)
+                                +input('text', 'Отчество', false)
+                                div.phone
+                                    +input('tel', 'Телефон', true)
+                                div.email
+                                    +input('email', 'Email', true)
+                        div.group
+                            h4 2. адрес
+                            div.grid
+                                div.adress
+                                    +input('text', 'Выберите город', true)
+                                div.street
+                                    +input('text', 'Улица и дом')
+                                div.adress_detail
+                                    +input('text', 'Кв./офис')
+                                div.adress_detail
+                                    +input('text', 'Домофон')
+                                div.adress_detail
+                                    +input('text', 'Подъезд')
+                                div.adress_detail
+                                    +input('text', 'Этаж')
+                                textarea(name="", placeholder="Комментарий к заказу")
+
+                    div.details
+                        div.grid
+                            span Предварительная сумма
+                            span.price #[b 572 000 ₽]
+                            span Скидка
+                            span.price #[b - 572 000 ₽]
+                        hr
+                        div.grid
+                            span #[b Итого]
+                            span.price #[b 572 000 ₽]
+                        a(href="").button.fill 
+                            span оформить заказ
+
+                        div.checkboxes
+                            label.checkbox
+                                input(type="checkbox", checked)
+                                div.tick
+                                    img(src="images/checkbox_tick.svg")
+                                span Я даю согласие на обработку персональных данных в соответствии с #[a(href="#") Политикой обработки персональных данных]
+                            label.checkbox
+                                input(type="checkbox", checked)
+                                div.tick
+                                    img(src="images/checkbox_tick.svg")
+                                span Я даю согласие на получение рекламных рассылок в виде СМС, email, push или в мессенджерах
+
+                div.order
+                    div.products.opened
+                        div(onclick="this.parentNode.classList.toggle('opened')").title
+                            h4 Состав заказа (4)
+                            span.hide Скрыть
+                            span.show Раскрыть
+                        div.grid
+                            div.overflow
+                                div.list
+                                    +cart_product('images/7.webp', 'Серьги J-point Collection ИПГ857.50.080823.3W')
+                                    +cart_product('images/8.webp', 'Серьги J-point Collection ИПГ857.50.080823.3W')
+                                    +cart_product('images/22.webp', 'Серьги J-point Collection ИПГ857.50.080823.3W')
+                                    +cart_product('images/23.webp', 'Серьги J-point Collection ИПГ857.50.080823.3W')
+                    div.consult
+                        h4 Нужна помощь с заказом?
+                        span Вы можете получить консультацию по телефону или через месседжер (11:00–22:00 без выходных):
+                        a(href="#")
+                            img(src="images/consult_phone.svg")
+                            span +7 495 212-11-10
+
+
+
+
+
+
