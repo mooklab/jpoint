@@ -38,6 +38,7 @@ button, a.button
     height: 50px
     padding: 12px 24px
     text-transform: uppercase
+    transition: all 0.5s
     +s(m)
         height: 40px
 
@@ -48,10 +49,25 @@ button, a.button
         letter-spacing: 0.01em
         text-transform: uppercase
         color: $color
+        transition: all 0.5s
+
+    svg
+        path
+            transition: all 0.5s
+            stroke: #8C6A3C
 
     &.border
         border: 1px solid #8C6A3C
-        color: #8C6A3C
+        overflow: hidden
+        span
+            color: #8C6A3C
+        &:hover
+            background: #8C6A3C
+            span
+                color: white
+            svg
+                path
+                    stroke: #fff
 
     &.fill
         background: $color
@@ -626,8 +642,6 @@ a.product_card
                 svg
                     width: 16px
                     height: 16px
-                    path
-                        stroke: #8C6A3C
 
 div.cart_product
     position: relative

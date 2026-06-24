@@ -292,6 +292,8 @@ button, a.button {
   height: 50px;
   padding: 12px 24px;
   text-transform: uppercase;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
 }
 @media (max-width: 960px) {
   button, a.button {
@@ -305,10 +307,29 @@ button span, a.button span {
   letter-spacing: 0.01em;
   text-transform: uppercase;
   color: #8c6a3c;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+button svg path, a.button svg path {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  stroke: #8C6A3C;
 }
 button.border, a.button.border {
   border: 1px solid #8C6A3C;
+  overflow: hidden;
+}
+button.border span, a.button.border span {
   color: #8C6A3C;
+}
+button.border:hover, a.button.border:hover {
+  background: #8C6A3C;
+}
+button.border:hover span, a.button.border:hover span {
+  color: white;
+}
+button.border:hover svg path, a.button.border:hover svg path {
+  stroke: #fff;
 }
 button.fill, a.button.fill {
   background: #8c6a3c;
@@ -1216,9 +1237,6 @@ a.product_card div.list_view div.order button {
 a.product_card div.list_view div.order button svg {
   width: 16px;
   height: 16px;
-}
-a.product_card div.list_view div.order button svg path {
-  stroke: #8C6A3C;
 }
 
 div.cart_product {

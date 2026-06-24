@@ -19,7 +19,7 @@ mixin product_card(image, title, newPrice, oldPrice, tag = false)
             div.order
                 div.overflow
                     div.wrap
-                        button.border
+                        button(onclick="addToCart(event)").border
                             include ../../../images/cart.svg
                             span В корзину
         div.list_view
@@ -51,7 +51,7 @@ mixin product_card(image, title, newPrice, oldPrice, tag = false)
                     span.newPrice !{newPrice.toLocaleString('ru-RU')} ₽
                     if oldPrice
                         span.oldPrice !{oldPrice.toLocaleString('ru-RU')} ₽
-                button.border
+                button(onclick="addToCart(event)").border
                     include ../../../images/cart.svg
                     span В корзину
 

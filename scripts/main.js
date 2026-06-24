@@ -518,40 +518,28 @@ tabs.forEach(section => {
 
 // Попап "товар добалвлен в корзину" для карточек товаров
 
-const product_cards = document.querySelectorAll('a.product_card')
-const cart_popup = document.querySelector('header div.cart_popup')
-product_cards.forEach(card => {
-    const buttons = card.querySelectorAll('button')
-    buttons.forEach(button => {
-        button.addEventListener('click', event => {
-            event.preventDefault()
-            cart_popup.classList.add('show')
-            setTimeout(() => {
-                cart_popup.classList.remove('show')
-            }, 3000)
-        })
-    })
-})
-
-
-
+window.addToCart = (event) => {
+    event.preventDefault()
+    document.querySelector('header div.cart_popup').classList.add('show')
+    setTimeout(() => {
+        document.querySelector('header div.cart_popup').classList.remove('show')
+    }, 3000)
+}
 
 // Попап "Намекнуть о подарке"
-
-const hint_buttons = document.querySelectorAll('section.main div.about div.buttons button.border')
-const product_hint_popup = document.querySelector('section.product_hint')
-
-hint_buttons.forEach(button => {
-    button.addEventListener('click', e => {
-        product_hint_popup.classList.toggle('show')
-    })
-})
+window.getHint = () => { document.querySelector('section.product_hint').classList.toggle('show') }
 
 
+// Уточнить стоимость
+window.getPrice = () => { document.querySelector('section.get_price').classList.toggle('show') }
 
 
 // Лайтбокс
-const zoomButton = document.querySelector('div.product div.gallery img.zoom')
+window.getGallery = () => { document.querySelector('section.lightbox div.swiper').closest('section').classList.toggle('show') }
+
+
+
+// Лайтбокс  слайдер
 const lightboxSwiper = document.querySelector('section.lightbox div.swiper')
 const current = document.querySelector('section.lightbox span.current')
 const total = document.querySelector('section.lightbox span.total')
@@ -567,13 +555,10 @@ new Swiper(lightboxSwiper, {
             current.textContent = formatNumber(swiper.realIndex + 1)
             total.textContent = formatNumber(swiper.slides.length)
         },
-
         slideChange(swiper) {
             current.textContent = formatNumber(swiper.realIndex + 1)
         }
     }
 })
-zoomButton.addEventListener('click', event => {
-    lightboxSwiper.closest('section').classList.toggle('show')
-})
+
 

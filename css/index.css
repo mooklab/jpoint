@@ -415,13 +415,14 @@ section.main div.swiper.texts div.swiper-slide h1 {
 }
 section.main div.swiper.texts div.swiper-slide a.button {
   pointer-events: auto;
-  border-color: #8C6A3C;
-  color: #8C6A3C;
 }
 @media (max-width: 960px) {
   section.main div.swiper.texts div.swiper-slide a.button {
     min-width: 240px;
   }
+}
+section.main div.swiper.texts div.swiper-slide.swiper-slide-active {
+  z-index: 2;
 }
 section.main div.swiper-pagination {
   position: absolute;

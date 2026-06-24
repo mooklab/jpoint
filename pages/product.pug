@@ -31,7 +31,7 @@ block content
                                 div.swiper-slide
                                     img(src="images/23.webp", alt="Серьги J-point Collection ИПГ857.50.080823.3W", lightbox="product")
                         div.swiper-pagination
-                        img(src="images/zoom.svg", alt="Zoom").zoom
+                        img(src="images/fullscreen.svg", onclick="getGallery()").fullscreen
                     
                     div.advantages
                         div.advantage
@@ -102,16 +102,16 @@ block content
                         span.old 286 000 ₽
 
                     div.buttons.preorder
-                        button.fill
+                        button(onclick="getPrice()").fill
                             span Запросить стоимость
-                        button.border
+                        button(onclick="getHint()").border
                             span Намекнуть о подарке
 
                     div.buttons
-                        button.fill
+                        button(onclick="addToCart(event)").fill
                             include ../images/cart.svg
                             span В корзину
-                        button.border
+                        button(onclick="getHint()").border
                             span Намекнуть о подарке
 
                     
@@ -190,7 +190,7 @@ block content
             div.price
                 span.new 286 000 ₽
                 span.old 286 000 ₽
-            button.fill
+            button(onclick="addToCart(event)").fill
                 include ../images/cart.svg
                 span В корзину
 
@@ -219,8 +219,8 @@ block content
                 span.slash /
                 span.total 05
             img(src="images/cross.svg", onclick="this.closest('section').classList.toggle('show')").cross
-            div(onclick="this.nextElementSibling.classList.toggle('x2zoom')").zoom2
-                img(src="images/zoom2.svg")
+            div(onclick="this.nextElementSibling.classList.toggle('scale')").zoom
+                img(src="images/zoom.svg")
             div.swiper
                 div.swiper-wrapper
                     div.swiper-slide
@@ -238,6 +238,27 @@ block content
                     img(src="images/swiper_arrow_long.svg")
                 div.arrow
                     img(src="images/swiper_arrow_long.svg")
+
+    section.get_price
+        div.container
+            div(onclick="this.closest('section').classList.toggle('show')").cross
+                include ../images/search_cross2.svg
+            h3 Уточнить стоимость изделия
+
+            div.product
+                div.preview
+                    img(src="images/7.webp", alt="Серьги J-point Collection ИПГ857.50.080823.3W")
+                div.title
+                    h4 Серьги J-point Collection ИПГ857.50.080823.3W
+                    span.article Артикул: ИПГ857.50.080823.3W
+            form(action="") 
+                +input('text', 'Ваше имя', true)
+                +input('tel', 'Телефон', true)
+                +input('text', 'WhatsApp / Telegram', true)
+                textarea(name="", placeholder="Например: интересует размер, срок изготовления, другой камень")
+                button.fill
+                    span Запросить стоимость
+        div(onclick="this.closest('section').classList.toggle('show')").backdrop
 
     //- Для показа предзаказа
 

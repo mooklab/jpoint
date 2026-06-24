@@ -77,7 +77,7 @@
                                         <div class="swiper-slide"><img src="images/23.webp" alt="Серьги J-point Collection ИПГ857.50.080823.3W" lightbox="product"></div>
                                     </div>
                                 </div>
-                                <div class="swiper-pagination"></div><img class="zoom" src="images/zoom.svg" alt="Zoom">
+                                <div class="swiper-pagination"></div><img class="fullscreen" src="images/fullscreen.svg" onclick="getGallery()">
                             </div>
                             <div class="advantages">
                                 <div class="advantage"><img src="images/product_advantage_1.svg"><span>Количество товара <br>ограничено</span></div>
@@ -122,17 +122,17 @@
                             <div class="price preorder"><span class="new">Цена по запросу</span></div>
                             <div class="price"><span class="new">286 000 ₽</span><span class="old">286 000 ₽</span></div>
                             <div class="buttons preorder">
-                                <button class="fill"><span>Запросить стоимость</span></button>
-                                <button class="border"><span>Намекнуть о подарке</span></button>
+                                <button class="fill" onclick="getPrice()"><span>Запросить стоимость</span></button>
+                                <button class="border" onclick="getHint()"><span>Намекнуть о подарке</span></button>
                             </div>
                             <div class="buttons">
-                                <button class="fill"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <button class="fill" onclick="addToCart(event)"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M16.0272 5.75H3.47006C2.97123 5.75 2.54552 6.16231 2.46352 6.72487L0.762794 18.3915C0.659129 19.1026 1.13877 19.75 1.76934 19.75H17.728C18.3585 19.75 18.8382 19.1026 18.7345 18.3915L17.0338 6.72487C16.9518 6.16231 16.5261 5.75 16.0272 5.75Z" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M5.74866 5.75C5.74866 2.98857 7.53952 0.75 9.74866 0.75C11.9578 0.75 13.7487 2.98857 13.7487 5.75" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
 <span>В корзину</span>
                                 </button>
-                                <button class="border"><span>Намекнуть о подарке</span></button>
+                                <button class="border" onclick="getHint()"><span>Намекнуть о подарке</span></button>
                             </div>
                             <div class="consult">
                                 <h3>Нужна помощь консультанта?</h3><span>Вы можете получить консультацию по телефону или через месседжер (11:00–22:00 без выходных):</span><a href="#"><img src="images/consult_phone.svg"><span>+7 495 212-11-10</span></a>
@@ -213,7 +213,7 @@
                                         <div class="order">
                                             <div class="overflow">
                                                 <div class="wrap">
-                                                    <button class="border"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <button class="border" onclick="addToCart(event)"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M16.0272 5.75H3.47006C2.97123 5.75 2.54552 6.16231 2.46352 6.72487L0.762794 18.3915C0.659129 19.1026 1.13877 19.75 1.76934 19.75H17.728C18.3585 19.75 18.8382 19.1026 18.7345 18.3915L17.0338 6.72487C16.9518 6.16231 16.5261 5.75 16.0272 5.75Z" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M5.74866 5.75C5.74866 2.98857 7.53952 0.75 9.74866 0.75C11.9578 0.75 13.7487 2.98857 13.7487 5.75" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
@@ -240,7 +240,7 @@
                                             <h4 class="percent">25%</h4>
                                             <div class="prices"><span class="newPrice">90 000 ₽</span><span class="oldPrice">120 000 ₽</span>
                                             </div>
-                                            <button class="border"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <button class="border" onclick="addToCart(event)"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M16.0272 5.75H3.47006C2.97123 5.75 2.54552 6.16231 2.46352 6.72487L0.762794 18.3915C0.659129 19.1026 1.13877 19.75 1.76934 19.75H17.728C18.3585 19.75 18.8382 19.1026 18.7345 18.3915L17.0338 6.72487C16.9518 6.16231 16.5261 5.75 16.0272 5.75Z" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M5.74866 5.75C5.74866 2.98857 7.53952 0.75 9.74866 0.75C11.9578 0.75 13.7487 2.98857 13.7487 5.75" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
@@ -261,7 +261,7 @@
                                         <div class="order">
                                             <div class="overflow">
                                                 <div class="wrap">
-                                                    <button class="border"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <button class="border" onclick="addToCart(event)"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M16.0272 5.75H3.47006C2.97123 5.75 2.54552 6.16231 2.46352 6.72487L0.762794 18.3915C0.659129 19.1026 1.13877 19.75 1.76934 19.75H17.728C18.3585 19.75 18.8382 19.1026 18.7345 18.3915L17.0338 6.72487C16.9518 6.16231 16.5261 5.75 16.0272 5.75Z" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M5.74866 5.75C5.74866 2.98857 7.53952 0.75 9.74866 0.75C11.9578 0.75 13.7487 2.98857 13.7487 5.75" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
@@ -286,7 +286,7 @@
                                         <div class="order">
                                             <div class="prices"><span class="newPrice">100 000 ₽</span>
                                             </div>
-                                            <button class="border"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <button class="border" onclick="addToCart(event)"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M16.0272 5.75H3.47006C2.97123 5.75 2.54552 6.16231 2.46352 6.72487L0.762794 18.3915C0.659129 19.1026 1.13877 19.75 1.76934 19.75H17.728C18.3585 19.75 18.8382 19.1026 18.7345 18.3915L17.0338 6.72487C16.9518 6.16231 16.5261 5.75 16.0272 5.75Z" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M5.74866 5.75C5.74866 2.98857 7.53952 0.75 9.74866 0.75C11.9578 0.75 13.7487 2.98857 13.7487 5.75" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
@@ -307,7 +307,7 @@
                                         <div class="order">
                                             <div class="overflow">
                                                 <div class="wrap">
-                                                    <button class="border"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <button class="border" onclick="addToCart(event)"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M16.0272 5.75H3.47006C2.97123 5.75 2.54552 6.16231 2.46352 6.72487L0.762794 18.3915C0.659129 19.1026 1.13877 19.75 1.76934 19.75H17.728C18.3585 19.75 18.8382 19.1026 18.7345 18.3915L17.0338 6.72487C16.9518 6.16231 16.5261 5.75 16.0272 5.75Z" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M5.74866 5.75C5.74866 2.98857 7.53952 0.75 9.74866 0.75C11.9578 0.75 13.7487 2.98857 13.7487 5.75" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
@@ -332,7 +332,7 @@
                                         <div class="order">
                                             <div class="prices"><span class="newPrice">80 000 ₽</span>
                                             </div>
-                                            <button class="border"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <button class="border" onclick="addToCart(event)"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M16.0272 5.75H3.47006C2.97123 5.75 2.54552 6.16231 2.46352 6.72487L0.762794 18.3915C0.659129 19.1026 1.13877 19.75 1.76934 19.75H17.728C18.3585 19.75 18.8382 19.1026 18.7345 18.3915L17.0338 6.72487C16.9518 6.16231 16.5261 5.75 16.0272 5.75Z" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M5.74866 5.75C5.74866 2.98857 7.53952 0.75 9.74866 0.75C11.9578 0.75 13.7487 2.98857 13.7487 5.75" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
@@ -353,7 +353,7 @@
                                         <div class="order">
                                             <div class="overflow">
                                                 <div class="wrap">
-                                                    <button class="border"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <button class="border" onclick="addToCart(event)"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M16.0272 5.75H3.47006C2.97123 5.75 2.54552 6.16231 2.46352 6.72487L0.762794 18.3915C0.659129 19.1026 1.13877 19.75 1.76934 19.75H17.728C18.3585 19.75 18.8382 19.1026 18.7345 18.3915L17.0338 6.72487C16.9518 6.16231 16.5261 5.75 16.0272 5.75Z" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M5.74866 5.75C5.74866 2.98857 7.53952 0.75 9.74866 0.75C11.9578 0.75 13.7487 2.98857 13.7487 5.75" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
@@ -380,7 +380,7 @@
                                             <h4 class="percent">28%</h4>
                                             <div class="prices"><span class="newPrice">115 000 ₽</span><span class="oldPrice">160 000 ₽</span>
                                             </div>
-                                            <button class="border"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <button class="border" onclick="addToCart(event)"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M16.0272 5.75H3.47006C2.97123 5.75 2.54552 6.16231 2.46352 6.72487L0.762794 18.3915C0.659129 19.1026 1.13877 19.75 1.76934 19.75H17.728C18.3585 19.75 18.8382 19.1026 18.7345 18.3915L17.0338 6.72487C16.9518 6.16231 16.5261 5.75 16.0272 5.75Z" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M5.74866 5.75C5.74866 2.98857 7.53952 0.75 9.74866 0.75C11.9578 0.75 13.7487 2.98857 13.7487 5.75" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
@@ -401,7 +401,7 @@
                                         <div class="order">
                                             <div class="overflow">
                                                 <div class="wrap">
-                                                    <button class="border"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <button class="border" onclick="addToCart(event)"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M16.0272 5.75H3.47006C2.97123 5.75 2.54552 6.16231 2.46352 6.72487L0.762794 18.3915C0.659129 19.1026 1.13877 19.75 1.76934 19.75H17.728C18.3585 19.75 18.8382 19.1026 18.7345 18.3915L17.0338 6.72487C16.9518 6.16231 16.5261 5.75 16.0272 5.75Z" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M5.74866 5.75C5.74866 2.98857 7.53952 0.75 9.74866 0.75C11.9578 0.75 13.7487 2.98857 13.7487 5.75" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
@@ -426,7 +426,7 @@
                                         <div class="order">
                                             <div class="prices"><span class="newPrice">120 000 ₽</span>
                                             </div>
-                                            <button class="border"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <button class="border" onclick="addToCart(event)"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M16.0272 5.75H3.47006C2.97123 5.75 2.54552 6.16231 2.46352 6.72487L0.762794 18.3915C0.659129 19.1026 1.13877 19.75 1.76934 19.75H17.728C18.3585 19.75 18.8382 19.1026 18.7345 18.3915L17.0338 6.72487C16.9518 6.16231 16.5261 5.75 16.0272 5.75Z" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M5.74866 5.75C5.74866 2.98857 7.53952 0.75 9.74866 0.75C11.9578 0.75 13.7487 2.98857 13.7487 5.75" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
@@ -447,7 +447,7 @@
                                         <div class="order">
                                             <div class="overflow">
                                                 <div class="wrap">
-                                                    <button class="border"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <button class="border" onclick="addToCart(event)"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M16.0272 5.75H3.47006C2.97123 5.75 2.54552 6.16231 2.46352 6.72487L0.762794 18.3915C0.659129 19.1026 1.13877 19.75 1.76934 19.75H17.728C18.3585 19.75 18.8382 19.1026 18.7345 18.3915L17.0338 6.72487C16.9518 6.16231 16.5261 5.75 16.0272 5.75Z" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M5.74866 5.75C5.74866 2.98857 7.53952 0.75 9.74866 0.75C11.9578 0.75 13.7487 2.98857 13.7487 5.75" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
@@ -472,7 +472,7 @@
                                         <div class="order">
                                             <div class="prices"><span class="newPrice">100 000 ₽</span>
                                             </div>
-                                            <button class="border"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <button class="border" onclick="addToCart(event)"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M16.0272 5.75H3.47006C2.97123 5.75 2.54552 6.16231 2.46352 6.72487L0.762794 18.3915C0.659129 19.1026 1.13877 19.75 1.76934 19.75H17.728C18.3585 19.75 18.8382 19.1026 18.7345 18.3915L17.0338 6.72487C16.9518 6.16231 16.5261 5.75 16.0272 5.75Z" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M5.74866 5.75C5.74866 2.98857 7.53952 0.75 9.74866 0.75C11.9578 0.75 13.7487 2.98857 13.7487 5.75" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
@@ -517,7 +517,7 @@
                                         <div class="order">
                                             <div class="overflow">
                                                 <div class="wrap">
-                                                    <button class="border"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <button class="border" onclick="addToCart(event)"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M16.0272 5.75H3.47006C2.97123 5.75 2.54552 6.16231 2.46352 6.72487L0.762794 18.3915C0.659129 19.1026 1.13877 19.75 1.76934 19.75H17.728C18.3585 19.75 18.8382 19.1026 18.7345 18.3915L17.0338 6.72487C16.9518 6.16231 16.5261 5.75 16.0272 5.75Z" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M5.74866 5.75C5.74866 2.98857 7.53952 0.75 9.74866 0.75C11.9578 0.75 13.7487 2.98857 13.7487 5.75" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
@@ -544,7 +544,7 @@
                                             <h4 class="percent">25%</h4>
                                             <div class="prices"><span class="newPrice">90 000 ₽</span><span class="oldPrice">120 000 ₽</span>
                                             </div>
-                                            <button class="border"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <button class="border" onclick="addToCart(event)"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M16.0272 5.75H3.47006C2.97123 5.75 2.54552 6.16231 2.46352 6.72487L0.762794 18.3915C0.659129 19.1026 1.13877 19.75 1.76934 19.75H17.728C18.3585 19.75 18.8382 19.1026 18.7345 18.3915L17.0338 6.72487C16.9518 6.16231 16.5261 5.75 16.0272 5.75Z" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M5.74866 5.75C5.74866 2.98857 7.53952 0.75 9.74866 0.75C11.9578 0.75 13.7487 2.98857 13.7487 5.75" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
@@ -565,7 +565,7 @@
                                         <div class="order">
                                             <div class="overflow">
                                                 <div class="wrap">
-                                                    <button class="border"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <button class="border" onclick="addToCart(event)"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M16.0272 5.75H3.47006C2.97123 5.75 2.54552 6.16231 2.46352 6.72487L0.762794 18.3915C0.659129 19.1026 1.13877 19.75 1.76934 19.75H17.728C18.3585 19.75 18.8382 19.1026 18.7345 18.3915L17.0338 6.72487C16.9518 6.16231 16.5261 5.75 16.0272 5.75Z" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M5.74866 5.75C5.74866 2.98857 7.53952 0.75 9.74866 0.75C11.9578 0.75 13.7487 2.98857 13.7487 5.75" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
@@ -590,7 +590,7 @@
                                         <div class="order">
                                             <div class="prices"><span class="newPrice">100 000 ₽</span>
                                             </div>
-                                            <button class="border"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <button class="border" onclick="addToCart(event)"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M16.0272 5.75H3.47006C2.97123 5.75 2.54552 6.16231 2.46352 6.72487L0.762794 18.3915C0.659129 19.1026 1.13877 19.75 1.76934 19.75H17.728C18.3585 19.75 18.8382 19.1026 18.7345 18.3915L17.0338 6.72487C16.9518 6.16231 16.5261 5.75 16.0272 5.75Z" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M5.74866 5.75C5.74866 2.98857 7.53952 0.75 9.74866 0.75C11.9578 0.75 13.7487 2.98857 13.7487 5.75" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
@@ -611,7 +611,7 @@
                                         <div class="order">
                                             <div class="overflow">
                                                 <div class="wrap">
-                                                    <button class="border"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <button class="border" onclick="addToCart(event)"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M16.0272 5.75H3.47006C2.97123 5.75 2.54552 6.16231 2.46352 6.72487L0.762794 18.3915C0.659129 19.1026 1.13877 19.75 1.76934 19.75H17.728C18.3585 19.75 18.8382 19.1026 18.7345 18.3915L17.0338 6.72487C16.9518 6.16231 16.5261 5.75 16.0272 5.75Z" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M5.74866 5.75C5.74866 2.98857 7.53952 0.75 9.74866 0.75C11.9578 0.75 13.7487 2.98857 13.7487 5.75" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
@@ -636,7 +636,7 @@
                                         <div class="order">
                                             <div class="prices"><span class="newPrice">80 000 ₽</span>
                                             </div>
-                                            <button class="border"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <button class="border" onclick="addToCart(event)"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M16.0272 5.75H3.47006C2.97123 5.75 2.54552 6.16231 2.46352 6.72487L0.762794 18.3915C0.659129 19.1026 1.13877 19.75 1.76934 19.75H17.728C18.3585 19.75 18.8382 19.1026 18.7345 18.3915L17.0338 6.72487C16.9518 6.16231 16.5261 5.75 16.0272 5.75Z" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M5.74866 5.75C5.74866 2.98857 7.53952 0.75 9.74866 0.75C11.9578 0.75 13.7487 2.98857 13.7487 5.75" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
@@ -657,7 +657,7 @@
                                         <div class="order">
                                             <div class="overflow">
                                                 <div class="wrap">
-                                                    <button class="border"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <button class="border" onclick="addToCart(event)"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M16.0272 5.75H3.47006C2.97123 5.75 2.54552 6.16231 2.46352 6.72487L0.762794 18.3915C0.659129 19.1026 1.13877 19.75 1.76934 19.75H17.728C18.3585 19.75 18.8382 19.1026 18.7345 18.3915L17.0338 6.72487C16.9518 6.16231 16.5261 5.75 16.0272 5.75Z" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M5.74866 5.75C5.74866 2.98857 7.53952 0.75 9.74866 0.75C11.9578 0.75 13.7487 2.98857 13.7487 5.75" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
@@ -684,7 +684,7 @@
                                             <h4 class="percent">28%</h4>
                                             <div class="prices"><span class="newPrice">115 000 ₽</span><span class="oldPrice">160 000 ₽</span>
                                             </div>
-                                            <button class="border"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <button class="border" onclick="addToCart(event)"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M16.0272 5.75H3.47006C2.97123 5.75 2.54552 6.16231 2.46352 6.72487L0.762794 18.3915C0.659129 19.1026 1.13877 19.75 1.76934 19.75H17.728C18.3585 19.75 18.8382 19.1026 18.7345 18.3915L17.0338 6.72487C16.9518 6.16231 16.5261 5.75 16.0272 5.75Z" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M5.74866 5.75C5.74866 2.98857 7.53952 0.75 9.74866 0.75C11.9578 0.75 13.7487 2.98857 13.7487 5.75" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
@@ -705,7 +705,7 @@
                                         <div class="order">
                                             <div class="overflow">
                                                 <div class="wrap">
-                                                    <button class="border"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <button class="border" onclick="addToCart(event)"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M16.0272 5.75H3.47006C2.97123 5.75 2.54552 6.16231 2.46352 6.72487L0.762794 18.3915C0.659129 19.1026 1.13877 19.75 1.76934 19.75H17.728C18.3585 19.75 18.8382 19.1026 18.7345 18.3915L17.0338 6.72487C16.9518 6.16231 16.5261 5.75 16.0272 5.75Z" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M5.74866 5.75C5.74866 2.98857 7.53952 0.75 9.74866 0.75C11.9578 0.75 13.7487 2.98857 13.7487 5.75" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
@@ -730,7 +730,7 @@
                                         <div class="order">
                                             <div class="prices"><span class="newPrice">120 000 ₽</span>
                                             </div>
-                                            <button class="border"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <button class="border" onclick="addToCart(event)"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M16.0272 5.75H3.47006C2.97123 5.75 2.54552 6.16231 2.46352 6.72487L0.762794 18.3915C0.659129 19.1026 1.13877 19.75 1.76934 19.75H17.728C18.3585 19.75 18.8382 19.1026 18.7345 18.3915L17.0338 6.72487C16.9518 6.16231 16.5261 5.75 16.0272 5.75Z" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M5.74866 5.75C5.74866 2.98857 7.53952 0.75 9.74866 0.75C11.9578 0.75 13.7487 2.98857 13.7487 5.75" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
@@ -751,7 +751,7 @@
                                         <div class="order">
                                             <div class="overflow">
                                                 <div class="wrap">
-                                                    <button class="border"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <button class="border" onclick="addToCart(event)"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M16.0272 5.75H3.47006C2.97123 5.75 2.54552 6.16231 2.46352 6.72487L0.762794 18.3915C0.659129 19.1026 1.13877 19.75 1.76934 19.75H17.728C18.3585 19.75 18.8382 19.1026 18.7345 18.3915L17.0338 6.72487C16.9518 6.16231 16.5261 5.75 16.0272 5.75Z" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M5.74866 5.75C5.74866 2.98857 7.53952 0.75 9.74866 0.75C11.9578 0.75 13.7487 2.98857 13.7487 5.75" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
@@ -776,7 +776,7 @@
                                         <div class="order">
                                             <div class="prices"><span class="newPrice">100 000 ₽</span>
                                             </div>
-                                            <button class="border"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <button class="border" onclick="addToCart(event)"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M16.0272 5.75H3.47006C2.97123 5.75 2.54552 6.16231 2.46352 6.72487L0.762794 18.3915C0.659129 19.1026 1.13877 19.75 1.76934 19.75H17.728C18.3585 19.75 18.8382 19.1026 18.7345 18.3915L17.0338 6.72487C16.9518 6.16231 16.5261 5.75 16.0272 5.75Z" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M5.74866 5.75C5.74866 2.98857 7.53952 0.75 9.74866 0.75C11.9578 0.75 13.7487 2.98857 13.7487 5.75" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
@@ -821,7 +821,7 @@
                                         <div class="order">
                                             <div class="overflow">
                                                 <div class="wrap">
-                                                    <button class="border"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <button class="border" onclick="addToCart(event)"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M16.0272 5.75H3.47006C2.97123 5.75 2.54552 6.16231 2.46352 6.72487L0.762794 18.3915C0.659129 19.1026 1.13877 19.75 1.76934 19.75H17.728C18.3585 19.75 18.8382 19.1026 18.7345 18.3915L17.0338 6.72487C16.9518 6.16231 16.5261 5.75 16.0272 5.75Z" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M5.74866 5.75C5.74866 2.98857 7.53952 0.75 9.74866 0.75C11.9578 0.75 13.7487 2.98857 13.7487 5.75" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
@@ -848,7 +848,7 @@
                                             <h4 class="percent">25%</h4>
                                             <div class="prices"><span class="newPrice">90 000 ₽</span><span class="oldPrice">120 000 ₽</span>
                                             </div>
-                                            <button class="border"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <button class="border" onclick="addToCart(event)"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M16.0272 5.75H3.47006C2.97123 5.75 2.54552 6.16231 2.46352 6.72487L0.762794 18.3915C0.659129 19.1026 1.13877 19.75 1.76934 19.75H17.728C18.3585 19.75 18.8382 19.1026 18.7345 18.3915L17.0338 6.72487C16.9518 6.16231 16.5261 5.75 16.0272 5.75Z" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M5.74866 5.75C5.74866 2.98857 7.53952 0.75 9.74866 0.75C11.9578 0.75 13.7487 2.98857 13.7487 5.75" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
@@ -869,7 +869,7 @@
                                         <div class="order">
                                             <div class="overflow">
                                                 <div class="wrap">
-                                                    <button class="border"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <button class="border" onclick="addToCart(event)"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M16.0272 5.75H3.47006C2.97123 5.75 2.54552 6.16231 2.46352 6.72487L0.762794 18.3915C0.659129 19.1026 1.13877 19.75 1.76934 19.75H17.728C18.3585 19.75 18.8382 19.1026 18.7345 18.3915L17.0338 6.72487C16.9518 6.16231 16.5261 5.75 16.0272 5.75Z" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M5.74866 5.75C5.74866 2.98857 7.53952 0.75 9.74866 0.75C11.9578 0.75 13.7487 2.98857 13.7487 5.75" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
@@ -894,7 +894,7 @@
                                         <div class="order">
                                             <div class="prices"><span class="newPrice">100 000 ₽</span>
                                             </div>
-                                            <button class="border"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <button class="border" onclick="addToCart(event)"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M16.0272 5.75H3.47006C2.97123 5.75 2.54552 6.16231 2.46352 6.72487L0.762794 18.3915C0.659129 19.1026 1.13877 19.75 1.76934 19.75H17.728C18.3585 19.75 18.8382 19.1026 18.7345 18.3915L17.0338 6.72487C16.9518 6.16231 16.5261 5.75 16.0272 5.75Z" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M5.74866 5.75C5.74866 2.98857 7.53952 0.75 9.74866 0.75C11.9578 0.75 13.7487 2.98857 13.7487 5.75" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
@@ -928,7 +928,7 @@
                         <div class="article"><span>Артикул: ИПГ857.50.080823.3W</span><img src="images/copy.svg"></div>
                     </div>
                     <div class="price"><span class="new">286 000 ₽</span><span class="old">286 000 ₽</span></div>
-                    <button class="fill"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <button class="fill" onclick="addToCart(event)"><svg width="20" height="21" viewBox="0 0 20 21" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M16.0272 5.75H3.47006C2.97123 5.75 2.54552 6.16231 2.46352 6.72487L0.762794 18.3915C0.659129 19.1026 1.13877 19.75 1.76934 19.75H17.728C18.3585 19.75 18.8382 19.1026 18.7345 18.3915L17.0338 6.72487C16.9518 6.16231 16.5261 5.75 16.0272 5.75Z" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M5.74866 5.75C5.74866 2.98857 7.53952 0.75 9.74866 0.75C11.9578 0.75 13.7487 2.98857 13.7487 5.75" stroke="#200A0A" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
@@ -962,7 +962,7 @@
             <section class="lightbox">
                 <div class="container">
                     <div class="counter"> <span class="current">01</span><span class="slash">/</span><span class="total">05</span></div><img class="cross" src="images/cross.svg" onclick="this.closest('section').classList.toggle('show')">
-                    <div class="zoom2" onclick="this.nextElementSibling.classList.toggle('x2zoom')"><img src="images/zoom2.svg"></div>
+                    <div class="zoom" onclick="this.nextElementSibling.classList.toggle('scale')"><img src="images/zoom.svg"></div>
                     <div class="swiper">
                         <div class="swiper-wrapper">
                             <div class="swiper-slide"><img src="images/7.webp" alt="Серьги J-point Collection ИПГ857.50.080823.3W" lightbox="product"></div>
@@ -977,6 +977,39 @@
                         <div class="arrow"><img src="images/swiper_arrow_long.svg"></div>
                     </div>
                 </div>
+            </section>
+            <section class="get_price">
+                <div class="container">
+                    <div class="cross" onclick="this.closest('section').classList.toggle('show')"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M12.1748 0.5C12.3391 0.5 12.4411 0.548503 12.5215 0.628906C12.6017 0.709215 12.6503 0.810702 12.6504 0.974609C12.6504 1.13881 12.6018 1.2409 12.5215 1.32129L7.26758 6.5752L7.62109 6.92871L12.5215 11.8281C12.6019 11.9085 12.6504 12.0106 12.6504 12.1748C12.6504 12.3391 12.6019 12.4411 12.5215 12.5215C12.4411 12.6019 12.3391 12.6504 12.1748 12.6504C12.0106 12.6504 11.9085 12.6019 11.8281 12.5215L6.92871 7.62109L6.5752 7.26758L1.32129 12.5215C1.2409 12.6018 1.13881 12.6504 0.974609 12.6504C0.810702 12.6503 0.709215 12.6017 0.628906 12.5215C0.548503 12.4411 0.5 12.3391 0.5 12.1748C0.500038 12.0106 0.548535 11.9085 0.628906 11.8281L5.88184 6.5752L5.52832 6.22168L0.628906 1.32129C0.548504 1.24089 0.5 1.13888 0.5 0.974609C0.500076 0.810568 0.548567 0.709245 0.628906 0.628906C0.709245 0.548567 0.810568 0.500076 0.974609 0.5C1.13888 0.5 1.24089 0.548504 1.32129 0.628906L6.22168 5.52832L6.5752 5.88184L11.8281 0.628906C11.9085 0.548535 12.0106 0.500038 12.1748 0.5Z" stroke="#1A2238"/>
+</svg>
+
+                    </div>
+                    <h3>Уточнить стоимость изделия</h3>
+                    <div class="product">
+                        <div class="preview"><img src="images/7.webp" alt="Серьги J-point Collection ИПГ857.50.080823.3W"></div>
+                        <div class="title">
+                            <h4>Серьги J-point Collection ИПГ857.50.080823.3W</h4><span class="article">Артикул: ИПГ857.50.080823.3W</span>
+                        </div>
+                    </div>
+                    <form action=""> 
+                        <div class="input">
+                            <input type="text" placeholder=" " autocomplete="off" oninvalid="event.preventDefault(); this.classList.add('error'); this.nextElementSibling.nextElementSibling.textContent = this.validationMessage" onclick="this.classList.remove('error')" required="required"/>
+                            <label>Ваше имя</label><span></span>
+                        </div>
+                        <div class="input">
+                            <input type="tel" placeholder=" " autocomplete="off" oninvalid="event.preventDefault(); this.classList.add('error'); this.nextElementSibling.nextElementSibling.textContent = this.validationMessage" onclick="this.classList.remove('error')" required="required"/>
+                            <label>Телефон</label><span></span>
+                        </div>
+                        <div class="input">
+                            <input type="text" placeholder=" " autocomplete="off" oninvalid="event.preventDefault(); this.classList.add('error'); this.nextElementSibling.nextElementSibling.textContent = this.validationMessage" onclick="this.classList.remove('error')" required="required"/>
+                            <label>WhatsApp / Telegram</label><span></span>
+                        </div>
+                        <textarea name="" placeholder="Например: интересует размер, срок изготовления, другой камень"></textarea>
+                        <button class="fill"><span>Запросить стоимость</span></button>
+                    </form>
+                </div>
+                <div class="backdrop" onclick="this.closest('section').classList.toggle('show')"></div>
             </section>
             <script>
                 const isPreorder = location.hash === '#preorder'
