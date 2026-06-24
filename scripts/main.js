@@ -562,3 +562,29 @@ new Swiper(lightboxSwiper, {
 })
 
 
+
+// Куки
+function setCookie(name, value, days) {
+    const expires = new Date(Date.now() + days * 864e5).toUTCString();
+    document.cookie = `${name}=${value}; expires=${expires}; path=/`;
+}
+function getCookie(name) {
+    return document.cookie.split('; ').reduce((r, v) => {
+        const parts = v.split('=');
+        return parts[0] === name ? decodeURIComponent(parts[1]) : r;
+    }, '');
+}
+function initCookies() {
+    const banner = document.getElementById('cookie-banner')
+    const btn = document.getElementById('accept-cookies')
+
+    if (!getCookie('cookies_accepted')) {
+        banner.classList.add('show')
+    }
+
+    btn.addEventListener('click', () => {
+        setCookie('cookies_accepted', 'true', 365)
+        banner.classList.remove('show')
+    })
+}
+initCookies()

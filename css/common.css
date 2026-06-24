@@ -2201,4 +2201,50 @@ footer div.container div.bottom img.logotype {
   footer div.container div.bottom img.logotype {
     position: static;
   }
+}
+
+div#cookie-banner {
+  position: fixed;
+  right: var(--side-gap);
+  bottom: var(--section-gap);
+  background: white;
+  width: 680px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-template-columns: 1fr -webkit-max-content;
+  grid-template-columns: 1fr max-content;
+  grid-gap: 30px;
+  padding: 30px;
+  color: black;
+  z-index: 999;
+  display: none;
+}
+@media (max-width: 960px) {
+  div#cookie-banner {
+    padding: 24px;
+  }
+}
+@media (max-width: 640px) {
+  div#cookie-banner {
+    grid-template-columns: 1fr;
+    width: 100%;
+    bottom: 0;
+    right: 0;
+  }
+}
+div#cookie-banner a {
+  text-decoration: underline;
+  opacity: 0.5;
+}
+div#cookie-banner a:hover {
+  opacity: 1;
+}
+@media (max-width: 640px) {
+  div#cookie-banner button {
+    width: 100%;
+  }
+}
+div#cookie-banner.show {
+  display: grid;
 }/*# sourceMappingURL=common.css.map */

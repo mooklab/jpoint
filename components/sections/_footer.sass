@@ -149,3 +149,37 @@ footer
                 max-width: 1060px
                 +s(s)
                     position: static
+
+div#cookie-banner
+    position: fixed
+    right: var(--side-gap)
+    bottom: var(--section-gap)
+    background: white
+    width: 680px
+    align-items: center
+    grid-template-columns: 1fr max-content
+    grid-gap: 30px
+    padding: 30px
+    color: black
+    z-index: 999
+    display: none
+    +s(m)
+        padding: 24px
+    +s(s)
+        grid-template-columns: 1fr
+        width: 100%
+        bottom: 0
+        right: 0
+
+    a
+        text-decoration: underline
+        opacity: 0.5
+        &:hover
+            opacity: 1
+
+    button
+        +s(s)
+            width: 100%
+
+    &.show
+        display: grid
