@@ -88,13 +88,33 @@ section.products
             grid-auto-columns: max-content
             align-items: center
             grid-gap: 10px
+            svg
+                path, circle
+                    transition: all 0.5s
             span
+                transition: all 0.5s
                 +s(s)
                     display: none
+            &:hover
+                svg
+                    path, circle
+                        stroke: $color
+                span
+                    color: $color
 
         div.select
             +s(s)
                 display: none
+
+            div.selected_item
+                transition: all 0.5s
+
+            &:hover
+                div.selected_item
+                    color: $color
+                    svg
+                        path
+                            stroke: $color
 
         div.count
             text-align: center

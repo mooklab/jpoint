@@ -91,6 +91,12 @@ section.collections div.swiper-pagination2 {
     display: grid;
   }
 }
+section.collections a.button:hover {
+  background: white;
+}
+section.collections a.button:hover span {
+  color: #200a0a !important;
+}
 
 section.about {
   margin-top: var(--section-gap);

@@ -344,6 +344,9 @@ button.fill svg, a.button.fill svg {
 button.fill svg path, a.button.fill svg path {
   stroke: white;
 }
+button.fill:hover, a.button.fill:hover {
+  background: #8B6635;
+}
 
 input, textarea {
   height: 50px;
@@ -983,6 +986,9 @@ a.product_card div.grid_view div.order button svg {
 }
 a.product_card div.grid_view div.order button svg path {
   stroke: #8C6A3C;
+}
+a.product_card div.grid_view div.order button:hover svg path {
+  stroke: #fff;
 }
 a.product_card div.grid_view:hover {
   z-index: 2;
@@ -1665,6 +1671,9 @@ header div.container menu {
     display: none;
   }
 }
+header div.container menu a:hover {
+  color: #8c6a3c;
+}
 header div.container div.search {
   cursor: pointer;
   display: grid;
@@ -1682,13 +1691,19 @@ header div.container div.search {
   text-transform: uppercase;
   color: #200a0a;
 }
-header div.container div.search img {
+header div.container div.search svg {
   width: 20px;
 }
 @media (max-width: 1600px) {
   header div.container div.search span {
     display: none;
   }
+}
+header div.container div.search:hover svg path {
+  fill: #8c6a3c;
+}
+header div.container div.search:hover span {
+  color: #8c6a3c;
 }
 header div.container a.cart {
   cursor: pointer;
@@ -1714,6 +1729,12 @@ header div.container a.cart img {
   header div.container a.cart span {
     display: none;
   }
+}
+header div.container a.cart:hover svg path {
+  stroke: #8c6a3c;
+}
+header div.container a.cart:hover span {
+  color: #8c6a3c;
 }
 header.hidden {
   -webkit-transform: translateY(-100%);
@@ -2201,6 +2222,14 @@ footer div.container div.bottom img.logotype {
   footer div.container div.bottom img.logotype {
     position: static;
   }
+}
+footer a {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+footer a:hover {
+  color: #8c6a3c !important;
+  opacity: 1 !important;
 }
 
 div#cookie-banner {

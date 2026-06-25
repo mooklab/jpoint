@@ -420,15 +420,39 @@ section.products div.filters div.filter {
           align-items: center;
   grid-gap: 10px;
 }
+section.products div.filters div.filter svg path, section.products div.filters div.filter svg circle {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+section.products div.filters div.filter span {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
 @media (max-width: 640px) {
   section.products div.filters div.filter span {
     display: none;
   }
 }
+section.products div.filters div.filter:hover svg path, section.products div.filters div.filter:hover svg circle {
+  stroke: #8c6a3c;
+}
+section.products div.filters div.filter:hover span {
+  color: #8c6a3c;
+}
 @media (max-width: 640px) {
   section.products div.filters div.select {
     display: none;
   }
+}
+section.products div.filters div.select div.selected_item {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+section.products div.filters div.select:hover div.selected_item {
+  color: #8c6a3c;
+}
+section.products div.filters div.select:hover div.selected_item svg path {
+  stroke: #8c6a3c;
 }
 section.products div.filters div.count {
   text-align: center;
