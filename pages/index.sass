@@ -12,7 +12,7 @@ section.main
     height: 900px
     z-index: 0
     +s(m)
-        height: 800px
+        height: 760px
 
     div.container
         display: grid
@@ -34,6 +34,7 @@ section.main
             align-content: center
             justify-items: start
             height: 100%
+            pointer-events: none
             +s(m)
                 align-content: start
 
@@ -112,16 +113,17 @@ section.main
     div.swiper.backgrounds
         grid-column: full
         position: absolute
-        top: -110px
+        top: calc(var(--header) * -1)
         left: 0
         width: 100%
-        height: calc(100% + 110px)
+        height: calc(100% + var(--header))
         z-index: 1
 
         div.swiper-slide
             overflow: hidden
+            display: grid
 
-        img
+        img.background
             position: absolute
             top: 0
             right: 0
@@ -129,6 +131,81 @@ section.main
             height: 100%
             object-fit: cover
             object-position: center center
+
+        div.person
+            position: relative
+            height: max-content
+            width: max-content
+            left: 50%
+            top: var(--header)
+            height: calc(100% - var(--header))
+            z-index: 3
+            +s(xl)
+                left: 40%
+            +s(l)
+                left: 30%
+            +s(m)
+                height: 540px
+                width: 100%
+                top: 294px
+                left: 0
+
+            img.person
+                height: 100%
+                +s(m)
+                    position: absolute
+                    top: 0
+                    left: 50%
+                    transform: translateX(-50%)
+
+            div.product
+                position: absolute
+                top: 0
+                left: 0
+                z-index: 1
+                +s(m)
+                    display: none
+                div.point
+                    cursor: pointer
+                    &::before
+                        content: ''
+                        position: absolute
+                        top: 0
+                        left: 0
+                        display: block
+                        width: 28px
+                        height: 28px
+                        background: red
+                        opacity: 0.3
+                        border-radius: 100%
+                    &::after
+                        content: ''
+                        position: absolute
+                        top: 5px
+                        left: 5px
+                        display: block
+                        width: 18px
+                        height: 18px
+                        background: red
+                        opacity: 0.5
+                        border-radius: 100%
+                    &.open + div.position
+                        opacity: 1
+                        pointer-events: auto
+                div.position
+                    position: absolute
+                    left: 19px
+                    opacity: 0
+                    pointer-events: none
+                a.product_card
+                    width: 260px
+                    div.text
+                        padding: 20px
+                        span.percent
+                            top: -10px
+                            left: 20px
+                    div.order
+                        height: 0 !important
 
 section.categories
     margin-top: var(--section-gap)

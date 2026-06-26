@@ -538,6 +538,16 @@ window.getPrice = () => { document.querySelector('section.get_price').classList.
 window.getGallery = () => { document.querySelector('section.lightbox div.swiper').closest('section').classList.toggle('show') }
 
 
+window.showProduct = (element) => {
+    const points = document.querySelectorAll('section.main div.point')
+    points.forEach(point => {
+        if (point !== element) {
+            point.classList.remove('open')
+        }
+    })
+    element.classList.toggle('open')
+}
+
 
 // Лайтбокс  слайдер
 const lightboxSwiper = document.querySelector('section.lightbox div.swiper')

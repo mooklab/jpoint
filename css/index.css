@@ -374,7 +374,7 @@ section.main {
 }
 @media (max-width: 960px) {
   section.main {
-    height: 800px;
+    height: 760px;
   }
 }
 section.main div.container {
@@ -404,6 +404,7 @@ section.main div.swiper.texts div.swiper-slide {
       align-content: center;
   justify-items: start;
   height: 100%;
+  pointer-events: none;
 }
 @media (max-width: 960px) {
   section.main div.swiper.texts div.swiper-slide {
@@ -510,16 +511,17 @@ section.main div.swiper-pagination span.swiper-pagination-bullet-active::after {
 section.main div.swiper.backgrounds {
   grid-column: full;
   position: absolute;
-  top: -110px;
+  top: calc(var(--header) * -1);
   left: 0;
   width: 100%;
-  height: calc(100% + 110px);
+  height: calc(100% + var(--header));
   z-index: 1;
 }
 section.main div.swiper.backgrounds div.swiper-slide {
   overflow: hidden;
+  display: grid;
 }
-section.main div.swiper.backgrounds img {
+section.main div.swiper.backgrounds img.background {
   position: absolute;
   top: 0;
   right: 0;
@@ -529,6 +531,111 @@ section.main div.swiper.backgrounds img {
      object-fit: cover;
   -o-object-position: center center;
      object-position: center center;
+}
+section.main div.swiper.backgrounds div.person {
+  position: relative;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  left: 50%;
+  top: var(--header);
+  height: calc(100% - var(--header));
+  z-index: 3;
+}
+@media (max-width: 1600px) {
+  section.main div.swiper.backgrounds div.person {
+    left: 40%;
+  }
+}
+@media (max-width: 1280px) {
+  section.main div.swiper.backgrounds div.person {
+    left: 30%;
+  }
+}
+@media (max-width: 960px) {
+  section.main div.swiper.backgrounds div.person {
+    height: 540px;
+    width: 100%;
+    top: 294px;
+    left: 0;
+  }
+}
+section.main div.swiper.backgrounds div.person img.person {
+  height: 100%;
+}
+@media (max-width: 960px) {
+  section.main div.swiper.backgrounds div.person img.person {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+  }
+}
+section.main div.swiper.backgrounds div.person div.product {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+@media (max-width: 960px) {
+  section.main div.swiper.backgrounds div.person div.product {
+    display: none;
+  }
+}
+section.main div.swiper.backgrounds div.person div.product div.point {
+  cursor: pointer;
+}
+section.main div.swiper.backgrounds div.person div.product div.point::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 28px;
+  height: 28px;
+  background: red;
+  opacity: 0.3;
+  border-radius: 100%;
+}
+section.main div.swiper.backgrounds div.person div.product div.point::after {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  display: block;
+  width: 18px;
+  height: 18px;
+  background: red;
+  opacity: 0.5;
+  border-radius: 100%;
+}
+section.main div.swiper.backgrounds div.person div.product div.point.open + div.position {
+  opacity: 1;
+  pointer-events: auto;
+}
+section.main div.swiper.backgrounds div.person div.product div.position {
+  position: absolute;
+  left: 19px;
+  opacity: 0;
+  pointer-events: none;
+}
+section.main div.swiper.backgrounds div.person div.product a.product_card {
+  width: 260px;
+}
+section.main div.swiper.backgrounds div.person div.product a.product_card div.text {
+  padding: 20px;
+}
+section.main div.swiper.backgrounds div.person div.product a.product_card div.text span.percent {
+  top: -10px;
+  left: 20px;
+}
+section.main div.swiper.backgrounds div.person div.product a.product_card div.order {
+  height: 0 !important;
 }
 
 section.categories {
