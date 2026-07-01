@@ -42,7 +42,7 @@ section.main
                 color: $color
                 opacity: 0.7
             h1
-                margin-bottom: 12px
+                margin-bottom: 4px
                 color: $color-2
             a.button
                 pointer-events: auto
@@ -99,6 +99,7 @@ section.main
                 line-height: 130%
                 letter-spacing: 0.1em
                 text-transform: uppercase
+                font-variant-numeric: tabular-nums
                 color: #889e9e
                 opacity: 0.7
                 +s(m)
@@ -131,6 +132,16 @@ section.main
             height: 100%
             object-fit: cover
             object-position: center center
+
+            &.desktop
+                display: block
+                +s(s)
+                    display: none
+
+            &.mobile
+                display: none
+                +s(s)
+                    display: block
 
         div.person
             position: relative
@@ -199,6 +210,12 @@ section.main
                     pointer-events: none
                 a.product_card
                     width: 260px
+                    div.preview
+                        img
+                            filter: grayscale(0)
+                        span.tag
+                            left: 20px
+                            top: 20px
                     div.text
                         padding: 20px
                         span.percent
@@ -346,3 +363,10 @@ section.categories
         img
             position: absolute
             opacity: 0
+
+section.collections
+    div.title
+        align-items: center
+        grid-template-areas: 'Title Nav'
+        span
+            display: none

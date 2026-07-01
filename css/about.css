@@ -13,12 +13,24 @@ section.collections div.container {
 }
 section.collections div.title {
   display: grid;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
   grid-template-columns: 1fr -webkit-max-content;
   grid-template-columns: 1fr max-content;
-  grid-gap: 30px;
+  grid-template-areas: "Title Nav" "Text Nav";
+  grid-gap: 10px 30px;
+}
+section.collections div.title h2 {
+  grid-area: Title;
+}
+section.collections div.title div.swiper-navigation {
+  grid-area: Nav;
+}
+section.collections div.title span {
+  grid-area: Text;
+  max-width: 800px;
+  opacity: 0.8;
 }
 section.collections div.swiper {
   overflow: visible;
@@ -209,6 +221,10 @@ section.about div.container div.text div.signature.animate svg path {
   -webkit-animation: 2s signature linear forwards;
           animation: 2s signature linear forwards;
 }
+section.about div.container div.text div.signature.animate svg path + path {
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+}
 
 @-webkit-keyframes signature {
   0% {
@@ -266,9 +282,13 @@ section.socials div.swiper-slide span {
   background: rgba(255, 255, 255, 0.2);
   padding: 10px;
   font-weight: 500;
-  font-size: 14px;
   line-height: 130%;
   color: #fff;
+}
+@media (max-width: 640px) {
+  section.socials div.swiper-slide span {
+    padding: 6px;
+  }
 }
 
 section.subscribe {
@@ -295,12 +315,16 @@ section.subscribe form {
   grid-gap: 15px;
   margin-top: 32px;
   margin-bottom: 10px;
+  max-width: 800px;
 }
 @media (max-width: 640px) {
   section.subscribe form {
     grid-template-columns: 1fr;
     margin-top: 16px;
   }
+}
+section.subscribe form label:after {
+  display: none;
 }
 section.subscribe span.offer {
   font-weight: 400;
@@ -588,6 +612,13 @@ section.company div.group div.text:last-child h2::after {
   -webkit-transform: translate(25%, -50%);
       -ms-transform: translate(25%, -50%);
           transform: translate(25%, -50%);
+}
+@media (max-width: 1920px) {
+  section.company div.group div.text:last-child h2::after {
+    -webkit-transform: translate(10%, -50%);
+        -ms-transform: translate(10%, -50%);
+            transform: translate(10%, -50%);
+  }
 }
 @media (max-width: 1280px) {
   section.company div.group div.text:last-child h2::after {

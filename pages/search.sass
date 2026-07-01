@@ -116,12 +116,15 @@ section.products
             grid-gap: 20px
 
     div.filters
+        position: relative
         display: grid
         align-items: center
-        grid-template-columns: max-content max-content 1fr max-content
+        grid-template-columns: max-content 1fr max-content
         grid-gap: 62px
         color: $brown
         z-index: 2
+        +s(m)
+            grid-template-columns: max-content max-content 1fr max-content
         +s(s)
             grid-template-columns: max-content 1fr max-content
 
@@ -132,17 +135,44 @@ section.products
             grid-auto-columns: max-content
             align-items: center
             grid-gap: 10px
+            svg
+                path, circle
+                    transition: all 0.5s
             span
+                transition: all 0.5s
                 +s(s)
                     display: none
+            &:hover
+                svg
+                    path, circle
+                        stroke: $color
+                span
+                    color: $color
 
         div.select
             +s(s)
                 display: none
 
+            div.selected_item
+                transition: all 0.5s
+
+            &:hover
+                div.selected_item
+                    color: $color
+                    svg
+                        path
+                            stroke: $color
+
         div.count
+            position: absolute
+            top: 50%
+            left: 50%
             text-align: center
             font-size: 14px
+            transform: translate(-50%, -50%)
+            +s(m)
+                position: static
+                transform: unset
             +s(s)
                 margin-right: -20px
 

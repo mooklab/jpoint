@@ -13,9 +13,21 @@ section.collections
 
     div.title
         display: grid
-        align-items: center
+        align-items: end
         grid-template-columns: 1fr max-content
-        grid-gap: 30px
+        grid-template-areas: 'Title Nav' 'Text Nav'
+        grid-gap: 10px 30px
+
+        h2
+            grid-area: Title
+
+        div.swiper-navigation
+            grid-area: Nav
+
+        span
+            grid-area: Text
+            max-width: 800px
+            opacity: 0.8
 
     div.swiper
         overflow: visible

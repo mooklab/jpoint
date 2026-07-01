@@ -4,7 +4,7 @@ ymaps.ready(function () {
 
     var map = new ymaps.Map('map', {
         center: JSON.parse(addresses[0].dataset.coordinate),
-        zoom: 15,
+        zoom: 17,
         controls: ["zoomControl"]
     })
 
@@ -21,3 +21,4 @@ ymaps.ready(function () {
     // map.behaviors.disable('scrollZoom')
 
 })
+

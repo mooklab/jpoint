@@ -20,6 +20,11 @@ section.products div.title {
   grid-template-columns: 1fr max-content;
   grid-gap: 30px;
 }
+@media (max-width: 960px) {
+  section.products div.title {
+    grid-template-columns: 1fr;
+  }
+}
 section.products div.swiper {
   overflow: visible;
 }
@@ -279,12 +284,16 @@ section.subscribe form {
   grid-gap: 15px;
   margin-top: 32px;
   margin-bottom: 10px;
+  max-width: 800px;
 }
 @media (max-width: 640px) {
   section.subscribe form {
     grid-template-columns: 1fr;
     margin-top: 16px;
   }
+}
+section.subscribe form label:after {
+  display: none;
 }
 section.subscribe span.offer {
   font-weight: 400;
@@ -370,8 +379,10 @@ section.main img.person {
     position: static;
     width: calc(100% + var(--side-gap));
     height: 540px;
-    -o-object-position: top left;
-       object-position: top left;
+    -o-object-fit: cover;
+       object-fit: cover;
+    -o-object-position: bottom left;
+       object-position: bottom left;
     padding-top: unset;
   }
 }
@@ -393,15 +404,22 @@ section.products div.container {
   }
 }
 section.products div.filters {
+  position: relative;
   display: grid;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  grid-template-columns: -webkit-max-content -webkit-max-content 1fr -webkit-max-content;
-  grid-template-columns: max-content max-content 1fr max-content;
+  grid-template-columns: -webkit-max-content 1fr -webkit-max-content;
+  grid-template-columns: max-content 1fr max-content;
   grid-gap: 62px;
   color: #200a0a;
   z-index: 2;
+}
+@media (max-width: 960px) {
+  section.products div.filters {
+    grid-template-columns: -webkit-max-content -webkit-max-content 1fr -webkit-max-content;
+    grid-template-columns: max-content max-content 1fr max-content;
+  }
 }
 @media (max-width: 640px) {
   section.products div.filters {
@@ -455,8 +473,22 @@ section.products div.filters div.select:hover div.selected_item svg path {
   stroke: #8c6a3c;
 }
 section.products div.filters div.count {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   text-align: center;
   font-size: 14px;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+@media (max-width: 960px) {
+  section.products div.filters div.count {
+    position: static;
+    -webkit-transform: unset;
+        -ms-transform: unset;
+            transform: unset;
+  }
 }
 @media (max-width: 640px) {
   section.products div.filters div.count {
@@ -620,6 +652,10 @@ section.products div.products a.banner div.description div.cart {
     height: 40px;
   }
 }
+section.products div.products a.banner div.description div.cart svg {
+  width: 26px;
+  height: 26px;
+}
 section.products div.products a.banner div.description div.cart svg path {
   stroke: white;
 }
@@ -671,8 +707,31 @@ section.products div.pagination button.border {
     width: 100%;
   }
 }
-section.products div.pagination div.prev.disable, section.products div.pagination div.next.disable {
+section.products div.pagination a {
+  position: relative;
+}
+section.products div.pagination a.prev, section.products div.pagination a.next {
+  position: relative;
+  cursor: pointer;
+}
+section.products div.pagination a.prev.disable, section.products div.pagination a.next.disable {
   display: none;
+}
+section.products div.pagination a.prev:hover svg path, section.products div.pagination a.next:hover svg path {
+  stroke: #8c6a3c;
+}
+section.products div.pagination a::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  display: block;
+  width: 16px;
+  height: 16px;
+  background: transparent;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
 }
 section.products.list div.products {
   grid-template-columns: 1fr;
@@ -727,6 +786,11 @@ section.seo div.content.hide + div.more span.show {
 section.seo div.content.hide + div.more span.hide {
   display: none;
 }
+section.seo div.content.hide + div.more svg {
+  -webkit-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
 section.seo div.more {
   cursor: pointer;
   display: grid;
@@ -755,6 +819,9 @@ section.seo div.more span.hide {
 section.seo div.more svg {
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
+  -webkit-transform: rotate(180deg);
+      -ms-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 section.seo div.more svg path {
   stroke: #8c6a3c;

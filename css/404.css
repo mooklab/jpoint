@@ -24,4 +24,13 @@ section.main span {
   display: block;
   opacity: 0.8;
   max-width: 420px;
+}
+section.main a {
+  text-decoration: underline;
+  -webkit-text-decoration-skip-ink: none;
+          text-decoration-skip-ink: none;
+  color: #8c6a3c;
+}
+section.main a:hover {
+  text-decoration: none;
 }/*# sourceMappingURL=404.css.map */

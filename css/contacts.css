@@ -22,12 +22,16 @@ section.subscribe form {
   grid-gap: 15px;
   margin-top: 32px;
   margin-bottom: 10px;
+  max-width: 800px;
 }
 @media (max-width: 640px) {
   section.subscribe form {
     grid-template-columns: 1fr;
     margin-top: 16px;
   }
+}
+section.subscribe form label:after {
+  display: none;
 }
 section.subscribe span.offer {
   font-weight: 400;
@@ -117,6 +121,7 @@ section.main div.addresses div.list div.address div.schedule {
 }
 section.main div.addresses div.list div.address div.schedule span {
   opacity: 0.8;
+  letter-spacing: -0.01em;
 }
 section.main div.addresses div.list div.address div.schedule span:first-child {
   text-transform: uppercase;

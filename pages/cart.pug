@@ -22,7 +22,7 @@ block content
                 span (4 изделия)
             div.filter
                 label.checkbox
-                    input(type="checkbox")
+                    input(type="checkbox", onchange="checkProducts(event, this)")
                     div.tick
                         img(src="images/checkbox_tick.svg")
                     span Выделить все

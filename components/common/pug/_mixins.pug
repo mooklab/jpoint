@@ -19,9 +19,10 @@ mixin product_card(image, title, newPrice, oldPrice, tag = false)
             div.order
                 div.overflow
                     div.wrap
-                        button(onclick="addToCart(event)").border
+                        button(onclick="addToCart(event, this)", data-name=title, data-image=image, data-material="Золото").border
                             include ../../../images/cart.svg
-                            span В корзину
+                            span.tocart В корзину
+                            span.incart В корзине
         div.list_view
             div.preview
                 img(src=image, alt=title)
@@ -51,7 +52,7 @@ mixin product_card(image, title, newPrice, oldPrice, tag = false)
                     span.newPrice !{newPrice.toLocaleString('ru-RU')} ₽
                     if oldPrice
                         span.oldPrice !{oldPrice.toLocaleString('ru-RU')} ₽
-                button(onclick="addToCart(event)").border
+                button(onclick="addToCart(event, this)").border
                     include ../../../images/cart.svg
                     span В корзину
 

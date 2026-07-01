@@ -39,7 +39,7 @@ block content
 
             div.swiper-pagination
 
-        div.swiper.backgrounds
+        div(onclick="showProduct(null)").swiper.backgrounds
             div.swiper-wrapper
                 div.swiper-slide
                     img(src="images/1.webp").background
@@ -48,11 +48,26 @@ block content
                         div(style="top:  35.5%; left: 64.5%;").product
                             div(onclick="showProduct(this)").point
                             div(style="transform: translate(-110%, 0%)").position
-                                +product_card('images/7.webp', 'Серьги J-point Collection ИПГ857.50.080823.5Y', 90000, 120000, true)
+                                +product_card('images/32.webp', 'Серьги J-point Collection ИПГ857.50.080823.5Y', 90000, 120000, true)
                         div(style="top:  94%; left: 48.5%;").product
                             div(onclick="showProduct(this)").point
                             div(style="transform: translate(-50%, -102%)").position
-                                +product_card('images/8.webp', 'Кольцо J-Point Selection 117225', 100000, 0, true)
+                                +product_card('images/33.webp', 'Колье К3.28.181125.16Y', 192000, 0, true)
+                div.swiper-slide
+                    img(src="images/2.webp").background.desktop
+                    img(src="images/34.webp").background.mobile
+                div.swiper-slide
+                    img(src="images/1.webp").background
+                    div.person
+                        img(src="images/31.webp").person
+                        div(style="top:  35.5%; left: 64.5%;").product
+                            div(onclick="showProduct(this)").point
+                            div(style="transform: translate(-110%, 0%)").position
+                                +product_card('images/32.webp', 'Серьги J-point Collection ИПГ857.50.080823.5Y', 90000, 120000, true)
+                        div(style="top:  94%; left: 48.5%;").product
+                            div(onclick="showProduct(this)").point
+                            div(style="transform: translate(-50%, -102%)").position
+                                +product_card('images/33.webp', 'Колье К3.28.181125.16Y', 192000, 0, true)
                 div.swiper-slide
                     img(src="images/2.webp").background
                 div.swiper-slide
@@ -62,25 +77,11 @@ block content
                         div(style="top:  35.5%; left: 64.5%;").product
                             div(onclick="showProduct(this)").point
                             div(style="transform: translate(-110%, 0%)").position
-                                +product_card('images/7.webp', 'Серьги J-point Collection ИПГ857.50.080823.5Y', 90000, 120000, true)
+                                +product_card('images/32.webp', 'Серьги J-point Collection ИПГ857.50.080823.5Y', 90000, 120000, true)
                         div(style="top:  94%; left: 48.5%;").product
                             div(onclick="showProduct(this)").point
                             div(style="transform: translate(-50%, -102%)").position
-                                +product_card('images/8.webp', 'Кольцо J-Point Selection 117225', 100000, 0, true)
-                div.swiper-slide
-                    img(src="images/2.webp").background
-                div.swiper-slide
-                    img(src="images/1.webp").background
-                    div.person
-                        img(src="images/31.webp").person
-                        div(style="top:  35.5%; left: 64.5%;").product
-                            div(onclick="showProduct(this)").point
-                            div(style="transform: translate(-110%, 0%)").position
-                                +product_card('images/7.webp', 'Серьги J-point Collection ИПГ857.50.080823.5Y', 90000, 120000, true)
-                        div(style="top:  94%; left: 48.5%;").product
-                            div(onclick="showProduct(this)").point
-                            div(style="transform: translate(-50%, -102%)").position
-                                +product_card('images/8.webp', 'Кольцо J-Point Selection 117225', 100000, 0, true)
+                                +product_card('images/33.webp', 'Колье К3.28.181125.16Y', 192000, 0, true)
 
     section.categories
         div.swiper

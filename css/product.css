@@ -20,6 +20,11 @@ section.products div.title {
   grid-template-columns: 1fr max-content;
   grid-gap: 30px;
 }
+@media (max-width: 960px) {
+  section.products div.title {
+    grid-template-columns: 1fr;
+  }
+}
 section.products div.swiper {
   overflow: visible;
 }
@@ -72,12 +77,16 @@ section.subscribe form {
   grid-gap: 15px;
   margin-top: 32px;
   margin-bottom: 10px;
+  max-width: 800px;
 }
 @media (max-width: 640px) {
   section.subscribe form {
     grid-template-columns: 1fr;
     margin-top: 16px;
   }
+}
+section.subscribe form label:after {
+  display: none;
 }
 section.subscribe span.offer {
   font-weight: 400;
@@ -336,9 +345,14 @@ section.main div.product div.about div.title {
 }
 section.main div.product div.about div.title div.article {
   display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: -webkit-max-content;
-  grid-auto-columns: max-content;
+  grid-template-columns: auto -webkit-max-content;
+  grid-template-columns: auto max-content;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   grid-gap: 10px;
 }
 section.main div.product div.about div.title div.article img {

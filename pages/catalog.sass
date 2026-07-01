@@ -58,7 +58,8 @@ section.main
             position: static
             width: calc(100% + var(--side-gap))
             height: 540px
-            object-position: top left
+            object-fit: cover
+            object-position: bottom left
             padding-top: unset
 
 section.products
@@ -72,12 +73,15 @@ section.products
             grid-gap: 20px
 
     div.filters
+        position: relative
         display: grid
         align-items: center
-        grid-template-columns: max-content max-content 1fr max-content
+        grid-template-columns: max-content 1fr max-content
         grid-gap: 62px
         color: $brown
         z-index: 2
+        +s(m)
+            grid-template-columns: max-content max-content 1fr max-content
         +s(s)
             grid-template-columns: max-content 1fr max-content
 
@@ -117,8 +121,15 @@ section.products
                             stroke: $color
 
         div.count
+            position: absolute
+            top: 50%
+            left: 50%
             text-align: center
             font-size: 14px
+            transform: translate(-50%, -50%)
+            +s(m)
+                position: static
+                transform: unset
             +s(s)
                 margin-right: -20px
 
@@ -226,6 +237,8 @@ section.products
                         width: 40px
                         height: 40px
                     svg
+                        width: 26px
+                        height: 26px
                         path
                             stroke: white
             img
@@ -262,9 +275,30 @@ section.products
             +s(s)
                 width: 100%
 
-        div.prev, div.next
+        a
+            position: relative
+
+        a.prev, a.next
+            position: relative
+            cursor: pointer
             &.disable
                 display: none
+
+            &:hover
+                svg
+                    path
+                        stroke: $color
+
+        a::after
+            content: ''
+            position: absolute
+            top: 50%
+            left: 50%
+            display: block
+            width: 16px
+            height: 16px
+            background: transparent
+            transform: translate(-50%, -50%)
 
     &.list
         div.products
@@ -305,11 +339,13 @@ section.seo
         &.hide
             grid-template-rows: 0fr
 
-            &+ div.more
+            & + div.more
                 span.show
                     display: block
                 span.hide
                     display: none
+                svg
+                    transform: rotate(0deg)
 
     div.more
         cursor: pointer
@@ -332,5 +368,6 @@ section.seo
 
         svg
             transition: all 0.5s
+            transform: rotate(180deg)
             path
                 stroke: $color

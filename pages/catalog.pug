@@ -58,9 +58,9 @@ block content
 
             div.products
                 +product_card('images/7.webp', 'Кольцо J-Point Selection 117225', 90000, 120000, true)
-                +product_card('images/8.webp', 'Кольцо J-Point Selection 117225', 100000, 0, true)
-                +product_card('images/9.webp', 'Кольцо J-Point Selection 117225', 80000, 0, false)
-                +product_card('images/7.webp', 'Кольцо J-Point Selection 117225', 115000, 160000, false)
+                +product_card('images/8.webp', 'Кольцо J-Point Classic 117225', 100000, 0, true)
+                +product_card('images/9.webp', 'Кольцо J-Point Signature 117225', 80000, 0, false)
+                +product_card('images/7.webp', 'Кольцо J-Point Elegance 117225', 115000, 160000, false)
                 div.banner
                     +banner('images/19.webp', 'Серьги J-point Collection ИПГ857.3.260123.1Y')
                 +product_card('images/8.webp', 'Кольцо J-Point Selection 117225', 120000, 0, false)
@@ -84,7 +84,7 @@ block content
 
             div.pagination
                 div.list
-                    div.prev.disable
+                    a(href="#").prev.disable
                         include ../images/pagination_arrow.svg
                     a(href="#") 1
                     a(href="#") 2
@@ -93,7 +93,7 @@ block content
                     a(href="#") 5
                     span …
                     a(href="#") 10
-                    div.next
+                    a(href="#").next
                         include ../images/pagination_arrow.svg
                 button.border
                     span Смотреть ещё
@@ -107,7 +107,7 @@ block content
                     span Наши серьги, вдохновлённые фирменными мотивами Дома, воплощают изобретательность и креативность, которыми мы славимся. Каждый комплект серёг, от классических до смелых моделей, искусно изготовлен нашими всемирно известными мастерами с использованием проверенных временем техник. Начните с нашей потрясающей коллекции серёг-гвоздиков, которые придадут элегантность как повседневному образу, так и наряду для особого случая. Откройте для себя серьги-гвоздики с бриллиантами, жемчугом и цветными драгоценными камнями, которые будут радовать вас долгие годы.
             div(onclick="this.previousElementSibling.classList.toggle('hide')").more
                 span.show развернуть
-                span.hide скрыть
+                span.hide свернуть
                 include ../images/select_arrow.svg
             
     include ../components/sections/_filter.pug

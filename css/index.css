@@ -20,6 +20,11 @@ section.products div.title {
   grid-template-columns: 1fr max-content;
   grid-gap: 30px;
 }
+@media (max-width: 960px) {
+  section.products div.title {
+    grid-template-columns: 1fr;
+  }
+}
 section.products div.swiper {
   overflow: visible;
 }
@@ -63,12 +68,24 @@ section.collections div.container {
 }
 section.collections div.title {
   display: grid;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: end;
   grid-template-columns: 1fr -webkit-max-content;
   grid-template-columns: 1fr max-content;
-  grid-gap: 30px;
+  grid-template-areas: "Title Nav" "Text Nav";
+  grid-gap: 10px 30px;
+}
+section.collections div.title h2 {
+  grid-area: Title;
+}
+section.collections div.title div.swiper-navigation {
+  grid-area: Nav;
+}
+section.collections div.title span {
+  grid-area: Text;
+  max-width: 800px;
+  opacity: 0.8;
 }
 section.collections div.swiper {
   overflow: visible;
@@ -259,6 +276,10 @@ section.about div.container div.text div.signature.animate svg path {
   -webkit-animation: 2s signature linear forwards;
           animation: 2s signature linear forwards;
 }
+section.about div.container div.text div.signature.animate svg path + path {
+  -webkit-animation-delay: 2s;
+          animation-delay: 2s;
+}
 
 @-webkit-keyframes signature {
   0% {
@@ -316,9 +337,13 @@ section.socials div.swiper-slide span {
   background: rgba(255, 255, 255, 0.2);
   padding: 10px;
   font-weight: 500;
-  font-size: 14px;
   line-height: 130%;
   color: #fff;
+}
+@media (max-width: 640px) {
+  section.socials div.swiper-slide span {
+    padding: 6px;
+  }
 }
 
 section.subscribe {
@@ -345,12 +370,16 @@ section.subscribe form {
   grid-gap: 15px;
   margin-top: 32px;
   margin-bottom: 10px;
+  max-width: 800px;
 }
 @media (max-width: 640px) {
   section.subscribe form {
     grid-template-columns: 1fr;
     margin-top: 16px;
   }
+}
+section.subscribe form label:after {
+  display: none;
 }
 section.subscribe span.offer {
   font-weight: 400;
@@ -417,7 +446,7 @@ section.main div.swiper.texts div.swiper-slide h4 {
   opacity: 0.7;
 }
 section.main div.swiper.texts div.swiper-slide h1 {
-  margin-bottom: 12px;
+  margin-bottom: 4px;
   color: #1a2238;
 }
 section.main div.swiper.texts div.swiper-slide a.button {
@@ -493,6 +522,7 @@ section.main div.swiper-pagination span::after {
   line-height: 130%;
   letter-spacing: 0.1em;
   text-transform: uppercase;
+  font-variant-numeric: tabular-nums;
   color: #889e9e;
   opacity: 0.7;
 }
@@ -531,6 +561,22 @@ section.main div.swiper.backgrounds img.background {
      object-fit: cover;
   -o-object-position: center center;
      object-position: center center;
+}
+section.main div.swiper.backgrounds img.background.desktop {
+  display: block;
+}
+@media (max-width: 640px) {
+  section.main div.swiper.backgrounds img.background.desktop {
+    display: none;
+  }
+}
+section.main div.swiper.backgrounds img.background.mobile {
+  display: none;
+}
+@media (max-width: 640px) {
+  section.main div.swiper.backgrounds img.background.mobile {
+    display: block;
+  }
 }
 section.main div.swiper.backgrounds div.person {
   position: relative;
@@ -626,6 +672,14 @@ section.main div.swiper.backgrounds div.person div.product div.position {
 }
 section.main div.swiper.backgrounds div.person div.product a.product_card {
   width: 260px;
+}
+section.main div.swiper.backgrounds div.person div.product a.product_card div.preview img {
+  -webkit-filter: grayscale(0);
+          filter: grayscale(0);
+}
+section.main div.swiper.backgrounds div.person div.product a.product_card div.preview span.tag {
+  left: 20px;
+  top: 20px;
 }
 section.main div.swiper.backgrounds div.person div.product a.product_card div.text {
   padding: 20px;
@@ -845,4 +899,14 @@ section.categories div.swiper-navigation div.arrow:hover img {
 section.categories div.swiper-navigation img {
   position: absolute;
   opacity: 0;
+}
+
+section.collections div.title {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  grid-template-areas: "Title Nav";
+}
+section.collections div.title span {
+  display: none;
 }/*# sourceMappingURL=index.css.map */

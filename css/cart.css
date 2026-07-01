@@ -20,6 +20,11 @@ section.products div.title {
   grid-template-columns: 1fr max-content;
   grid-gap: 30px;
 }
+@media (max-width: 960px) {
+  section.products div.title {
+    grid-template-columns: 1fr;
+  }
+}
 section.products div.swiper {
   overflow: visible;
 }

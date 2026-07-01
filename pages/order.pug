@@ -10,7 +10,7 @@ block content
         div.container
             h2 Оформление заказа
 
-            form(action="", onsubmit="event.preventDefault(); validateEmail(this, event);")
+            form(action="#")
 
                 div.inputs
 
@@ -32,11 +32,11 @@ block content
                                     +input('email', 'Email', true)
                         div.group
                             h4 2. адрес
-                            div.grid
+                            div.grid.seven
                                 div.adress
                                     +input('text', 'Выберите город', true)
                                 div.street
-                                    +input('text', 'Улица и дом')
+                                    +input('text', 'Улица и дом', true)
                                 div.adress_detail
                                     +input('text', 'Кв./офис')
                                 div.adress_detail
@@ -57,7 +57,7 @@ block content
                         div.grid
                             span #[b Итого]
                             span.price #[b 572 000 ₽]
-                        a(href="").button.fill 
+                        button.fill 
                             span оформить заказ
 
                         div.checkboxes

@@ -72,6 +72,13 @@ section.main
                 +s(s)
                     grid-template-columns: repeat(2, 1fr)
 
+                &.seven
+                    grid-template-columns: repeat(7, 1fr)
+                    +s(l)
+                        grid-template-columns: repeat(6, 1fr)
+                    +s(s)
+                        grid-template-columns: repeat(2, 1fr)
+
                 div.input
                     grid-column: 2 span
 
@@ -86,12 +93,14 @@ section.main
                         grid-column: 2 span
 
                 div.adress
-                    grid-column: 6 span
+                    grid-column: 7 span
+                    +s(l)
+                        grid-column: 6 span
                     +s(s)
                         grid-column: 2 span
 
                 div.street
-                    grid-column: 2 span
+                    grid-column: 3 span
                     +s(l)
                         grid-column: 4 span
                     +s(s)
@@ -105,7 +114,9 @@ section.main
                         grid-column: 1 span
 
                 textarea
-                    grid-column: 6 span
+                    grid-column: 7 span
+                    +s(l)
+                        grid-column: 6 span
                     +s(s)
                         grid-column: 2 span
 
@@ -136,7 +147,7 @@ section.main
                     margin-top: 10px
                     margin-bottom: 10px
 
-            a.button
+            button
                 margin-top: 20px
                 +s(m)
                     margin-top: 16px

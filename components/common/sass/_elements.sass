@@ -29,27 +29,27 @@ button, a.button
     cursor: pointer
     display: grid
     align-items: center
+    align-content: center
     justify-content: center
+    justify-items: center
     grid-auto-flow: column
     grid-auto-columns: max-content
     grid-gap: 12px
-    align-items: center
-    justify-items: center
     height: 50px
     padding: 12px 24px
     text-transform: uppercase
-    transition: all 0.5s
+    transition: background 0.5s
     +s(m)
         height: 40px
 
     span
         font-weight: 500
-        font-size: 12px
         line-height: 130%
         letter-spacing: 0.01em
         text-transform: uppercase
         color: $color
         transition: all 0.5s
+        +f(12px, 14px)
 
     svg
         path
@@ -96,6 +96,8 @@ textarea
     border: 1px solid #6f6f6f33
     width: 100%
     min-height: 90px
+    padding-left: 15px
+    padding-right: 15px
 
 div.input
     position: relative
@@ -153,7 +155,7 @@ div.input
             display: none
 
         &.error ~ span
-            display: grid
+            display: block
 
     label
         top: 0
@@ -169,10 +171,13 @@ div.input
         position: absolute
         top: 50%
         left: 15px
-        width: 100%
+        width: calc(100% - 30px)
         color: #ff383c
         font-size: 14px
         transform: translateY(-50%)
+        white-space: nowrap
+        overflow: hidden
+        text-overflow: ellipsis
         +s(m)
             white-space: nowrap
             overflow: hidden
@@ -389,6 +394,10 @@ a.product_card
     background: white
     transition: box-shadow 0.5s
 
+    h4
+        letter-spacing: 0.01em
+        +f(12px, 20px)
+
     div.grid_view
         position: relative
         display: grid
@@ -489,6 +498,9 @@ a.product_card
 
             button
                 width: 100%
+                +s(m)
+                    height: 35px
+
                 svg
                     width: 16px
                     height: 16px
@@ -498,6 +510,9 @@ a.product_card
                     svg
                         path
                             stroke: #fff
+
+                span.incart
+                    display: none
 
         &:hover
             z-index: 2
@@ -562,6 +577,11 @@ a.product_card
                     top: 20px
                     left: 00px
 
+        &:hover
+            div.preview
+                img
+                    filter: grayscale(0)
+
         div.text
             display: grid
             grid-gap: 20px
@@ -575,6 +595,7 @@ a.product_card
             h4.percent
                 color: $color
                 margin-bottom: 10px
+                display: none
                 +s(m)
                     display: block
                     margin-bottom: unset
@@ -640,15 +661,30 @@ a.product_card
                 margin-bottom: 20px
                 span.oldPrice
                     text-decoration: line-through
+                    text-decoration-thickness: 1px
                     opacity: 0.2
             button
                 width: 100%
                 max-width: 320px
+                +s(m)
+                    height: 35px
                 +s(s)
                     max-width: unset
                 svg
                     width: 16px
                     height: 16px
+
+    &.incart
+        button
+            background: $color
+            pointer-events: none
+            svg
+                display: none
+            span.incart
+                display: inline !important
+                color: white !important
+            span.tocart
+                display: none !important
 
 div.cart_product
     position: relative
@@ -717,8 +753,9 @@ div.cart_product
             padding: unset
         div.article
             display: grid
-            grid-auto-flow: column
-            grid-auto-columns: max-content
+            grid-template-columns: auto max-content
+            justify-content: start
+            align-items: center
             grid-gap: 10px
             img
                 cursor: pointer
@@ -741,6 +778,8 @@ div.cart_product
             +f(16px, 20px)
         span.old
             opacity: 0.2
+            text-decoration: line-through
+            text-decoration-thickness: 1px
     div.remove
         grid-area: Remove
         cursor: pointer
@@ -806,8 +845,10 @@ div.collection_card
                 color: white
 
 div.breadcrumbs
+    z-index: 3
     a
         opacity: 0.5
+        transition: all 0.5s
         &:hover
             opacity: 1
     & > *

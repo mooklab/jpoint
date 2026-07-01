@@ -267,24 +267,28 @@ mainTimeline
 
 
 // Управление классами шапки при скролле
-let lastScrollY = window.scrollY
 const header = document.querySelector('header')
 const product_footer = document.querySelector('section.product_footer')
 
-window.addEventListener('scroll', () => {
+let lastScrollY = window.scrollY
+
+const updateScrollState = () => {
     const currentScrollY = window.scrollY
 
     header.classList.toggle('scrolled', currentScrollY > 0)
-    product_footer?.classList.toggle('scrolled', currentScrollY > 0)
+    product_footer?.classList.toggle('scrolled', currentScrollY >= 750)
 
     currentScrollY > lastScrollY && currentScrollY > 0
         ? header.classList.add('hidden')
         : header.classList.remove('hidden')
 
-    product_footer?.classList.toggle('scrolled', currentScrollY >= 750)
-
     lastScrollY = currentScrollY
-})
+}
+
+window.addEventListener('scroll', updateScrollState)
+
+// учёт позиции при загрузке / обновлении страницы
+updateScrollState()
 
 
 
@@ -518,11 +522,30 @@ tabs.forEach(section => {
 
 // Попап "товар добалвлен в корзину" для карточек товаров
 
-window.addToCart = (event) => {
+window.addToCart = (event, button) => {
     event.preventDefault()
-    document.querySelector('header div.cart_popup').classList.add('show')
+
+    const card = button.closest('a.product_card')
+    const popup = document.querySelector('header div.cart_popup')
+
+    const dataName = button.dataset.name
+    const dataImage = button.dataset.image
+    const dataMaterial = button.dataset.material
+
+    const popupName = popup.querySelector('h4')
+    const popupImage = popup.querySelector('div.preview img')
+    const popupMaterial = popup.querySelector('span.material')
+
+    popup.classList.remove('show')
+    card.classList.add('incart')
+
+    popupName.textContent = dataName
+    popupImage.src = dataImage
+    popupMaterial.textContent = dataMaterial
+
+    popup.classList.add('show')
     setTimeout(() => {
-        document.querySelector('header div.cart_popup').classList.remove('show')
+        popup.classList.remove('show')
     }, 3000)
 }
 
@@ -538,14 +561,28 @@ window.getPrice = () => { document.querySelector('section.get_price').classList.
 window.getGallery = () => { document.querySelector('section.lightbox div.swiper').closest('section').classList.toggle('show') }
 
 
+// Карточка на главной
 window.showProduct = (element) => {
+    event.stopPropagation()
     const points = document.querySelectorAll('section.main div.point')
     points.forEach(point => {
         if (point !== element) {
             point.classList.remove('open')
         }
     })
-    element.classList.toggle('open')
+    element && element.classList.toggle('open')
+}
+
+
+window.checkProducts = (event, element) => {
+    event.stopPropagation()
+    const checkboxes = element.closest('section').querySelectorAll('input')
+
+    if (element.checked) {
+        checkboxes.forEach(checkbox => { checkbox.checked = true })
+    } else {
+        checkboxes.forEach(checkbox => { checkbox.checked = false })
+    }
 }
 
 

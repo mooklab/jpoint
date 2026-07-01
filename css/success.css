@@ -47,7 +47,7 @@ section.main div.text {
 section.main div.text h2 {
   margin-bottom: 10px;
 }
-section.main div.text span {
+section.main div.text > span {
   margin-bottom: 24px;
   max-width: 480px;
   opacity: 0.8;

@@ -22,12 +22,16 @@ section.subscribe form {
   grid-gap: 15px;
   margin-top: 32px;
   margin-bottom: 10px;
+  max-width: 800px;
 }
 @media (max-width: 640px) {
   section.subscribe form {
     grid-template-columns: 1fr;
     margin-top: 16px;
   }
+}
+section.subscribe form label:after {
+  display: none;
 }
 section.subscribe span.offer {
   font-weight: 400;
@@ -147,6 +151,7 @@ section.main div.how div.list div.item span {
 }
 section.main div.how div.phone {
   padding: 30px;
+  padding-right: 100px;
   background: white;
   display: grid;
   -webkit-box-align: center;
@@ -155,6 +160,11 @@ section.main div.how div.phone {
   grid-template-columns: 1fr -webkit-max-content;
   grid-template-columns: 1fr max-content;
   grid-gap: 24px;
+}
+@media (max-width: 1280px) {
+  section.main div.how div.phone {
+    padding: 30px;
+  }
 }
 @media (max-width: 960px) {
   section.main div.how div.phone {
@@ -213,6 +223,10 @@ section.main div.how div.phone a.phone:hover span {
   text-decoration: none;
 }
 
+section.delivery div.title {
+  display: grid;
+  grid-gap: 20px;
+}
 section.delivery div.tabs {
   margin-top: 22px;
 }

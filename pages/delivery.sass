@@ -77,11 +77,14 @@ section.main
 
         div.phone
             padding: 30px
+            padding-right: 100px
             background: white
             display: grid
             align-items: center
             grid-template-columns: 1fr max-content
             grid-gap: 24px
+            +s(l)
+                padding: 30px
             +s(m)
                 padding: 20px
                 grid-gap: 20px
@@ -114,6 +117,10 @@ section.main
                         text-decoration: none
 
 section.delivery
+    div.title
+        display: grid
+        grid-gap: 20px
+
     div.tabs
         margin-top: 22px
         div.tabs_captions

@@ -20,6 +20,11 @@ section.products div.title {
   grid-template-columns: 1fr max-content;
   grid-gap: 30px;
 }
+@media (max-width: 960px) {
+  section.products div.title {
+    grid-template-columns: 1fr;
+  }
+}
 section.products div.swiper {
   overflow: visible;
 }
@@ -417,15 +422,22 @@ section.products div.container {
   }
 }
 section.products div.filters {
+  position: relative;
   display: grid;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  grid-template-columns: -webkit-max-content -webkit-max-content 1fr -webkit-max-content;
-  grid-template-columns: max-content max-content 1fr max-content;
+  grid-template-columns: -webkit-max-content 1fr -webkit-max-content;
+  grid-template-columns: max-content 1fr max-content;
   grid-gap: 62px;
   color: #200a0a;
   z-index: 2;
+}
+@media (max-width: 960px) {
+  section.products div.filters {
+    grid-template-columns: -webkit-max-content -webkit-max-content 1fr -webkit-max-content;
+    grid-template-columns: max-content max-content 1fr max-content;
+  }
 }
 @media (max-width: 640px) {
   section.products div.filters {
@@ -444,19 +456,57 @@ section.products div.filters div.filter {
           align-items: center;
   grid-gap: 10px;
 }
+section.products div.filters div.filter svg path, section.products div.filters div.filter svg circle {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+section.products div.filters div.filter span {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
 @media (max-width: 640px) {
   section.products div.filters div.filter span {
     display: none;
   }
+}
+section.products div.filters div.filter:hover svg path, section.products div.filters div.filter:hover svg circle {
+  stroke: #8c6a3c;
+}
+section.products div.filters div.filter:hover span {
+  color: #8c6a3c;
 }
 @media (max-width: 640px) {
   section.products div.filters div.select {
     display: none;
   }
 }
+section.products div.filters div.select div.selected_item {
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+section.products div.filters div.select:hover div.selected_item {
+  color: #8c6a3c;
+}
+section.products div.filters div.select:hover div.selected_item svg path {
+  stroke: #8c6a3c;
+}
 section.products div.filters div.count {
+  position: absolute;
+  top: 50%;
+  left: 50%;
   text-align: center;
   font-size: 14px;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+@media (max-width: 960px) {
+  section.products div.filters div.count {
+    position: static;
+    -webkit-transform: unset;
+        -ms-transform: unset;
+            transform: unset;
+  }
 }
 @media (max-width: 640px) {
   section.products div.filters div.count {
