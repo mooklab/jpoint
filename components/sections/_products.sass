@@ -27,6 +27,14 @@ section.products
             width: calc(100% + (var(--side-gap) * 2))
             margin-left: calc(var(--side-gap) * -1)
 
+    div.swiper-slide
+        opacity: 0
+        transition: opacity 0.3s
+        pointer-events: none
+        &.swiper-slide-visible
+            opacity: 1
+            pointer-events: auto
+
     div.swiper-navigation
         +s(m)
             display: none

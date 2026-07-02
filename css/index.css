@@ -39,6 +39,16 @@ section.products div.swiper {
     margin-left: calc(var(--side-gap) * -1);
   }
 }
+section.products div.swiper-slide {
+  opacity: 0;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+section.products div.swiper-slide.swiper-slide-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
 @media (max-width: 960px) {
   section.products div.swiper-navigation {
     display: none;
@@ -94,6 +104,16 @@ section.collections div.swiper {
   section.collections div.swiper {
     margin-bottom: 14px;
   }
+}
+section.collections div.swiper-slide {
+  opacity: 0;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+section.collections div.swiper-slide.swiper-slide-visible {
+  opacity: 1;
+  pointer-events: auto;
 }
 @media (max-width: 960px) {
   section.collections div.swiper-navigation {

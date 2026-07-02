@@ -34,6 +34,14 @@ section.collections
         +s(m)
             margin-bottom: 14px
 
+    div.swiper-slide
+        opacity: 0
+        transition: opacity 0.3s
+        pointer-events: none
+        &.swiper-slide-visible
+            opacity: 1
+            pointer-events: auto
+
     div.swiper-navigation
         +s(m)
             display: none

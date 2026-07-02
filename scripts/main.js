@@ -126,6 +126,7 @@ new Swiper(socialSwiper, {
 new Swiper(collectionSwiper, {
     slidesPerView: 1.02,
     spaceBetween: 10,
+    watchSlidesProgress: true,
     navigation: {
         prevEl: collectionSwiper?.closest('section').querySelector('div.swiper-navigation div.arrow:first-child'),
         nextEl: collectionSwiper?.closest('section').querySelector('div.swiper-navigation div.arrow:last-child')
@@ -156,6 +157,7 @@ productSwipers.forEach(swiper => {
     new Swiper(swiper, {
         slidesPerView: 2,
         spaceBetween: 10,
+        watchSlidesProgress: true,
         pagination: {
             el: swiper?.closest('section').querySelector('.swiper-pagination2'),
             clickable: true,

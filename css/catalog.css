@@ -39,6 +39,16 @@ section.products div.swiper {
     margin-left: calc(var(--side-gap) * -1);
   }
 }
+section.products div.swiper-slide {
+  opacity: 0;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+section.products div.swiper-slide.swiper-slide-visible {
+  opacity: 1;
+  pointer-events: auto;
+}
 @media (max-width: 960px) {
   section.products div.swiper-navigation {
     display: none;
