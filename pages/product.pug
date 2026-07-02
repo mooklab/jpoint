@@ -31,7 +31,8 @@ block content
                                 div.swiper-slide
                                     img(src="images/23.webp", alt="Серьги J-point Collection ИПГ857.50.080823.3W", lightbox="product")
                         div.swiper-pagination
-                        img(src="images/fullscreen.svg", onclick="getGallery()").fullscreen
+                        div(onclick="getGallery()").fullscreen
+                            include ../images/fullscreen.svg
                     
                     div.advantages
                         div.advantage
@@ -48,7 +49,7 @@ block content
 
                     div.title
                         h2 Серьги J-point Collection ИПГ857.50.080823.3W
-                        div.article
+                        div(onclick="copyArticle(this)", data-article="ИПГ857.50.080823.3W").article
                             span Артикул: ИПГ857.50.080823.3W
                             img(src="images/copy.svg")
                         
@@ -108,9 +109,15 @@ block content
                             span Намекнуть о подарке
 
                     div.buttons
-                        button(onclick="addToCart(event)").fill
+                        button(
+                            onclick="addToCart(event, this)", 
+                            data-name="Серьги J-point Collection ИПГ857.50.080823.3W", 
+                            data-image="images/7.webp", 
+                            data-material="Золото"
+                        ).fill
                             include ../images/cart.svg
-                            span В корзину
+                            span.tocart В корзину
+                            span.incart В корзине
                         button(onclick="getHint()").border
                             span Намекнуть о подарке
 
@@ -120,11 +127,11 @@ block content
                     div.consult
                         h3 Нужна помощь консультанта?
                         span Вы можете получить консультацию по телефону или через месседжер (11:00–22:00 без выходных):
-                        a(href="#")
+                        a(href="tel:+7 495 212-11-10")
                             img(src="images/consult_phone.svg")
                             span +7 495 212-11-10
 
-            div.tabs
+            div.tabs#tabs
                 div.tabs_captions
                     div(data-tabcaption="description").tab_caption.active Описание
                     div(data-tabcaption="specs").tab_caption Характеристики
@@ -147,7 +154,7 @@ block content
                                 div.overflow
                                     div.wrap
                                         div.specs
-                                            span.title Характеристики:
+                                            h4.title Характеристики:
                                             div.grid
                                                 span Металл
                                                 span Золото 585
@@ -184,15 +191,21 @@ block content
                 img(src="images/7.webp", alt="Серьги J-point Collection ИПГ857.50.080823.3W")
             div.title
                 h3 Серьги J-point Collection ИПГ857.50.080823.3W
-                div.article
+                div(onclick="copyArticle(this)", data-article="ИПГ857.50.080823.3W").article
                     span Артикул: ИПГ857.50.080823.3W
                     img(src="images/copy.svg")
             div.price
                 span.new 286 000 ₽
                 span.old 286 000 ₽
-            button(onclick="addToCart(event)").fill
+            button(
+                onclick="addToCart(event, this)", 
+                data-name="Серьги J-point Collection ИПГ857.50.080823.3W", 
+                data-image="images/7.webp", 
+                data-material="Золото"
+            ).fill
                 include ../images/cart.svg
-                span В корзину
+                span.tocart В корзину
+                span.incart В корзине
 
     section.product_hint
         div.container
@@ -205,11 +218,11 @@ block content
                     h3 Намекнуть о подарке
                     span Выбери социальную сеть и отправь сообщение с ссылкой на товар, который ты хочешь получить в подарок
                 div.share
-                    div: img(src="images/hint_share.svg")
-                    div: img(src="images/hint_telegram.svg")
-                    div: img(src="images/vkontakte.svg")
-                    div: img(src="images/whatsapp.svg")
-                    div: img(src="images/max.svg")
+                    a(href="#", target="_blank"): img(src="images/hint_share.svg")
+                    a(href="#", target="_blank"): img(src="images/hint_telegram.svg")
+                    a(href="#", target="_blank"): img(src="images/vkontakte.svg")
+                    a(href="#", target="_blank"): img(src="images/whatsapp.svg")
+                    a(href="#", target="_blank"): img(src="images/max.svg")
         div(onclick="this.closest('section').classList.toggle('show')").backdrop
 
     section.lightbox
@@ -220,7 +233,7 @@ block content
                 span.total 05
             img(src="images/cross.svg", onclick="this.closest('section').classList.toggle('show')").cross
             div(onclick="this.nextElementSibling.classList.toggle('scale')").zoom
-                img(src="images/zoom.svg")
+                include ../images/zoom.svg
             div.swiper
                 div.swiper-wrapper
                     div.swiper-slide
@@ -233,11 +246,17 @@ block content
                         img(src="images/22.webp", alt="Серьги J-point Collection ИПГ857.50.080823.3W", lightbox="product")
                     div.swiper-slide
                         img(src="images/23.webp", alt="Серьги J-point Collection ИПГ857.50.080823.3W", lightbox="product")
-            div.swiper-navigation
+            div.swiper-navigation3
                 div.arrow
-                    img(src="images/swiper_arrow_long.svg")
+                    div.desktop
+                        include ../images/swiper_arrow_long.svg
+                    div.mobile
+                        include ../images/swiper_arrow.svg
                 div.arrow
-                    img(src="images/swiper_arrow_long.svg")
+                    div.desktop
+                        include ../images/swiper_arrow_long.svg
+                    div.mobile
+                        include ../images/swiper_arrow.svg
 
     section.get_price
         div.container
@@ -254,7 +273,7 @@ block content
             form(action="") 
                 +input('text', 'Ваше имя', true)
                 +input('tel', 'Телефон', true)
-                +input('text', 'WhatsApp / Telegram', true)
+                +input('text', 'WhatsApp / Telegram', false)
                 textarea(name="", placeholder="Например: интересует размер, срок изготовления, другой камень")
                 button.fill
                     span Запросить стоимость

@@ -103,6 +103,12 @@ section.subscribe span.offer a:hover {
   text-decoration: none;
 }
 
+html:has(section.product_hint.show),
+html:has(section.lightbox.show),
+html:has(section.get_price.show) {
+  overflow: hidden;
+}
+
 section.main {
   margin-top: 30px;
   margin-bottom: var(--section-gap);
@@ -263,7 +269,7 @@ section.main div.product div.gallery div.slider div.swiper-pagination span.swipe
   color: #8c6a3c;
   opacity: 1;
 }
-section.main div.product div.gallery div.slider img.fullscreen {
+section.main div.product div.gallery div.slider div.fullscreen {
   cursor: pointer;
   position: absolute;
   bottom: 30px;
@@ -271,16 +277,25 @@ section.main div.product div.gallery div.slider img.fullscreen {
   z-index: 1;
 }
 @media (max-width: 960px) {
-  section.main div.product div.gallery div.slider img.fullscreen {
+  section.main div.product div.gallery div.slider div.fullscreen {
     bottom: 20px;
     right: 20px;
     height: 40px;
     width: 40px;
   }
 }
+section.main div.product div.gallery div.slider div.fullscreen svg {
+  width: 100%;
+  height: 100%;
+}
+section.main div.product div.gallery div.slider div.fullscreen:hover svg rect {
+  stroke: #200a0a;
+  opacity: 1;
+}
 section.main div.product div.gallery div.advantages {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, -webkit-max-content);
+  grid-template-columns: repeat(3, max-content);
   grid-gap: 20px 40px;
 }
 @media (max-width: 1280px) {
@@ -344,6 +359,7 @@ section.main div.product div.about div.title {
   }
 }
 section.main div.product div.about div.title div.article {
+  cursor: pointer;
   display: grid;
   grid-template-columns: auto -webkit-max-content;
   grid-template-columns: auto max-content;
@@ -524,6 +540,12 @@ section.main div.product div.about div.buttons {
 }
 section.main div.product div.about div.buttons button {
   width: 100%;
+}
+section.main div.product div.about div.buttons button span.incart {
+  display: none;
+}
+section.main div.product div.about div.buttons button span.tocart {
+  display: inline;
 }
 section.main div.product div.about div.consult {
   display: grid;
@@ -712,12 +734,12 @@ section.main div.tabs div.tabs_content div.tab_content div.specs {
   display: grid;
   grid-gap: 10px;
 }
-section.main div.tabs div.tabs_content div.tab_content div.specs span.title {
+section.main div.tabs div.tabs_content div.tab_content div.specs h4 {
   text-transform: uppercase;
   color: #200a0a;
 }
 @media (max-width: 640px) {
-  section.main div.tabs div.tabs_content div.tab_content div.specs span.title {
+  section.main div.tabs div.tabs_content div.tab_content div.specs h4 {
     display: none;
   }
 }
@@ -745,6 +767,18 @@ section.main div.tabs div.tabs_content div.tab_content div.specs div.grid span:n
   border-bottom: 1px dashed #200a0a;
   opacity: 0.2;
 }
+section.main.incart div.product div.about button.fill {
+  pointer-events: none;
+}
+section.main.incart div.product div.about button.fill svg {
+  display: none;
+}
+section.main.incart div.product div.about button.fill span.incart {
+  display: inline;
+}
+section.main.incart div.product div.about button.fill span.tocart {
+  display: none;
+}
 
 section.product_footer {
   position: fixed;
@@ -762,8 +796,8 @@ section.product_footer {
 }
 section.product_footer div.container {
   display: grid;
-  grid-template-columns: -webkit-max-content 1fr -webkit-max-content -webkit-max-content;
-  grid-template-columns: max-content 1fr max-content max-content;
+  grid-template-columns: -webkit-max-content auto 1fr -webkit-max-content;
+  grid-template-columns: max-content auto 1fr max-content;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -826,6 +860,9 @@ section.product_footer div.container div.title div.article img {
 }
 section.product_footer div.container div.price {
   display: grid;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   grid-template-columns: repeat(2, -webkit-max-content);
   grid-template-columns: repeat(2, max-content);
   grid-gap: 20px;
@@ -834,6 +871,9 @@ section.product_footer div.container div.price {
   section.product_footer div.container div.price {
     grid-gap: 15px;
     margin-bottom: 20px;
+    -webkit-box-pack: unset;
+        -ms-flex-pack: unset;
+            justify-content: unset;
   }
 }
 section.product_footer div.container div.price span.new {
@@ -874,10 +914,36 @@ section.product_footer div.container div.price span.old {
     font-size: 32px;
   }
 }
+section.product_footer div.container button {
+  min-width: 340px;
+}
+@media (max-width: 1280px) {
+  section.product_footer div.container button {
+    min-width: unset;
+  }
+}
+section.product_footer div.container button span.incart {
+  display: none;
+}
+section.product_footer div.container button span.tocart {
+  display: inline;
+}
 section.product_footer.scrolled {
   -webkit-transform: translateY(0%);
       -ms-transform: translateY(0%);
           transform: translateY(0%);
+}
+section.product_footer.incart div.container button.fill {
+  pointer-events: none;
+}
+section.product_footer.incart div.container button.fill svg {
+  display: none;
+}
+section.product_footer.incart div.container button.fill span.incart {
+  display: inline;
+}
+section.product_footer.incart div.container button.fill span.tocart {
+  display: none;
 }
 
 section.product_hint {
@@ -895,11 +961,13 @@ section.product_hint {
   pointer-events: none;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
+  z-index: 11;
 }
 section.product_hint div.container {
   position: relative;
   z-index: 2;
   background: white;
+  max-width: 640px;
 }
 section.product_hint div.container div.cross {
   cursor: pointer;
@@ -932,10 +1000,28 @@ section.product_hint div.container div.text {
   background: white;
   padding: 30px;
 }
+@media (max-width: 960px) {
+  section.product_hint div.container div.text {
+    padding: 20px;
+  }
+}
 section.product_hint div.container div.title {
   display: grid;
   grid-gap: 10px;
   margin-bottom: 20px;
+}
+section.product_hint div.container div.title h3 {
+  font-size: 20px;
+}
+@media (min-width: 480px) {
+  section.product_hint div.container div.title h3 {
+    font-size: calc(0.0096774194 * 100vw + 15.3548387097px);
+  }
+}
+@media (min-width: 1720px) {
+  section.product_hint div.container div.title h3 {
+    font-size: 32px;
+  }
 }
 section.product_hint div.container div.share {
   display: grid;
@@ -944,7 +1030,8 @@ section.product_hint div.container div.share {
   grid-auto-columns: max-content;
   grid-gap: 8px;
 }
-section.product_hint div.container div.share div {
+section.product_hint div.container div.share a {
+  cursor: pointer;
   display: grid;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -989,6 +1076,12 @@ section.lightbox div.container {
   margin-top: 60px;
   margin-bottom: 60px;
 }
+@media (max-width: 960px) {
+  section.lightbox div.container {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+}
 section.lightbox div.counter {
   display: grid;
   grid-auto-flow: column;
@@ -1003,6 +1096,7 @@ section.lightbox div.counter span.total {
   color: rgba(32, 10, 10, 0.5);
 }
 section.lightbox div.zoom {
+  cursor: pointer;
   position: absolute;
   bottom: 0;
   left: 0;
@@ -1015,6 +1109,12 @@ section.lightbox div.zoom {
   width: 61px;
   height: 61px;
   z-index: 3;
+}
+@media (max-width: 960px) {
+  section.lightbox div.zoom {
+    width: 50px;
+    height: 50px;
+  }
 }
 section.lightbox img.cross {
   cursor: pointer;
@@ -1044,7 +1144,7 @@ section.lightbox div.swiper.scale img {
       -ms-transform: scale(1.5);
           transform: scale(1.5);
 }
-section.lightbox div.swiper-navigation {
+section.lightbox div.swiper-navigation3 {
   position: absolute;
   top: 0;
   left: 0;
@@ -1055,29 +1155,147 @@ section.lightbox div.swiper-navigation {
   z-index: 1;
 }
 @media (max-width: 960px) {
-  section.lightbox div.swiper-navigation {
-    display: none;
+  section.lightbox div.swiper-navigation3 {
+    height: 50px;
+    bottom: 0;
+    right: 0;
+    left: unset;
+    top: unset;
   }
 }
-section.lightbox div.swiper-navigation div.arrow {
+section.lightbox div.swiper-navigation3 div.arrow {
   cursor: pointer;
   display: grid;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
   width: 100%;
   height: 100%;
 }
-section.lightbox div.swiper-navigation div.arrow::after {
+@media (max-width: 960px) {
+  section.lightbox div.swiper-navigation3 div.arrow {
+    height: 50px;
+  }
+}
+section.lightbox div.swiper-navigation3 div.arrow::after {
   display: none;
 }
-section.lightbox div.swiper-navigation div.arrow:first-child img {
+section.lightbox div.swiper-navigation3 div.arrow:first-child {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
+  justify-items: start;
+}
+section.lightbox div.swiper-navigation3 div.arrow:first-child svg {
   -webkit-transform: rotate(180deg);
       -ms-transform: rotate(180deg);
           transform: rotate(180deg);
 }
-section.lightbox div.swiper-navigation div.arrow:hover img {
+section.lightbox div.swiper-navigation3 div.arrow:hover svg {
   opacity: 1;
+}
+section.lightbox div.swiper-navigation3 div.arrow div.desktop {
+  display: grid;
+}
+@media (max-width: 960px) {
+  section.lightbox div.swiper-navigation3 div.arrow div.desktop {
+    display: none;
+  }
+}
+section.lightbox div.swiper-navigation3 div.arrow div.mobile {
+  display: none;
+}
+@media (max-width: 960px) {
+  section.lightbox div.swiper-navigation3 div.arrow div.mobile {
+    display: grid;
+  }
+}
+section.lightbox div.swiper-navigation3 div.arrow.swiper-button-disabled {
+  pointer-events: none;
+  opacity: 0.5;
+}
+section.lightbox div.swiper-navigation3 div.arrow.swiper-button-disabled svg path {
+  fill: #6f6f6f;
+}
+@media (max-width: 960px) {
+  section.lightbox div.swiper-navigation3 {
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: -webkit-max-content;
+    grid-auto-columns: max-content;
+    grid-template-columns: unset;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    grid-gap: 15px;
+    width: -webkit-max-content;
+    width: -moz-max-content;
+    width: max-content;
+  }
+  section.lightbox div.swiper-navigation3 div.arrow {
+    position: relative;
+    cursor: pointer;
+    display: grid;
+    width: 55px;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+  }
+  section.lightbox div.swiper-navigation3 div.arrow svg {
+    height: 16px;
+  }
+  section.lightbox div.swiper-navigation3 div.arrow:first-child svg {
+    -webkit-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  section.lightbox div.swiper-navigation3 div.arrow::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    display: block;
+    height: 2px;
+    width: 100%;
+    background: #1A2238;
+    -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+            transform: translateY(-50%);
+  }
+  section.lightbox div.swiper-navigation3 div.arrow:last-child {
+    justify-items: end;
+  }
+  section.lightbox div.swiper-navigation3 div.arrow:last-child svg {
+    -webkit-transform: rotate(180deg);
+        -ms-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  section.lightbox div.swiper-navigation3 div.arrow:hover {
+    width: 78px;
+  }
+  section.lightbox div.swiper-navigation3 div.arrow:hover::after {
+    background: #8C6A3C;
+  }
+  section.lightbox div.swiper-navigation3 div.arrow:hover svg path {
+    stroke: #8C6A3C;
+  }
+  section.lightbox div.swiper-navigation3 div.arrow.swiper-button-lock {
+    display: none;
+    pointer-events: none;
+  }
+  section.lightbox div.swiper-navigation3 div.arrow.swiper-button-disabled {
+    opacity: 0.3;
+    pointer-events: none;
+  }
+  section.lightbox div.swiper-navigation3 div.arrow.swiper-button-disabled svg path {
+    fill: unset;
+  }
 }
 section.lightbox.show {
   opacity: 1;

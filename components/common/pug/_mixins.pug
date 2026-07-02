@@ -13,7 +13,10 @@ mixin product_card(image, title, newPrice, oldPrice, tag = false)
                     span.percent !{discount}%
                 h4= title
                 div.prices
-                    span.newPrice !{newPrice.toLocaleString('ru-RU')} ₽
+                    if newPrice
+                        span.newPrice !{newPrice.toLocaleString('ru-RU')} ₽
+                    else
+                        span.newPrice Цена по запросу
                     if oldPrice
                         span.oldPrice !{oldPrice.toLocaleString('ru-RU')} ₽
             div.order
@@ -49,7 +52,10 @@ mixin product_card(image, title, newPrice, oldPrice, tag = false)
                 if oldPrice
                     h4.percent !{discount}%
                 div.prices
-                    span.newPrice !{newPrice.toLocaleString('ru-RU')} ₽
+                    if newPrice
+                        span.newPrice !{newPrice.toLocaleString('ru-RU')} ₽
+                    else
+                        span.newPrice Цена по запросу
                     if oldPrice
                         span.oldPrice !{oldPrice.toLocaleString('ru-RU')} ₽
                 button(onclick="addToCart(event, this)").border

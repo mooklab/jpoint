@@ -4,6 +4,11 @@
 @use '../components/sections/_products' as *
 @use '../components/sections/_subscribe' as *
 
+html:has(section.product_hint.show),
+html:has(section.lightbox.show),
+html:has(section.get_price.show)
+    overflow: hidden
+
 section.main
     margin-top: 30px
     margin-bottom: var(--section-gap)
@@ -118,7 +123,7 @@ section.main
                                 color: $color
                                 opacity: 1
 
-                img.fullscreen
+                div.fullscreen
                     cursor: pointer
                     position: absolute
                     bottom: 30px
@@ -130,9 +135,19 @@ section.main
                         height: 40px
                         width: 40px
 
+                    svg
+                        width: 100%
+                        height: 100%
+
+                    &:hover
+                        svg
+                            rect
+                                stroke: $brown
+                                opacity: 1
+
             div.advantages
                 display: grid
-                grid-template-columns: repeat(3, 1fr)
+                grid-template-columns: repeat(3, max-content)
                 grid-gap: 20px 40px
                 +s(l)
                     grid-template-columns: repeat(2, 1fr)
@@ -173,6 +188,7 @@ section.main
                     order: 1
 
                 div.article
+                    cursor: pointer
                     display: grid
                     grid-template-columns: auto max-content
                     justify-content: start
@@ -291,6 +307,11 @@ section.main
 
                 button
                     width: 100%
+
+                    span.incart
+                        display: none
+                    span.tocart
+                        display: inline
 
             div.consult
                 display: grid
@@ -419,7 +440,7 @@ section.main
                 div.specs
                     display: grid
                     grid-gap: 10px
-                    span.title
+                    h4
                         text-transform: uppercase
                         color: $brown
                         +s(s)
@@ -442,6 +463,18 @@ section.main
                                 border-bottom: 1px dashed $brown
                                 opacity: 0.2
 
+    &.incart
+        div.product
+            div.about
+                button.fill
+                    pointer-events: none
+                    svg
+                        display: none
+                    span.incart
+                        display: inline
+                    span.tocart
+                        display: none
+
 section.product_footer
     position: fixed
     bottom: 0
@@ -452,7 +485,7 @@ section.product_footer
     transition: transform 0.5s
     div.container
         display: grid
-        grid-template-columns: max-content 1fr max-content max-content
+        grid-template-columns: max-content auto 1fr max-content
         justify-content: space-between
         align-items: center
         grid-gap: 30px
@@ -494,11 +527,13 @@ section.product_footer
                     cursor: pointer
         div.price
             display: grid
+            justify-content: center
             grid-template-columns: repeat(2, max-content)
             grid-gap: 20px
             +s(m)
                 grid-gap: 15px
                 margin-bottom: 20px
+                justify-content: unset
 
             span.new
                 font-weight: 500
@@ -518,8 +553,29 @@ section.product_footer
                 opacity: 0.2
                 +f(20px, 32px)
 
+        button
+            min-width: 340px
+            +s(l)
+                min-width: unset
+
+            span.incart
+                display: none
+            span.tocart
+                display: inline
+
     &.scrolled
         transform: translateY(0%)
+
+    &.incart
+        div.container
+            button.fill
+                pointer-events: none
+                svg
+                    display: none
+                span.incart
+                    display: inline
+                span.tocart
+                    display: none
 
 section.product_hint
     position: fixed
@@ -533,11 +589,13 @@ section.product_hint
     opacity: 0
     pointer-events: none
     transition: all 0.5s
+    z-index: 11
 
     div.container
         position: relative
         z-index: 2
         background: white
+        max-width: 640px
         div.cross
             cursor: pointer
             position: absolute
@@ -561,16 +619,21 @@ section.product_hint
         div.text
             background: white
             padding: 30px
+            +s(m)
+                padding: 20px
         div.title
             display: grid
             grid-gap: 10px
             margin-bottom: 20px
+            h3
+                +f(20px, 32px)
         div.share
             display: grid
             grid-auto-flow: column
             grid-auto-columns: max-content
             grid-gap: 8px
-            div
+            a
+                cursor: pointer
                 display: grid
                 align-items: center
                 justify-items: center
@@ -609,6 +672,9 @@ section.lightbox
         position: relative
         margin-top: 60px
         margin-bottom: 60px
+        +s(m)
+            margin-top: 30px
+            margin-bottom: 30px
 
     div.counter
         display: grid
@@ -622,6 +688,7 @@ section.lightbox
             color: rgba(32, 10, 10, 0.5)
 
     div.zoom
+        cursor: pointer
         position: absolute
         bottom: 0
         left: 0
@@ -632,6 +699,9 @@ section.lightbox
         width: 61px
         height: 61px
         z-index: 3
+        +s(m)
+            width: 50px
+            height: 50px
 
     img.cross
         cursor: pointer
@@ -657,7 +727,7 @@ section.lightbox
             img
                 transform: scale(1.5)
 
-    div.swiper-navigation
+    div.swiper-navigation3
         position: absolute
         top: 0
         left: 0
@@ -667,23 +737,106 @@ section.lightbox
         grid-template-columns: repeat(2, 1fr)
         z-index: 1
         +s(m)
-            display: none
+            height: 50px
+            bottom: 0
+            right: 0
+            left: unset
+            top: unset
 
         div.arrow
             cursor: pointer
             display: grid
             align-items: center
+            justify-content: end
             width: 100%
             height: 100%
+            +s(m)
+                height: 50px
             &::after
                 display: none
 
             &:first-child
-                img
+                justify-content: start
+                justify-items: start
+                svg
                     transform: rotate(180deg)
+
             &:hover
-                img
+                svg
                     opacity: 1
+
+            div.desktop
+                display: grid
+                +s(m)
+                    display: none
+
+            div.mobile
+                display: none
+                +s(m)
+                    display: grid
+
+            &.swiper-button-disabled
+                pointer-events: none
+                opacity: 0.5
+                svg
+                    path
+                        fill: $gray
+
+        +s(m)
+            user-select: none
+            display: grid
+            grid-auto-flow: column
+            grid-auto-columns: max-content
+            grid-template-columns: unset
+            align-items: center
+            grid-gap: 15px
+            width: max-content
+            div.arrow
+                position: relative
+                cursor: pointer
+                display: grid
+                width: 55px
+                transition: all 0.5s
+                svg
+                    height: 16px
+
+                &:first-child
+                    svg
+                        transform: rotate(0deg)
+
+                &::after
+                    content: ''
+                    position: absolute
+                    top: 50%
+                    left: 0
+                    display: block
+                    height: 2px
+                    width: 100%
+                    background: #1A2238
+                    transform: translateY(-50%)
+
+                &:last-child
+                    justify-items: end
+                    svg
+                        transform: rotate(180deg)
+
+                &:hover
+                    width: 78px
+                    &::after
+                        background: #8C6A3C
+                    svg
+                        path
+                            stroke: #8C6A3C
+
+                &.swiper-button-lock
+                    display: none
+                    pointer-events: none
+                &.swiper-button-disabled
+                    opacity: 0.3
+                    pointer-events: none
+                    svg
+                        path
+                            fill: unset
 
     &.show
         opacity: 1

@@ -527,6 +527,7 @@ window.addToCart = (event, button) => {
 
     const card = button.closest('a.product_card')
     const popup = document.querySelector('header div.cart_popup')
+    const product_footer = document.querySelector('section.product_footer')
 
     const dataName = button.dataset.name
     const dataImage = button.dataset.image
@@ -537,11 +538,16 @@ window.addToCart = (event, button) => {
     const popupMaterial = popup.querySelector('span.material')
 
     popup.classList.remove('show')
-    card.classList.add('incart')
+    card?.classList.add('incart')
 
     popupName.textContent = dataName
     popupImage.src = dataImage
     popupMaterial.textContent = dataMaterial
+
+    if (product_footer) {
+        product_footer.classList.add('incart')
+        document.querySelector('section.main').classList.add('incart')
+    }
 
     popup.classList.add('show')
     setTimeout(() => {
@@ -586,6 +592,11 @@ window.checkProducts = (event, element) => {
 }
 
 
+window.copyArticle = (element) => {
+    navigator.clipboard.writeText(element.dataset.article)
+}
+
+
 // Лайтбокс  слайдер
 const lightboxSwiper = document.querySelector('section.lightbox div.swiper')
 const current = document.querySelector('section.lightbox span.current')
@@ -594,8 +605,8 @@ const formatNumber = num => String(num).padStart(2, '0')
 
 new Swiper(lightboxSwiper, {
     navigation: {
-        prevEl: lightboxSwiper?.closest('section').querySelector('div.swiper-navigation div.arrow:first-child'),
-        nextEl: lightboxSwiper?.closest('section').querySelector('div.swiper-navigation div.arrow:last-child')
+        prevEl: lightboxSwiper?.closest('section').querySelector('div.swiper-navigation3 div.arrow:first-child'),
+        nextEl: lightboxSwiper?.closest('section').querySelector('div.swiper-navigation3 div.arrow:last-child')
     },
     on: {
         init(swiper) {
