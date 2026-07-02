@@ -1,3 +1,4 @@
+@charset "UTF-8";
 section.products {
   margin-top: var(--section-gap);
   margin-bottom: var(--section-gap);
@@ -92,6 +93,9 @@ section.filter div.title {
   grid-template-columns: 1fr -webkit-max-content;
   grid-template-columns: 1fr max-content;
   margin-bottom: 6px;
+}
+section.filter div.title h4 {
+  font-size: 20px;
 }
 section.filter div.price {
   display: grid;
@@ -196,6 +200,10 @@ section.filter div.accordion div.caption {
   grid-gap: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 140%;
+  color: #200a0a;
 }
 section.filter div.accordion div.caption img {
   -webkit-transition: -webkit-transform 0.5s;
@@ -331,7 +339,7 @@ section.main div.search div.search_field input {
   padding-bottom: 15px;
   width: 100%;
   height: auto;
-  border-bottom: 1px solid #1a2238;
+  border-bottom: 1px solid rgba(111, 111, 111, 0.2);
   font-size: 24px;
 }
 @media (min-width: 480px) {
@@ -366,6 +374,9 @@ section.main div.search div.search_field input::-ms-input-placeholder {
 section.main div.search div.search_field input::placeholder {
   opacity: 0.2;
 }
+section.main div.search div.search_field input:focus {
+  border-bottom: 1px solid #1a2238;
+}
 section.main div.search div.search_field input::-webkit-search-cancel-button {
   -webkit-appearance: none;
           appearance: none;
@@ -383,6 +394,7 @@ section.main div.search div.search_field input::-webkit-search-cancel-button:hov
 }
 section.main div.search div.search_field input:valid + button {
   opacity: 1;
+  pointer-events: auto;
 }
 section.main div.search div.search_field button {
   display: grid;
@@ -394,9 +406,21 @@ section.main div.search div.search_field button {
           transform: translateY(-50%);
   padding: unset;
   opacity: 0.2;
+  pointer-events: none;
 }
 section.main div.search div.search_field + div {
   margin-top: -10px;
+}
+section.main div.search div.search_field::before {
+  content: "результаты по запросу";
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  color: #4a4a4a;
+  opacity: 0.8;
+}
+section.main div.search div.search_field.empty::before {
+  display: none;
 }
 section.main div.list {
   display: grid;
@@ -705,4 +729,7 @@ section.empty div.container {
   display: grid;
   grid-gap: 20px;
   justify-items: start;
+}
+section.empty div.container a.button {
+  min-width: 270px;
 }/*# sourceMappingURL=search.css.map */

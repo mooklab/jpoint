@@ -62,7 +62,7 @@ section.main
                 padding-bottom: 15px
                 width: 100%
                 height: auto
-                border-bottom: 1px solid $color-2
+                border-bottom: 1px solid #6f6f6f33
                 +f(24px, 32px)
                 +s(m)
                     padding-top: 10px
@@ -71,6 +71,9 @@ section.main
 
                 &::placeholder
                     opacity: 0.2
+
+                &:focus
+                    border-bottom: 1px solid $color-2
 
                 &::-webkit-search-cancel-button
                     appearance: none
@@ -86,6 +89,7 @@ section.main
 
                 &:valid + button
                     opacity: 1
+                    pointer-events: auto
 
             button
                 display: grid
@@ -95,9 +99,21 @@ section.main
                 transform: translateY(-50%)
                 padding: unset
                 opacity: 0.2
+                pointer-events: none
 
             & + div
                 margin-top: -10px
+
+            &::before
+                content: 'результаты по запросу'
+                position: absolute
+                bottom: 100%
+                left: 0
+                color: #4a4a4a
+                opacity: 0.8
+
+            &.empty::before
+                display: none
 
     div.list
         display: grid
@@ -309,3 +325,6 @@ section.empty
         display: grid
         grid-gap: 20px
         justify-items: start
+
+        a.button
+            min-width: 270px

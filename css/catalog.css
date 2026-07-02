@@ -93,6 +93,9 @@ section.filter div.title {
   grid-template-columns: 1fr max-content;
   margin-bottom: 6px;
 }
+section.filter div.title h4 {
+  font-size: 20px;
+}
 section.filter div.price {
   display: grid;
   grid-gap: 10px;
@@ -196,6 +199,10 @@ section.filter div.accordion div.caption {
   grid-gap: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 140%;
+  color: #200a0a;
 }
 section.filter div.accordion div.caption img {
   -webkit-transition: -webkit-transform 0.5s;

@@ -119,4 +119,4 @@ block content
         results ? resultSection.style.display = 'grid' : resultSection.style.display = 'none'
         empty ? emptySection.style.display = 'grid' : emptySection.style.display = 'none'
 
-        console.log(location.hash)
+        history && document.querySelector('section.main div.search_field').classList.add('empty')
